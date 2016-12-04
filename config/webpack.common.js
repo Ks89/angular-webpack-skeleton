@@ -4,6 +4,7 @@ const ProvidePlugin                = require('webpack/lib/ProvidePlugin');
 const OccurrenceOrderPlugin        = require('webpack/lib/optimize/OccurrenceOrderPlugin');
 const LoaderOptionsPlugin          = require('webpack/lib/LoaderOptionsPlugin');
 const ContextReplacementPlugin     = require('webpack/lib/ContextReplacementPlugin');
+const CopyWebpackPlugin            = require('copy-webpack-plugin');
 
 const HtmlWebpackPlugin            = require('html-webpack-plugin');
 const ExtractTextPlugin            = require('extract-text-webpack-plugin');
@@ -12,14 +13,19 @@ const InlineManifestWebpackPlugin  = require('inline-manifest-webpack-plugin');
 const autoprefixer                 = require('autoprefixer');
 
 const helpers                      = require('./helpers');
-const TITLE                        = 'My MEAN Website';
+const TITLE                        = 'Example';
+const TITLE_ADMIN                  = 'Example Admin';
 const TEMPLATE_PATH                = './src/index.ejs';
+const TEMPLATE_ADMIN_PATH          = './src/admin.ejs';
+const TEMPLATE_HTML                = 'index.html';
+const TEMPLATE_ADMIN_HTML          = 'admin.html';
 
 module.exports = {
   entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/main.ts'
+    polyfills: './src/polyfills.ts',
+    vendor: './src/vendor.ts',
+    app: './src/main.ts',
+    admin: './src/admin.ts'
   },
   resolve: {
     descriptionFiles: ['package.json'],
@@ -30,7 +36,7 @@ module.exports = {
       {
         enforce: 'pre',
         test: /\.ts$/,
-        loader: 'tslint',
+        loader: 'tslint-loader',
         exclude: [/\.(spec|e2e)\.ts$/, /node_modules/]
       },
       {
@@ -47,17 +53,17 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: helpers.root('src', 'app'),
+        exclude: [helpers.root('src', 'app'), helpers.root('src', 'admin')],
         loader: ExtractTextPlugin
           .extract({
               fallbackLoader: "style-loader",
-              loader: ['css', 'postcss']
+              loader: ['css-loader', 'postcss-loader']
           })
       },
       {
         test: /\.css$/,
-        include: helpers.root('src', 'app'),
-        loader: 'raw!postcss'
+        include: [helpers.root('src', 'app'), helpers.root('src', 'admin')],
+        loader: 'raw-loader!postcss-loader'
       },
       {
         test: /\.scss$/,
@@ -78,16 +84,40 @@ module.exports = {
       },
       // Bootstrap 4
       { test: /bootstrap\/dist\/js\/umd\//, loader: 'imports?jQuery=jquery' }
-    ]
-    // noParse: [path.join(__dirname, 'node_modules', 'angular2', 'bundles')]
+    ],
+    noParse: [/node_modules\/@angular\/\*\*\/bundles\//,
+              /@angular\/\*\*\/bundles\//]
   },
   plugins: [
-    new ManifestPlugin(),
-    new InlineManifestWebpackPlugin(),
+    new ManifestPlugin(), // TODO check if I can remove this
+    new InlineManifestWebpackPlugin(), // TODO check if I can remove this
     new HtmlWebpackPlugin({
       title: TITLE,
-      template: TEMPLATE_PATH, // Load a custom template
-      inject: true
+      inject: true,
+      // chunksSortMode: 'auto', // auto is the default value
+      chunks: ['polyfills', 'vendor', 'app'],
+      template: TEMPLATE_PATH,
+      filename: TEMPLATE_HTML
+    }),
+    new HtmlWebpackPlugin({
+      title: TITLE_ADMIN,
+      inject: true,
+      // workaround, issue: https://github.com/ampedandwired/html-webpack-plugin/issues/481
+      chunksSortMode: function (chunk1, chunk2) {
+        let orders = ['polyfills', 'vendor', 'admin'];
+        let order1 = orders.indexOf(chunk1.names[0]);
+        let order2 = orders.indexOf(chunk2.names[0]);
+        if (order1 > order2) {
+          return 1;
+        } else if (order1 < order2) {
+          return -1;
+        } else {
+          return 0;
+        }
+      },
+      chunks: ['polyfills', 'vendor', 'admin'],
+      template: TEMPLATE_ADMIN_PATH,
+      filename: TEMPLATE_ADMIN_HTML
     }),
     new OccurrenceOrderPlugin(true),
     new ProvidePlugin({
@@ -100,19 +130,20 @@ module.exports = {
       //------------- temporary workaround ----------------
       // https://github.com/shakacode/bootstrap-loader/issues/172#issuecomment-247205500
       //this requires exports-loader installed from npm
-      Tooltip: "exports?Tooltip!bootstrap/js/dist/tooltip",
-      Alert: "exports?Alert!bootstrap/js/dist/alert",
-      Button: "exports?Button!bootstrap/js/dist/button",
-      Carousel: "exports?Carousel!bootstrap/js/dist/carousel",
-      Collapse: "exports?Collapse!bootstrap/js/dist/collapse",
-      Dropdown: "exports?Dropdown!bootstrap/js/dist/dropdown",
-      Modal: "exports?Modal!bootstrap/js/dist/modal",
-      Popover: "exports?Popover!bootstrap/js/dist/popover",
-      Scrollspy: "exports?Scrollspy!bootstrap/js/dist/scrollspy",
-      Tab: "exports?Tab!bootstrap/js/dist/tab",
-      Util: "exports?Util!bootstrap/js/dist/util"
+      Tooltip: "exports-loader?Tooltip!bootstrap/js/dist/tooltip",
+      Alert: "exports-loader?Alert!bootstrap/js/dist/alert",
+      Button: "exports-loader?Button!bootstrap/js/dist/button",
+      Carousel: "exports-loader?Carousel!bootstrap/js/dist/carousel",
+      Collapse: "exports-loader?Collapse!bootstrap/js/dist/collapse",
+      Dropdown: "exports-loader?Dropdown!bootstrap/js/dist/dropdown",
+      Modal: "exports-loader?Modal!bootstrap/js/dist/modal",
+      Popover: "exports-loader?Popover!bootstrap/js/dist/popover",
+      Scrollspy: "exports-loader?Scrollspy!bootstrap/js/dist/scrollspy",
+      Tab: "exports-loader?Tab!bootstrap/js/dist/tab",
+      Util: "exports-loader?Util!bootstrap/js/dist/util"
       //---------------------------------------------------
     }),
+    // new CopyWebpackPlugin([{from: './assets', to: './assets'}]),
     new ContextReplacementPlugin(
       // The (\\|\/) piece accounts for path separators in *nix and Windows
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,

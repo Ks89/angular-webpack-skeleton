@@ -10,8 +10,9 @@ const appRoutes: Routes = [
   {path: 'home',                            component: HomeComponent}
 ];
 
-export const appRoutingProviders: any[] = [
-  { provide: LocationStrategy, useClass: HashLocationStrategy }
-];
+// disable # in paths
+// export const appRoutingProviders: any[] = [
+//   { provide: LocationStrategy, useClass: HashLocationStrategy }
+// ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

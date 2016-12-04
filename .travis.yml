@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - "7" # latest nodejs 7
+  - "7.0"
+  - "6" # latest nodejs 6
+  - "6.1"
+  - "6.0"
+env:
+  - CXX=g++-4.8 NODE_ENV=test CI=yes
+before_install:
+  - bash travisci/before_install.sh
+# before_script:
+#   - firefox: "latest"
+script:
+  - bash travisci/travis_script.sh
+sudo: required
+#services:
+#  - mongodb
+#  - redis-server
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-4.8
+cache: # enable caching
+  bundler: true
+  directories:
+  - node_modules # NPM packages

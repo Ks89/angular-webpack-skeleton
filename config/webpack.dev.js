@@ -46,9 +46,14 @@ module.exports = webpackMerge(commonConfig, {
   },
   plugins: [
     new CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills'],
+      name: ['admin', 'app', 'vendor', 'polyfills'],
       minChunks: Infinity
     }),
+    // new CommonsChunkPlugin({
+    // //   name: 'admin',
+    //   name: ['admin', 'vendor', 'polyfills'],
+    //   minChunks: Infinity
+    // }),
     new ExtractTextPlugin({
       filename: '[name].css',
       allChunks: true
@@ -69,7 +74,7 @@ module.exports = webpackMerge(commonConfig, {
       {
         // prevent BrowserSync from reloading the page
         // and let Webpack Dev Server take care of this
-        // (usefull if you want to use HMR)
+        // (useful if you want to use HMR)
         reload: false
       }
     )

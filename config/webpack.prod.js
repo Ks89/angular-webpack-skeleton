@@ -25,7 +25,7 @@ module.exports = webpackMerge(commonConfig, {
   },
   plugins: [
     new CommonsChunkPlugin({
-      name: ['app', 'vendor', 'polyfills'],
+      name: ['admin', 'app', 'vendor', 'polyfills'],
       minChunks: Infinity
     }),
     new ExtractTextPlugin({
@@ -33,6 +33,7 @@ module.exports = webpackMerge(commonConfig, {
       allChunks: true
     }),
     new WebpackMd5HashPlugin(),
+    
     // new ChunkManifestPlugin({ //BROKEN WITH WEBPACK 2 - waiting for a solution
     //   filename: "manifest.json",
     //   manifestVariable: "webpackManifest"
@@ -41,7 +42,6 @@ module.exports = webpackMerge(commonConfig, {
     new CompressionPlugin({regExp: /\.css$|\.html$|\.js$|\.map$/}),
     // new CopyWebpackPlugin([{from: './src/index.html', to: 'index.html'}]),
 
-    // new DedupePlugin(),  //BROKEN WITH ANGULAR 2 RC6 OR HIGHER
     new DefinePlugin({'webpack': {'ENV': JSON.stringify(METADATA.env)}}),
 
     new UglifyJsPlugin({

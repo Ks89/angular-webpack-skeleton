@@ -7,19 +7,19 @@
     <a class="navbar-brand m-b-0" [routerLink]="['/']" href="#">KS</a>
     <ul class="nav navbar-nav">
       <li class="nav-item">
-        <a class="nav-link {{isNavItemActive('/projects')}}" [routerLink]="['/projects']">Projects <span class="sr-only">(current)</span></a>
+        <a class="nav-link {{isNavItemActive('/')}}" [routerLink]="['/']">Projects <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{isNavItemActive('/cv')}}" [routerLink]="['/cv']">CV</a>
+        <a class="nav-link {{isNavItemActive('/')}}" [routerLink]="['/']">CV</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{isNavItemActive('/contact')}}" [routerLink]="['/contact']">Contact</a>
+        <a class="nav-link {{isNavItemActive('/')}}" [routerLink]="['/']">Contact</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{isNavItemActive('/about')}}" [routerLink]="['/about']">About</a>
+        <a class="nav-link {{isNavItemActive('/')}}" [routerLink]="['/']">About</a>
       </li>
       <li *ngIf="isLoggedIn" class="nav-item">
-        <a class="nav-link {{isNavItemActive('/profile')}}" [routerLink]="['/profile']">Profile</a>
+        <a class="nav-link {{isNavItemActive('/')}}" [routerLink]="['/']">Profile</a>
       </li>
     </ul>
   </div>
