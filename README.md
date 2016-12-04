@@ -10,17 +10,17 @@ After that, I decided to update it based on https://github.com/Ks89/My-MEAN-webs
 I created some scripts inside 'setup' folder to initialize the environment.
 If you are already ready, you can execute this (for macOs):
 
-  sudo npm install -g karma-cli
-  sudo npm install -g webpack
-  sudo npm install -g typescript
-  sudo npm install -g typings
-  sudo npm install -g remap-istanbul
-  sudo npm install -g webdriver-manager
-  sudo npm install -g protractor
-  sudo npm install -g nsp
-  sudo npm install -g codeclimate-test-reporter
-  sudo npm install -g istanbul
-  sudo npm install -g snyk
+- sudo npm install -g karma-cli
+- sudo npm install -g webpack
+- sudo npm install -g typescript
+- sudo npm install -g typings
+- sudo npm install -g remap-istanbul
+- sudo npm install -g webdriver-manager
+- sudo npm install -g protractor
+- sudo npm install -g nsp
+- sudo npm install -g codeclimate-test-reporter
+- sudo npm install -g istanbul
+- sudo npm install -g snyk
 
 
 ## Install local dependencies
@@ -29,13 +29,13 @@ If you are already ready, you can execute this (for macOs):
 ## Run with webpack-dev-server (developing mode)
 `npm start`
 
-## Build the application in the 'dist' folder (debug mode)
+## Build the application in 'dist' folder (debug mode)
 `npm run buildDev`
 
-## Build the application in the 'dist' folder (production mode)
+## Build the application in 'dist' folder (production mode)
 `npm run build`
 
-## Test (check coverage/html/index.html to coverage results)
+## Test (check coverage/html/index.html with the results)
 `npm test`
 
 
