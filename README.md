@@ -3,20 +3,40 @@ A simple skeleton project to use Angular2, Webpack2 beta, Boostrap 4 alpha and b
 
 
 I created this project as an example for this issue: https://github.com/shakacode/bootstrap-loader/issues/191#issuecomment-256352654
+After that, I decided to update it based on https://github.com/Ks89/My-MEAN-website-client
 
 
-1. npm install
-2. npm start
+## Install global dependencies
+I created some scripts inside 'setup' folder to initialize the environment.
+If you are already ready, you can execute this (for macOs):
+
+  sudo npm install -g karma-cli
+  sudo npm install -g webpack
+  sudo npm install -g typescript
+  sudo npm install -g typings
+  sudo npm install -g remap-istanbul
+  sudo npm install -g webdriver-manager
+  sudo npm install -g protractor
+  sudo npm install -g nsp
+  sudo npm install -g codeclimate-test-reporter
+  sudo npm install -g istanbul
+  sudo npm install -g snyk
 
 
-or
+## Install local dependencies
+`npm install`
 
-1. npm install
-2. npm install -g lite-server
-3. npm run buildDev
-4. cd dist
-5. lite-server
+## Run with webpack-dev-server (developing mode)
+`npm start`
 
+## Build the application in the 'dist' folder (debug mode)
+`npm run buildDev`
+
+## Build the application in the 'dist' folder (production mode)
+`npm run build`
+
+## Test (check coverage/html/index.html to coverage results)
+`npm test`
 
 
 ## License
