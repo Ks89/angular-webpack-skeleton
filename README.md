@@ -43,6 +43,8 @@ If you are already ready, you can execute this (for macOs):
 
 Copyright 2016 Stefano Cappa
 
+**This license is valid to all my files in this repo**
+
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
