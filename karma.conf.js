@@ -4,11 +4,11 @@ function getBrowsers() {
   if (process.env.CI) {
     return ['PhantomJS'];
   } else {
-    return [/*'PhantomJS', */'Chrome', 'Firefox'];
+    return ['PhantomJS', 'Chrome', 'Firefox'];
   }
 }
 
-module.exports = function (config) {
+module.exports = function (confgitig) {
   config.set({
     basePath: '',
     frameworks: ['jasmine'],
