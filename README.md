@@ -17,11 +17,7 @@ If you are already ready, you can execute this (for macOs):
 - sudo npm install -g remap-istanbul
 - sudo npm install -g webdriver-manager
 - sudo npm install -g protractor
-- sudo npm install -g nsp
-- sudo npm install -g codeclimate-test-reporter
 - sudo npm install -g istanbul
-- sudo npm install -g snyk
-
 
 ## Install local dependencies
 `npm install`
