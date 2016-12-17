@@ -6,7 +6,8 @@ exports.config = {
   baseUrl: 'http://localhost:8080/',
 
   specs: [
-    helpers.root('e2e/**/*.spec.ts')
+    helpers.root('e2e/**/*.e2e.ts'),
+    helpers.root('e2e/**/**.e2e.ts'),
   ],
   exclude: [],
 
@@ -40,5 +41,5 @@ exports.config = {
    * useAllAngular2AppRoots: tells Protractor to wait for any angular2 apps on the page instead of just the one matching
    * `rootEl`
    */
-   useAllAngular2AppRoots: true
+  useAllAngular2AppRoots: true
 };

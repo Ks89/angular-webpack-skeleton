@@ -11,10 +11,11 @@ const ExtractTextPlugin            = require('extract-text-webpack-plugin');
 const ManifestPlugin               = require('webpack-manifest-plugin');
 const InlineManifestWebpackPlugin  = require('inline-manifest-webpack-plugin');
 const autoprefixer                 = require('autoprefixer');
+const ChunkManifestPlugin          = require('chunk-manifest-webpack-plugin');
 
 const helpers                      = require('./helpers');
 const TITLE                        = 'Example';
-const TITLE_ADMIN                  = 'Example Admin';
+const TITLE_ADMIN                  = 'Example admin';
 const TEMPLATE_PATH                = './src/index.ejs';
 const TEMPLATE_ADMIN_PATH          = './src/admin.ejs';
 const TEMPLATE_HTML                = 'index.html';
@@ -56,8 +57,8 @@ module.exports = {
         exclude: [helpers.root('src', 'app'), helpers.root('src', 'admin')],
         loader: ExtractTextPlugin
           .extract({
-              fallbackLoader: "style-loader",
-              loader: ['css-loader', 'postcss-loader']
+            fallbackLoader: "style-loader",
+            loader: ['css-loader', 'postcss-loader']
           })
       },
       {
@@ -86,10 +87,10 @@ module.exports = {
       { test: /bootstrap\/dist\/js\/umd\//, loader: 'imports?jQuery=jquery' }
     ],
     noParse: [/node_modules\/@angular\/\*\*\/bundles\//,
-              /@angular\/\*\*\/bundles\//]
+      /@angular\/\*\*\/bundles\//]
   },
   plugins: [
-    new ManifestPlugin(), // TODO check if I can remove this
+    new ManifestPlugin(),
     new InlineManifestWebpackPlugin(), // TODO check if I can remove this
     new HtmlWebpackPlugin({
       title: TITLE,
@@ -102,7 +103,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: TITLE_ADMIN,
       inject: true,
-      // workaround, issue: https://github.com/ampedandwired/html-webpack-plugin/issues/481
       chunksSortMode: function (chunk1, chunk2) {
         let orders = ['polyfills', 'vendor', 'admin'];
         let order1 = orders.indexOf(chunk1.names[0]);
@@ -149,6 +149,10 @@ module.exports = {
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
       helpers.root('./src') // location of your src
     ),
+    new ChunkManifestPlugin({
+      filename: "manifest.json",
+      manifestVariable: "webpackManifest"
+    }),
     new LoaderOptionsPlugin({
       debug: true,
       options: {

@@ -27,9 +27,7 @@ module.exports = {
         test: /\.ts$/,
         loader: 'awesome-typescript-loader',
         query: {
-          module: 'commonjs',
-          sourceMap: false,
-          inlineSourceMap: true
+          module: 'commonjs'
         }
       },
       {
