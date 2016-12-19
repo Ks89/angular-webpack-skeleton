@@ -44,6 +44,8 @@ Check in my packages.json which versions I'm using to prevent problems.
 `npm test`
 
 ## Test e2e with protractor
+`npm run e2e`
+
 broken with Angular4 (It require 2.x.x, at the moment), please be patient :(
 
 
