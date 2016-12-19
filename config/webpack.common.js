@@ -103,6 +103,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: TITLE_ADMIN,
       inject: true,
+      // workaround due to a bug: https://github.com/ampedandwired/html-webpack-plugin/issues/481
       chunksSortMode: function (chunk1, chunk2) {
         let orders = ['polyfills', 'vendor', 'admin'];
         let order1 = orders.indexOf(chunk1.names[0]);

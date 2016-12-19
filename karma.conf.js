@@ -15,12 +15,6 @@ module.exports = function (config) {
     files: [
       "./config/karma-test-runner.js"
     ],
-    // files: [
-    //   {
-    //     pattern: './config/karma-test-runner.js',
-    //     watched: false
-    //   }
-    // ],
     exclude: [],
     preprocessors: {
       './config/karma-test-runner.js': ['coverage', 'webpack', 'sourcemap']
@@ -31,13 +25,9 @@ module.exports = function (config) {
       stats: {
         chunks: false
       }
-      // stats: 'errors-only'
     },
 
     reporters: ['progress', 'mocha', 'kjhtml', 'coverage', 'remap-coverage'],
-
-
-    // webpackServer: {noInfo: true},
 
     port: 9876,
     colors: true,

@@ -21,7 +21,6 @@ import { LaddaModule } from 'angular2-ladda';
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-    LaddaModule,
     routing
   ],
   declarations: [

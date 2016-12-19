@@ -8,7 +8,6 @@ const WebpackMd5HashPlugin  = require('webpack-md5-hash');
 const CompressionPlugin     = require('compression-webpack-plugin');
 const webpackMerge          = require('webpack-merge');
 const ExtractTextPlugin     = require('extract-text-webpack-plugin');
-// var ChunkManifestPlugin  = require('chunk-manifest-webpack-plugin');
 
 const commonConfig          = require('./webpack.common.js');
 const helpers               = require('./helpers');
@@ -33,11 +32,6 @@ module.exports = webpackMerge(commonConfig, {
       allChunks: true
     }),
     new WebpackMd5HashPlugin(),
-    
-    // new ChunkManifestPlugin({ //BROKEN WITH WEBPACK 2 - waiting for a solution
-    //   filename: "manifest.json",
-    //   manifestVariable: "webpackManifest"
-    // }),
 
     new CompressionPlugin({regExp: /\.css$|\.html$|\.js$|\.map$/}),
     // new CopyWebpackPlugin([{from: './src/index.html', to: 'index.html'}]),
