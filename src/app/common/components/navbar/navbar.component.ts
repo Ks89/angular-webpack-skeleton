@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'mmw-navigation',
   templateUrl: 'navbar.html'
 })
-export default class NavbarComponent {
+export class NavbarComponent {
   public isLoggedIn: boolean = false;
   public currentUser: any = { name : '' };
   public currentPath: string = 'fakeString';

@@ -51,7 +51,7 @@ broken with Angular4 (It require 2.x.x, at the moment), please be patient :(
 
 ## License
 
-Copyright 2016 Stefano Cappa
+Copyright 2016-2017 Stefano Cappa
 
 **This license is valid to all my files in this repo**
 

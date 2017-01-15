@@ -10,13 +10,10 @@
         <a class="nav-link {{isNavItemActive('/')}}" [routerLink]="['/']">Projects <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{isNavItemActive('/')}}" [routerLink]="['/']">CV</a>
+        <a class="nav-link {{isNavItemActive('/lazy')}}" [routerLink]="['/lazy']">LAZY-LOADING-PAGE</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link {{isNavItemActive('/')}}" [routerLink]="['/']">Contact</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link {{isNavItemActive('/')}}" [routerLink]="['/']">About</a>
+        <a class="nav-link {{isNavItemActive('/other')}}" [routerLink]="['/other']">Other-pages-(error)</a>
       </li>
       <li *ngIf="isLoggedIn" class="nav-item">
         <a class="nav-link {{isNavItemActive('/')}}" [routerLink]="['/']">Profile</a>

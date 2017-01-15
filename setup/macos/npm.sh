@@ -9,8 +9,8 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
   echo installing npm global packages
   sudo npm install -g karma-cli
-  sudo npm install -g webpack
-  sudo npm install -g typescript
+  sudo npm install -g webpack@2.2.0-rc.4
+  sudo npm install -g typescript@2.0.10
   sudo npm install -g typings
   sudo npm install -g remap-istanbul
   sudo npm install -g webdriver-manager
@@ -21,10 +21,10 @@ then
   sudo npm install -g snyk
 fi
 
-read -p "Would you update webdriver-manager to be able to use Selenium Server? Press y or n: " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-  echo setting up a Selenium Server
-  sudo webdriver-manager update
-fi
+#read -p "Would you update webdriver-manager to be able to use Selenium Server? Press y or n: " -n 1 -r
+#echo
+#if [[ $REPLY =~ ^[Yy]$ ]]
+#then
+#  echo setting up a Selenium Server
+#  sudo webdriver-manager update
+#fi

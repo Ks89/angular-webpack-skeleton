@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'mmw-page-header',
   templateUrl: 'page-header.html'
 })
-export default class PageHeaderComponent {
+export class PageHeaderComponent {
   @Input() title: string;
   @Input() strapline: string;
 }

@@ -1,4 +1,4 @@
-import ApplicationAdminComponent from './application.component';
+import { ApplicationAdminComponent } from './application.component';
 
 describe('ApplicationAdminComponent', () => {
   it('is successfully instantiated', () => {

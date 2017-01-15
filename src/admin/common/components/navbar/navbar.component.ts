@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
   selector: 'mmw-admin-navigation',
   templateUrl: 'navbar.html'
 })
-export default class NavbarAdminComponent {
+export class NavbarAdminComponent {
   public currentPath: string = 'fakeString';
 
   constructor(private router: Router) {}

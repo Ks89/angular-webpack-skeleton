@@ -1,3 +1,5 @@
+'use strict';
+
 const webpack                  = require('webpack');
 const path                     = require('path');
 
@@ -32,7 +34,10 @@ module.exports = {
       },
       {
         test: /\.ts$/,
-        loader: 'angular2-template-loader'
+        loaders: [
+          'angular2-template-loader'
+          // , 'angular-router-loader' // LAZY LOADING issue #44 - TEMPORARY REMOVED
+        ]
       },
       {
         test: /\.html$/,

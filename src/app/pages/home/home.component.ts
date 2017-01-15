@@ -6,7 +6,7 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['home.scss'],
   templateUrl: 'home.html'
 })
-export default class HomeComponent {
+export class HomeComponent {
   public pageHeader: Object;
   public message: string;
 

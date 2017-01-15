@@ -1,32 +1,28 @@
-const webpack               = require('webpack');
-const CommonsChunkPlugin    = require('webpack/lib/optimize/CommonsChunkPlugin');
-const DefinePlugin          = require('webpack/lib/DefinePlugin');
-const UglifyJsPlugin        = require('webpack/lib/optimize/UglifyJsPlugin');
+'use strict';
 
-const ManifestPlugin        = require('webpack-manifest-plugin');
-const WebpackMd5HashPlugin  = require('webpack-md5-hash');
-const CompressionPlugin     = require('compression-webpack-plugin');
-const webpackMerge          = require('webpack-merge');
-const ExtractTextPlugin     = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
+const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 
-const commonConfig          = require('./webpack.common.js');
-const helpers               = require('./helpers');
+const WebpackMd5HashPlugin = require('webpack-md5-hash');
+const CompressionPlugin = require('compression-webpack-plugin');
+const webpackMerge = require('webpack-merge');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const ENV = process.env.NODE_ENV = 'production';
-const METADATA = { env: ENV };
+const commonConfig = require('./webpack.common.js');
+const helpers = require('./helpers');
+
+const ENV = process.env.NODE_ENV = 'prod';
+const METADATA = {env: ENV};
 
 module.exports = webpackMerge(commonConfig, {
   output: {
-    path    : helpers.root('dist'),
+    path: helpers.root('dist'),
     filename: '[name].[chunkhash].js',
     chunkFilename: '[name].[chunkhash].js',
     publicPath: './'
   },
   plugins: [
-    new CommonsChunkPlugin({
-      name: ['admin', 'app', 'vendor', 'polyfills'],
-      minChunks: Infinity
-    }),
     new ExtractTextPlugin({
       filename: '[name].css',
       allChunks: true
@@ -40,9 +36,25 @@ module.exports = webpackMerge(commonConfig, {
 
     new UglifyJsPlugin({
       beautify: false,
-      compress: {screw_ie8 : true},
-      mangle: {screw_ie8 : true, keep_fnames: true},
-      comments: false
+      mangle: {
+        screw_ie8 : true
+      },
+      output: {
+        comments: false
+      },
+      compress: {
+        screw_ie8: true,
+        warnings: false,
+        conditionals: true,
+        unused: true,
+        comparisons: true,
+        sequences: true,
+        dead_code: true,
+        evaluate: true,
+        if_return: true,
+        join_vars: true
+        // negate_iife: false // we need this for lazy v8
+      }
     })
-    ],
+  ]
 });

@@ -25,3 +25,7 @@ node_modules
 
 # Compiled front-end files
 dist
+
+aot
+
+.awcache

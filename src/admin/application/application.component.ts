@@ -5,4 +5,4 @@ import { Component, ViewEncapsulation } from '@angular/core';
   templateUrl: 'application.html',
   encapsulation: ViewEncapsulation.None
 })
-export default class ApplicationAdminComponent {}
+export class ApplicationAdminComponent {}

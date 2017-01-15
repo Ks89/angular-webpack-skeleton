@@ -1,9 +1,16 @@
+// 'use strict';
+
 require('ts-node/register');
 
-var helpers = require('./helpers');
+const helpers = require('./helpers');
+
+// to run this file with `protractor`:
+// 1. `npm run build`
+// 2. start server-side to serve client-side (this project)
+// 3. now you can run `protractor` on port 3001
 
 exports.config = {
-  baseUrl: 'http://localhost:8080/',
+  baseUrl: 'http://localhost:3000',
 
   specs: [
     helpers.root('e2e/**/*.e2e.ts'),
@@ -24,12 +31,17 @@ exports.config = {
   },
   directConnect: true,
 
-  capabilities: {
-    'browserName': 'chrome',
-    'chromeOptions': {
-      'args': ['show-fps-counter=true']
+  multiCapabilities: [
+    // {
+    //   browserName: 'firefox'
+    // },
+    {
+      browserName: 'chrome',
+      chromeOptions: {
+        args: ['show-fps-counter=true']
+      }
     }
-  },
+  ],
 
   onPrepare: function() {
     browser.ignoreSynchronization = true;

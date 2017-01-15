@@ -1,10 +1,13 @@
+'use strict';
+
 const webpack                      = require('webpack');
 const DefinePlugin                 = require('webpack/lib/DefinePlugin');
 const ProvidePlugin                = require('webpack/lib/ProvidePlugin');
-const OccurrenceOrderPlugin        = require('webpack/lib/optimize/OccurrenceOrderPlugin');
+const CommonsChunkPlugin           = require('webpack/lib/optimize/CommonsChunkPlugin');
 const LoaderOptionsPlugin          = require('webpack/lib/LoaderOptionsPlugin');
 const ContextReplacementPlugin     = require('webpack/lib/ContextReplacementPlugin');
 const CopyWebpackPlugin            = require('copy-webpack-plugin');
+const NamedModulesPlugin           = require('webpack/lib/NamedModulesPlugin');
 
 const HtmlWebpackPlugin            = require('html-webpack-plugin');
 const ExtractTextPlugin            = require('extract-text-webpack-plugin');
@@ -14,8 +17,8 @@ const autoprefixer                 = require('autoprefixer');
 const ChunkManifestPlugin          = require('chunk-manifest-webpack-plugin');
 
 const helpers                      = require('./helpers');
-const TITLE                        = 'Example';
-const TITLE_ADMIN                  = 'Example admin';
+const TITLE                        = 'My MEAN Website';
+const TITLE_ADMIN                  = 'Admin My MEAN Website';
 const TEMPLATE_PATH                = './src/index.ejs';
 const TEMPLATE_ADMIN_PATH          = './src/admin.ejs';
 const TEMPLATE_HTML                = 'index.html';
@@ -24,13 +27,13 @@ const TEMPLATE_ADMIN_HTML          = 'admin.html';
 module.exports = {
   entry: {
     polyfills: './src/polyfills.ts',
-    vendor: './src/vendor.ts',
     app: './src/main.ts',
     admin: './src/admin.ts'
   },
   resolve: {
     descriptionFiles: ['package.json'],
-    extensions: ['.ts', '.js', '.css', '.scss', 'json', '.html']
+    extensions: ['.ts', '.js', '.css', '.scss', 'json', '.html'],
+    modules: [helpers.root('src'), helpers.root('node_modules')]
   },
   module: {
     rules: [
@@ -42,9 +45,24 @@ module.exports = {
       },
       {
         test: /\.ts$/,
+        loaders: 'awesome-typescript-loader',
+        query: {
+          forkChecker: true
+        },
+        exclude: [/\.(spec|e2e)\.ts$/]
+      },
+      {
+        test: /\.ts$/,
         loaders: [
-          'awesome-typescript-loader',
-          'angular2-template-loader'
+          'angular2-template-loader',
+          '@angularclass/hmr-loader'
+        ],
+        exclude: [/\.(spec|e2e)\.ts$/]
+      },
+      {
+        test: /\.ts$/,
+        loaders: [
+          'angular-router-loader' // lazy Loading
         ],
         exclude: [/\.(spec|e2e)\.ts$/]
       },
@@ -71,10 +89,10 @@ module.exports = {
         exclude: /node_modules/,
         loaders: ['raw-loader', 'sass-loader']
       },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
-      },
+      // {
+      //   test: /\.json$/,
+      //   loader: 'json-loader'
+      // },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         loader: "url-loader?limit=10000&mimetype=application/font-woff"
@@ -90,8 +108,22 @@ module.exports = {
       /@angular\/\*\*\/bundles\//]
   },
   plugins: [
+    new NamedModulesPlugin(),
     new ManifestPlugin(),
     new InlineManifestWebpackPlugin(), // TODO check if I can remove this
+    new CommonsChunkPlugin({
+      name: 'polyfills',
+      chunks: ['polyfills'],
+      // minChunks: Infinity
+    }),
+    new CommonsChunkPlugin({
+      name: 'vendor',
+      chunks: ['app', 'admin'],
+      minChunks: module => /node_modules\//.test(module.resource)
+    }),
+    new CommonsChunkPlugin({
+      name: ['polyfills', 'vendor'].reverse()
+    }),
     new HtmlWebpackPlugin({
       title: TITLE,
       inject: true,
@@ -103,7 +135,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: TITLE_ADMIN,
       inject: true,
-      // workaround due to a bug: https://github.com/ampedandwired/html-webpack-plugin/issues/481
       chunksSortMode: function (chunk1, chunk2) {
         let orders = ['polyfills', 'vendor', 'admin'];
         let order1 = orders.indexOf(chunk1.names[0]);
@@ -120,7 +151,6 @@ module.exports = {
       template: TEMPLATE_ADMIN_PATH,
       filename: TEMPLATE_ADMIN_HTML
     }),
-    new OccurrenceOrderPlugin(true),
     new ProvidePlugin({
       jQuery: 'jquery',
       jquery: 'jquery',
@@ -150,10 +180,11 @@ module.exports = {
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
       helpers.root('./src') // location of your src
     ),
-    new ChunkManifestPlugin({
-      filename: "manifest.json",
-      manifestVariable: "webpackManifest"
-    }),
+    // TODO FIXME restore this
+    // new ChunkManifestPlugin({
+    //   filename: "manifest.json",
+    //   manifestVariable: "webpackManifest"
+    // }),
     new LoaderOptionsPlugin({
       debug: true,
       options: {
