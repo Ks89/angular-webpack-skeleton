@@ -11,22 +11,25 @@ I share this with you as it is.
 
 I'll update this project in the future and I'll change the name to another one when Angular4 will be released.
 
+## News
+- *01/15/2017* - Alpha 5 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
+
+
+## Changelog
+
+#### Alpha 5
+- HMR
+- Lazy Loading
+- Tree Shaking (with webpack2 and not with rollup)
+- Third party services as codeclimate, appveyor, travis ci and coveralls
+- Massive refactoring
+
 
 ## Install global dependencies
 I created some scripts inside 'setup' folder to initialize the environment.
-If you are already ready, you can execute this (for macOS):
+If you are already ready, you can execute this (`sudo` if you are using macOS):
 
-- sudo npm install -g karma-cli
-- sudo npm install -g webpack
-- sudo npm install -g typescript
-- sudo npm install -g typings
-- sudo npm install -g remap-istanbul
-- sudo npm install -g webdriver-manager
-- sudo npm install -g protractor
-- sudo npm install -g istanbul
-
-PS: please be careful about versions, in particular of webpack, remap-istanbul and typescript.
-Check in my packages.json which versions I'm using to prevent problems.
+- `npm install -g typings`
 
 ## Install local dependencies
 `npm install`
@@ -43,10 +46,10 @@ Check in my packages.json which versions I'm using to prevent problems.
 ## Test (check coverage/html/index.html with the results)
 `npm test`
 
-## Test e2e with protractor
+## Test e2e with protractor (broken)
 `npm run e2e`
 
-broken with Angular4 (It require 2.x.x, at the moment), please be patient :(
+I'll fix this issue in upcoming versions. Please be patient.
 
 
 ## License
