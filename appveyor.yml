@@ -64,10 +64,10 @@ environment:
   NODE_ENV: test
   CI: yes
   APPVEYOR: yes
-#  CODECLIMATE_REPO_TOKEN:
-#    secure: TOKEN_HERE
-#  COVERALLS_REPO_TOKEN:
-#    secure: TOKEN_HERE
+  CODECLIMATE_REPO_TOKEN:
+    secure: Hyo87FXYunQqMYXKzfJ8AxvDlLcBuTr80oSEaHAhZ+Yf/uaMOIc63gXmEqjXavDZoH5qZzEPaxbMgH/DTrD4ZuGVXgf75lO/VwkOXcxFXAA=
+  COVERALLS_REPO_TOKEN:
+    secure: desVFXndwhyS8sCXOUeHfY9N0NgCFa7IDlSLRRcgK2FJAQdA7OZ99gNNDrJzMjmP
 
 # this is how to allow failing jobs in the matrix
 matrix:
@@ -93,7 +93,7 @@ install:
   - npm install -g npm@latest
   - set PATH=%APPDATA%\npm;%PATH%
   - npm install -g karma-cli
-  - npm install -g webpack@2.2.0-rc.2
+  - npm install -g webpack@2.2.0-rc.4
   - npm install -g typescript@2.0.10
   - npm install -g typings
   - npm install -g remap-istanbul
