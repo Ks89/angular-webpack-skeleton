@@ -13,7 +13,7 @@ export function main(): Promise<any> {
   return platformBrowserDynamic()
     .bootstrapModule(AppModule)
     .then(decorateModuleRef)
-    .catch(err => console.error(err));
+    .catch((err: any) => console.error(err));
 }
 
 // boot on document ready

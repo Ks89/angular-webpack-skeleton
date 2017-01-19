@@ -12,7 +12,7 @@ import '../loading.css'; // css to show a centered spinner before angular's boot
 
 import { ApplicationAdminComponent } from './application/application.component';
 import { DashboardAdminComponent } from './pages/dashboard/dashboard.component';
-import { NotFound404Component } from "../app/pages/404/not-found404.component";
+import { NotFound404Component } from "./pages/404/not-found404.component";
 import { NavbarAdminComponent } from "./common/components/navbar/navbar.component";
 import { SERVICES } from './common/services/services';
 

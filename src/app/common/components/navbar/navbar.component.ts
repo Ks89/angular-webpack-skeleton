@@ -6,13 +6,13 @@ import { Router } from '@angular/router';
   templateUrl: 'navbar.html'
 })
 export class NavbarComponent {
-  public isLoggedIn: boolean = false;
-  public currentUser: any = { name : '' };
-  public currentPath: string = 'fakeString';
+  isLoggedIn: boolean = false;
+  currentUser: any = { name : '' };
+  currentPath: string = 'fakeString';
 
   constructor(private router: Router) {}
 
-  isNavItemActive(location) {
+  isNavItemActive(location: any) {
     return location === this.router.url ? 'active' : '';
   };
 }

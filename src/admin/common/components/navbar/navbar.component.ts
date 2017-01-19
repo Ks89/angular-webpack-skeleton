@@ -6,11 +6,11 @@ import { Router } from '@angular/router';
   templateUrl: 'navbar.html'
 })
 export class NavbarAdminComponent {
-  public currentPath: string = 'fakeString';
+  currentPath: string = 'fakeString';
 
   constructor(private router: Router) {}
 
-  isNavItemActive(location) {
+  isNavItemActive(location: any) {
     return location === this.router.url ? 'active' : '';
   };
 }

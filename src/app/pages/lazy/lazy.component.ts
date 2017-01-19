@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: 'lazy.html'
 })
 export class LazyComponent {
-  public pageHeader: any;
+  pageHeader: any;
 
   constructor() {
     this.pageHeader = {

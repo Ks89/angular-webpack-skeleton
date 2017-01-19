@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { NotFound404Component } from "../app/pages/404/not-found404.component";
+import { NotFound404Component } from "./pages/404/not-found404.component";
 import { DashboardAdminComponent } from './pages/dashboard/dashboard.component';
 import { IdlePreload } from "@angularclass/idle-preload";
 

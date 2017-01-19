@@ -9,11 +9,11 @@ if (webpack.ENV === 'prod') {
 }
 
 // to be able to use Hot Module Replacement by AngularClass
-export function main(): any {
+export function main(): Promise<any> {
   return platformBrowserDynamic()
     .bootstrapModule(AdminModule)
     .then(decorateModuleRef)
-    .catch(err => console.error(err));
+    .catch((err: any) => console.error(err));
 }
 
 // boot on document ready

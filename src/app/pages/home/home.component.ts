@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'mmw-home-page',
@@ -7,8 +6,8 @@ import { Observable } from 'rxjs/Observable';
   templateUrl: 'home.html'
 })
 export class HomeComponent {
-  public pageHeader: Object;
-  public message: string;
+  pageHeader: any;
+  message: string;
 
   constructor() {
     this.pageHeader = {
