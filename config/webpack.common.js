@@ -15,6 +15,7 @@ const ManifestPlugin               = require('webpack-manifest-plugin');
 const InlineManifestWebpackPlugin  = require('inline-manifest-webpack-plugin');
 const autoprefixer                 = require('autoprefixer');
 const ChunkManifestPlugin          = require('chunk-manifest-webpack-plugin');
+const ngcWebpack                   = require('ngc-webpack');
 
 const helpers                      = require('./helpers');
 const TITLE                        = 'My MEAN Website';
@@ -24,11 +25,13 @@ const TEMPLATE_ADMIN_PATH          = './src/admin.ejs';
 const TEMPLATE_HTML                = 'index.html';
 const TEMPLATE_ADMIN_HTML          = 'admin.html';
 
+const AOT                          = helpers.hasNpmFlag('aot');
+
 module.exports = {
   entry: {
     polyfills: './src/polyfills.ts',
-    app: './src/main.ts',
-    admin: './src/admin.ts'
+    app: AOT ? './src/main.aot.ts' : './src/main.ts',
+    admin: AOT ? './src/admin.aot.ts' : './src/admin.ts',
   },
   resolve: {
     descriptionFiles: ['package.json'],
@@ -43,29 +46,49 @@ module.exports = {
         loader: 'tslint-loader',
         exclude: [/\.(spec|e2e)\.ts$/, /node_modules/]
       },
+
       {
         test: /\.ts$/,
-        loaders: 'awesome-typescript-loader',
-        query: {
-          forkChecker: true
-        },
-        exclude: [/\.(spec|e2e)\.ts$/]
-      },
-      {
-        test: /\.ts$/,
-        loaders: [
+        use: [
+          '@angularclass/hmr-loader',
+          'awesome-typescript-loader?{configFileName: "tsconfig-aot.json"}',
           'angular2-template-loader',
-          '@angularclass/hmr-loader'
+          {
+            loader: 'ng-router-loader',
+            options: {
+              loader: 'async-system',
+              genDir: 'compiled',
+              aot: AOT
+            }
+          }
         ],
         exclude: [/\.(spec|e2e)\.ts$/]
       },
-      {
-        test: /\.ts$/,
-        loaders: [
-          'angular-router-loader' // lazy Loading
-        ],
-        exclude: [/\.(spec|e2e)\.ts$/]
-      },
+
+
+      // {
+      //   test: /\.ts$/,
+      //   loaders: 'awesome-typescript-loader',
+      //   query: {
+      //     forkChecker: true
+      //   },
+      //   exclude: [/\.(spec|e2e)\.ts$/]
+      // },
+      // {
+      //   test: /\.ts$/,
+      //   loaders: [
+      //     'angular2-template-loader',
+      //     '@angularclass/hmr-loader'
+      //   ],
+      //   exclude: [/\.(spec|e2e)\.ts$/]
+      // },
+      // {
+      //   test: /\.ts$/,
+      //   loaders: [
+      //     'angular-router-loader' // lazy Loading
+      //   ],
+      //   exclude: [/\.(spec|e2e)\.ts$/]
+      // },
       {
         test: /\.html$/,
         loader: 'raw-loader'
@@ -198,7 +221,14 @@ module.exports = {
           formattersDirectory: "./node_modules/tslint-loader/formatters/"
         }
       }
+    }),
+
+    new ngcWebpack.NgcWebpackPlugin({
+      disabled: !AOT,
+      tsConfig: helpers.root('tsconfig-aot.json'),
+      resourceOverride: helpers.root('config/resource-override.js')
     })
+
   ],
   node: {
     global: true,

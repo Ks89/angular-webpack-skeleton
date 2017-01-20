@@ -13,6 +13,8 @@
     "npm": ">=3.8.6"
   },
   "scripts": {
+    "build:aot:prod": "./node_modules/.bin/webpack --config config/webpack.prod.js --colors --progress --display-error-details --display-cached --profile",
+    "build:aot": "npm run build:aot:prod",
     "start": "./node_modules/.bin/webpack-dev-server --progress --port 8080",
     "pretest": "npm run clean-coverage",
     "test": "./node_modules/.bin/karma start --single-run",
@@ -70,7 +72,6 @@
     "@types/lodash": "^4.14.50",
     "@types/node": "^7.0.0",
     "@types/selenium-webdriver": "^2.53.39",
-    "angular-router-loader": "^0.5.0",
     "angular2-template-loader": "^0.6.0",
     "autoprefixer": "^6.6.1",
     "awesome-typescript-loader": "^2.2.4",
@@ -109,6 +110,8 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.1",
     "mkdirp": "^0.5.1",
+    "ng-router-loader": "^2.0.0",
+    "ngc-webpack": "^1.1.2",
     "node-sass": "^4.3.0",
     "node-static": "^0.7.8",
     "null-loader": "^0.1.1",

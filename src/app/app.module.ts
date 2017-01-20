@@ -2,7 +2,7 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { routing }  from './app.routing';
+import { ROUTES }  from './app.routing';
 
 // Third party opensource libraries (that are using scss/css)
 import 'bootstrap-loader';
@@ -11,7 +11,6 @@ import '../loading.css'; // css to show a centered spinner before angular's boot
 
 import { ApplicationComponent } from './application/application.component';
 import { HomeComponent } from './pages/home/home.component';
-
 import { FooterComponent } from './common/components/footer/footer.component';
 import { NavbarComponent } from './common/components/navbar/navbar.component';
 import { PageHeaderComponent } from './common/components/page-header/page-header.component';
@@ -19,6 +18,7 @@ import { NotFound404Component } from "./pages/404/not-found404.component";
 
 import { removeNgStyles, createNewHosts, createInputTransfer } from "@angularclass/hmr";
 import { IdlePreloadModule } from "@angularclass/idle-preload";
+import { RouterModule, PreloadAllModules } from "@angular/router";
 
 @NgModule({
   imports: [
@@ -27,8 +27,9 @@ import { IdlePreloadModule } from "@angularclass/idle-preload";
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    routing
-  ],
+    //RouterModule.forRoot(appRoutes, { useHash: false, preloadingStrategy: IdlePreload }); <- NOT WITH AOT
+    RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules })
+],
   declarations: [
     ApplicationComponent,
     HomeComponent,

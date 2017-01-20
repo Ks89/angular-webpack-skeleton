@@ -2,7 +2,7 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { routing }  from './admin.routing';
+import { ROUTES }  from './admin.routing';
 
 // Third party opensource libraries (that are using scss/css)
 import 'bootstrap-loader';
@@ -19,6 +19,7 @@ import { SERVICES } from './common/services/services';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { createNewHosts, createInputTransfer, removeNgStyles } from "@angularclass/hmr";
 import { IdlePreloadModule } from "@angularclass/idle-preload";
+import { RouterModule, PreloadAllModules } from "@angular/router";
 
 @NgModule({
   imports: [
@@ -28,7 +29,7 @@ import { IdlePreloadModule } from "@angularclass/idle-preload";
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-    routing
+    RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules })
   ],
   declarations: [
     ApplicationAdminComponent,
