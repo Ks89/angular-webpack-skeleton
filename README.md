@@ -12,10 +12,14 @@ I share this with you as it is.
 I'll update this project in the future and I'll change the name to another one when Angular4 will be released.
 
 ## News
+- *01/21/2017* - Alpha 6 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/15/2017* - Alpha 5 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 
 
 ## Changelog
+
+#### Alpha 6
+- AOT #9
 
 #### Alpha 5
 - HMR
@@ -42,6 +46,9 @@ If you are already ready, you can execute this (`sudo` if you are using macOS):
 
 ## Build the application in 'dist' folder (production mode)
 `npm run build`
+
+## Build the application in 'dist' folder (production + AOT mode)
+`npm run build:aot:prod`
 
 ## Test (check coverage/html/index.html with the results)
 `npm test`
