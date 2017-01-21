@@ -12,11 +12,15 @@ I share this with you as it is.
 I'll update this project in the future and I'll change the name to another one when Angular4 will be released.
 
 ## News
+- *01/22/2017* - Alpha 7 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/21/2017* - Alpha 6 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/15/2017* - Alpha 5 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 
 
 ## Changelog
+
+#### Alpha 7
+- AOT + Lazy Loading together (thanks to `ng-router-loader`)
 
 #### Alpha 6
 - AOT #9
@@ -34,27 +38,34 @@ I created some scripts inside 'setup' folder to initialize the environment.
 If you are already ready, you can execute this (`sudo` if you are using macOS):
 
 - `npm install -g typings`
+- `npm install -g lite-server`
 
 ## Install local dependencies
-`npm install`
+- `npm install`
 
 ## Run with webpack-dev-server (developing mode)
-`npm start`
+- `npm start`
 
 ## Build the application in 'dist' folder (debug mode)
-`npm run buildDev`
+- `npm run buildDev`
+- `cd dist`
+- `lite-server`
 
 ## Build the application in 'dist' folder (production mode)
-`npm run build`
+- `npm run build`
+- `cd dist`
+- `lite-server`
 
 ## Build the application in 'dist' folder (production + AOT mode)
-`npm run build:aot:prod`
+- `npm run build:aot:prod`
+- `cd dist`
+- `lite-server`
 
 ## Test (check coverage/html/index.html with the results)
-`npm test`
+- `npm test`
 
 ## Test e2e with protractor (broken)
-`npm run e2e`
+~~- `npm run e2e`~~
 
 I'll fix this issue in upcoming versions. Please be patient.
 

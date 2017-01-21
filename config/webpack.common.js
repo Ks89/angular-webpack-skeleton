@@ -57,7 +57,7 @@ module.exports = {
             loader: 'ng-router-loader',
             options: {
               loader: 'async-system',
-              genDir: 'compiled',
+              genDir: 'aot',
               aot: AOT
             }
           }
@@ -105,7 +105,7 @@ module.exports = {
       {
         test: /\.css$/,
         include: [helpers.root('src', 'app'), helpers.root('src', 'admin')],
-        loader: 'raw-loader!postcss-loader'
+        loader: ['raw-loader', 'postcss-loader']
       },
       {
         test: /\.scss$/,

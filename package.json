@@ -1,6 +1,6 @@
 {
   "name": "Angular-webpack2-skeleton",
-  "version": "1.0.0-alpha.6",
+  "version": "1.0.0-alpha.7",
   "author": "Stefano Cappa",
   "description": "Angular-webpack2-skeleton",
   "license": "Apache-v2",
@@ -110,7 +110,7 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.1",
     "mkdirp": "^0.5.1",
-    "ng-router-loader": "^2.0.0",
+    "ng-router-loader": "1.0.2",
     "ngc-webpack": "^1.1.2",
     "node-sass": "^4.3.0",
     "node-static": "^0.7.8",
