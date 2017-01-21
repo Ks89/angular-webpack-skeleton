@@ -51,8 +51,6 @@ module.exports = {
         test: /\.ts$/,
         use: [
           '@angularclass/hmr-loader',
-          'awesome-typescript-loader?{configFileName: "tsconfig-aot.json"}',
-          'angular2-template-loader',
           {
             loader: 'ng-router-loader',
             options: {
@@ -60,7 +58,9 @@ module.exports = {
               genDir: 'aot',
               aot: AOT
             }
-          }
+          },
+          'awesome-typescript-loader?{configFileName: "tsconfig-aot.json"}',
+          'angular2-template-loader'
         ],
         exclude: [/\.(spec|e2e)\.ts$/]
       },
