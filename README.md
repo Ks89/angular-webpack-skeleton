@@ -51,17 +51,17 @@ If you are already ready, you can execute this (`sudo` if you are using macOS):
 - `npm start`
 
 ## Build the application in 'dist' folder (debug mode)
-- `npm run buildDev`
+- `npm run build:dev`
 - `cd dist`
 - `lite-server`
 
 ## Build the application in 'dist' folder (production mode)
-- `npm run build`
+- `npm run build:prod`
 - `cd dist`
 - `lite-server`
 
 ## Build the application in 'dist' folder (production + AOT mode)
-- `npm run build:aot:prod`
+- `npm run build:prod:aot`
 - `cd dist`
 - `lite-server`
 
