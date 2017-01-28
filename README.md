@@ -12,12 +12,17 @@ I share this with you as it is.
 I'll update this project in the future and I'll change the name to another one when Angular4 will be released.
 
 ## News
+- *01/28/2017* - Alpha 8 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/22/2017* - Alpha 7 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/21/2017* - Alpha 6 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/15/2017* - Alpha 5 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 
 
 ## Changelog
+
+#### Alpha 8
+- improve npm scripts names #15
+- remove ./node_modules/.bin from npm scripts #13
 
 #### Alpha 7
 - AOT + Lazy Loading together (thanks to `ng-router-loader`)
