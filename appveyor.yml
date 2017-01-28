@@ -92,15 +92,9 @@ install:
   - cmd: appveyor-retry powershell Install-Product node $env:nodejs_version
   - npm install -g npm@latest
   - set PATH=%APPDATA%\npm;%PATH%
-  - npm install -g karma-cli
-  - npm install -g webpack@2.2.0-rc.4
   - npm install -g typescript@2.0.10
-  - npm install -g typings
-  - npm install -g remap-istanbul
   - npm install -g webdriver-manager
   - npm install -g protractor
-  - npm install -g codeclimate-test-reporter
-  - npm install -g istanbul
   - npm install
 
 
@@ -128,10 +122,16 @@ build_script:
   # Output useful info for debugging.
   - node --version && npm --version
   - ps: "npm --version # PowerShell" # Pass comment to PS for easier debugging
-  # build debug
-  - npm run buildDev
-  # build production
-  - npm run build
+  - # run debug build
+  - echo "npm run debug build on $TRAVIS_OS_NAME"
+  - npm run build:dev
+  # run production build
+  - echo "npm run production build on $TRAVIS_OS_NAME"
+  - npm run build:prod
+  # run production + AOT build
+  - echo "npm run production + AOT build on $TRAVIS_OS_NAME"
+  - npm run build:prod:aot
+
 
 #---------------------------------#
 #       tests configuration       #
