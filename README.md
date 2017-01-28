@@ -37,7 +37,6 @@ I'll update this project in the future and I'll change the name to another one w
 I created some scripts inside 'setup' folder to initialize the environment.
 If you are already ready, you can execute this (`sudo` if you are using macOS):
 
-- `npm install -g typings`
 - `npm install -g lite-server`
 
 ## Install local dependencies
