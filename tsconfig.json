@@ -24,7 +24,8 @@
     "aot",
     "**/*.spec.ts",
     "**/*.e2e.ts",
-    "src/main.aot.ts"
+    "src/main.aot.ts",
+    "src/admin.aot.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
     "useWebpackText": true,

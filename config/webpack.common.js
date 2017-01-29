@@ -16,6 +16,7 @@ const InlineManifestWebpackPlugin  = require('inline-manifest-webpack-plugin');
 const autoprefixer                 = require('autoprefixer');
 const ChunkManifestPlugin          = require('chunk-manifest-webpack-plugin');
 const ngcWebpack                   = require('ngc-webpack');
+const CheckerPlugin                = require('awesome-typescript-loader').CheckerPlugin;
 
 const helpers                      = require('./helpers');
 const TITLE                        = 'My MEAN Website';
@@ -26,6 +27,7 @@ const TEMPLATE_HTML                = 'index.html';
 const TEMPLATE_ADMIN_HTML          = 'admin.html';
 
 const AOT                          = helpers.hasNpmFlag('aot');
+const TS_CONFIG                    = AOT ? 'tsconfig-aot.json' : 'tsconfig.json';
 
 module.exports = {
   entry: {
@@ -59,36 +61,11 @@ module.exports = {
               aot: AOT
             }
           },
-          'awesome-typescript-loader?{configFileName: "tsconfig-aot.json"}',
+          `awesome-typescript-loader?{configFileName: "${TS_CONFIG}"}`,
           'angular2-template-loader'
         ],
         exclude: [/\.(spec|e2e)\.ts$/]
       },
-
-
-      // {
-      //   test: /\.ts$/,
-      //   loaders: 'awesome-typescript-loader',
-      //   query: {
-      //     forkChecker: true
-      //   },
-      //   exclude: [/\.(spec|e2e)\.ts$/]
-      // },
-      // {
-      //   test: /\.ts$/,
-      //   loaders: [
-      //     'angular2-template-loader',
-      //     '@angularclass/hmr-loader'
-      //   ],
-      //   exclude: [/\.(spec|e2e)\.ts$/]
-      // },
-      // {
-      //   test: /\.ts$/,
-      //   loaders: [
-      //     'angular-router-loader' // lazy Loading
-      //   ],
-      //   exclude: [/\.(spec|e2e)\.ts$/]
-      // },
       {
         test: /\.html$/,
         loader: 'raw-loader'
@@ -131,6 +108,7 @@ module.exports = {
       /@angular\/\*\*\/bundles\//]
   },
   plugins: [
+    new CheckerPlugin(),
     new NamedModulesPlugin(),
     new ManifestPlugin(),
     new InlineManifestWebpackPlugin(), // TODO check if I can remove this

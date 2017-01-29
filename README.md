@@ -12,6 +12,7 @@ I share this with you as it is.
 I'll update this project in the future and I'll change the name to another one when Angular4 will be released.
 
 ## News
+- *01/30/2017* - Alpha 9 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/28/2017* - Alpha 8 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/22/2017* - Alpha 7 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/21/2017* - Alpha 6 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -19,6 +20,10 @@ I'll update this project in the future and I'll change the name to another one w
 
 
 ## Changelog
+
+#### Alpha 8
+- typescript 2.1
+- awesome-typescript-loader 3.0.0 beta
 
 #### Alpha 8
 - improve npm scripts names #15
