@@ -21,7 +21,7 @@ I'll update this project in the future and I'll change the name to another one w
 
 ## Changelog
 
-#### Alpha 8
+#### Alpha 9
 - typescript 2.1
 - awesome-typescript-loader 3.0.0 beta
 
