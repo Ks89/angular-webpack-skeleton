@@ -8,6 +8,9 @@ npm run build:dev
 echo "npm run production build on $TRAVIS_OS_NAME"
 npm run build:prod
 
+# clean before the real production build
+npm run clean
+
 # run production + AOT build
 echo "npm run production + AOT build on $TRAVIS_OS_NAME"
 npm run build:prod:aot

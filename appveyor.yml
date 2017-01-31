@@ -129,6 +129,7 @@ build_script:
   - echo "npm run production build on $TRAVIS_OS_NAME"
   - npm run build:prod
   # run production + AOT build
+  - npm run clean
   - echo "npm run production + AOT build on $TRAVIS_OS_NAME"
   - npm run build:prod:aot
 

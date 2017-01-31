@@ -9,4 +9,5 @@ declare const webpack: {
   ENV: string
 };
 
+// declare var require: any;
 declare var System: any;
