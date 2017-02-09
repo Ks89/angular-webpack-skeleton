@@ -40,7 +40,7 @@ module.exports = webpackMerge(commonConfig, {
     },
 
   },
-  devtool: 'source-map',
+  devtool: 'cheap-module-source-map',
   output: {
     path    : helpers.root('dist'),
     filename: '[name].js',

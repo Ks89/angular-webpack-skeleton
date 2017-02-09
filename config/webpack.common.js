@@ -16,7 +16,8 @@ const InlineManifestWebpackPlugin  = require('inline-manifest-webpack-plugin');
 const autoprefixer                 = require('autoprefixer');
 const ChunkManifestPlugin          = require('chunk-manifest-webpack-plugin');
 const ngcWebpack                   = require('ngc-webpack');
-const CheckerPlugin                = require('awesome-typescript-loader').CheckerPlugin;
+const ScriptExtHtmlWebpackPlugin   = require('script-ext-html-webpack-plugin');
+const OptimizeJsPlugin             = require('optimize-js-plugin');
 
 const helpers                      = require('./helpers');
 const TITLE                        = 'My MEAN Website';
@@ -108,7 +109,7 @@ module.exports = {
       /@angular\/\*\*\/bundles\//]
   },
   plugins: [
-    new CheckerPlugin(),
+    new ScriptExtHtmlWebpackPlugin(),
     new NamedModulesPlugin(),
     new ManifestPlugin(),
     new InlineManifestWebpackPlugin(), // TODO check if I can remove this
@@ -204,9 +205,12 @@ module.exports = {
     new ngcWebpack.NgcWebpackPlugin({
       disabled: !AOT,
       tsConfig: helpers.root('tsconfig-aot.json')
-    })
+    }),
 
-  ],
+    new OptimizeJsPlugin({
+      sourceMap: false
+    })
+],
   node: {
     global: true,
     process: true,
