@@ -95,6 +95,7 @@ install:
   - npm install -g typescript@2.0.10
   - npm install -g webdriver-manager
   - npm install -g protractor
+  - npm install -g codeclimate-test-reporter
   - npm install
 
 
