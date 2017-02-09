@@ -79,6 +79,7 @@
     "browser-sync": "^2.18.7",
     "browser-sync-webpack-plugin": "^1.1.4",
     "chunk-manifest-webpack-plugin": "^1.0.0",
+    "codeclimate-test-reporter": "^0.4.0",
     "codelyzer": "^2.0.0",
     "compression-webpack-plugin": "^0.3.2",
     "copy-webpack-plugin": "^4.0.1",
