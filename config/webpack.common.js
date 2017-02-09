@@ -82,7 +82,7 @@ module.exports = {
       {
         test: /\.css$/,
         include: [helpers.root('src', 'app'), helpers.root('src', 'admin')],
-        loader: ['raw-loader', 'postcss-loader']
+        loaders: ['raw-loader', 'postcss-loader']
       },
       {
         test: /\.scss$/,
@@ -203,8 +203,7 @@ module.exports = {
 
     new ngcWebpack.NgcWebpackPlugin({
       disabled: !AOT,
-      tsConfig: helpers.root('tsconfig-aot.json'),
-      resourceOverride: helpers.root('config/resource-override.js')
+      tsConfig: helpers.root('tsconfig-aot.json')
     })
 
   ],
