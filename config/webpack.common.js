@@ -83,7 +83,10 @@ module.exports = {
       {
         test: /\.css$/,
         include: [helpers.root('src', 'app'), helpers.root('src', 'admin')],
-        loaders: ['raw-loader', 'postcss-loader']
+        use: [
+          { loader: 'raw-loader' },
+          { loader: 'postcss-loader' }
+        ]
       },
       {
         test: /\.scss$/,
