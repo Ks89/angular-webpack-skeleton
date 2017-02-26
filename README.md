@@ -12,6 +12,7 @@ I'll update this project in the future and I'll change the name to another one w
 
 
 ## News
+- *02/26/2017* - Alpha 12 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *02/26/2017* - Alpha 11 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *02/26/2017* - Alpha 10 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/30/2017* - Alpha 9 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -22,6 +23,10 @@ I'll update this project in the future and I'll change the name to another one w
 
 
 ## Changelog
+
+#### Alpha 12
+- Fix for AppVeyor and Windows
+- Bootstrap 4 customizations thanks to bootstrap-loader. In fact, I'm overriding bootstrap colors with different hash codes. The same technique is valid for all variables into [_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)
 
 #### Alpha 11
 - MIT license :)
