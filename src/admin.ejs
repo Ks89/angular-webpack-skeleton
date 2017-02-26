@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= htmlWebpackPlugin.options.title %></title>
-  <!-- Required meta tags always come first -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <!-- Third-party css/scss imports are in src/app/application/application.scss -->
+    <% if (webpackConfig.htmlElements.headTags) { %>
+    <!-- Configured Head Tags  -->
+    <%= webpackConfig.htmlElements.headTags %>
+    <% } %>
 
-  <base href="/admin.html">
+    <!-- Third-party css/scss imports are in src/app/application/application.scss -->
+
+    <base href="/admin.html">
 </head>
 <body>
-  <!-- Include application here -->
-  <mmw-admin-application>
+<!-- Include application here -->
+<mmw-admin-application>
     <i class="center-fix main-spinner fa fa-spin fa-spinner"></i>
-  </mmw-admin-application>
+</mmw-admin-application>
 
-  <!-- Libraries will be included here automatically by Webpack-->
+<!-- Libraries will be included here automatically by Webpack-->
 
-  </body>
+</body>
 </html>

@@ -36,6 +36,8 @@ const autoprefixer                 = require('autoprefixer');
 const ngcWebpack                   = require('ngc-webpack');
 const ScriptExtHtmlWebpackPlugin   = require('script-ext-html-webpack-plugin');
 
+const HtmlElementsPlugin           = require('./html-elements-plugin');
+
 const helpers                      = require('./helpers');
 const TITLE                        = 'My MEAN Website';
 const TITLE_ADMIN                  = 'Admin My MEAN Website';
@@ -176,7 +178,44 @@ module.exports = {
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer'
     }),
-    new CopyWebpackPlugin([{from: './assets', to: './assets'}]),
+    /*
+     * Plugin: HtmlElementsPlugin
+     * Description: Generate html tags based on javascript maps.
+     *
+     * If a publicPath is set in the webpack output configuration, it will be automatically added to
+     * href attributes, you can disable that by adding a "=href": false property.
+     * You can also enable it to other attribute by settings "=attName": true.
+     *
+     * The configuration supplied is map between a location (key) and an element definition object (value)
+     * The location (key) is then exported to the template under then htmlElements property in webpack configuration.
+     *
+     * Example:
+     *  Adding this plugin configuration
+     *  new HtmlElementsPlugin({
+     *    headTags: { ... }
+     *  })
+     *
+     *  Means we can use it in the template like this:
+     *  <%= webpackConfig.htmlElements.headTags %>
+     *
+     * Dependencies: HtmlWebpackPlugin
+     */
+    new HtmlElementsPlugin({
+      headTags: require('./head-config.common')
+    }),
+    new CopyWebpackPlugin([
+      { from: './assets',
+        to: './assets'
+      },
+      {
+        from: 'node_modules/font-awesome/css/font-awesome.min.css',
+        to: 'assets/font-awesome/css/font-awesome.min.css',
+      },
+      {
+        from: 'node_modules/font-awesome/fonts',
+        to: 'assets/font-awesome/fonts'
+      }
+    ]),
     new ContextReplacementPlugin(
       // The (\\|\/) piece accounts for path separators in *nix and Windows
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,

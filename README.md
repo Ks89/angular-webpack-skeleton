@@ -12,6 +12,7 @@ I'll update this project in the future and I'll change the name to another one w
 
 
 ## News
+- *02/26/2017* - Alpha 14 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *02/26/2017* - Alpha 13 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *02/26/2017* - Alpha 12 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *02/26/2017* - Alpha 11 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -24,6 +25,9 @@ I'll update this project in the future and I'll change the name to another one w
 
 
 ## Changelog
+
+#### Alpha 14
+- font-awesome fixed
 
 #### Alpha 13
 - big refactoring to both app and admin single page applications
@@ -101,6 +105,11 @@ If you are already ready, you can execute this (`sudo` if you are using macOS):
 - `npm run docs`
 
 I have to write the documentation, but this project is ready to use typedocs
+
+
+## Credits
+
+A special thanks to both [qdouble](https://github.com/qdouble/angular-webpack2-starter) and [AngularClass](https://github.com/AngularClass/angular2-webpack-starter) projects.
 
 
 ## License
