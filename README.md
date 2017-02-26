@@ -1,6 +1,5 @@
-# Angular4-webpack2-skeleton
-A simple skeleton project to use Angular4, Webpack2, Boostrap 4 alpha and bootstrap-loader 2 beta together
-
+# Angular-webpack2-skeleton
+A simple skeleton project to use Angular4 (or 2.x.x, if you want to downgrade it), Webpack2, Boostrap 4 alpha and bootstrap-loader 2 beta together
 
 I created this project as an example for this issue: https://github.com/shakacode/bootstrap-loader/issues/191#issuecomment-256352654
 After that, I decided to update it based on https://github.com/Ks89/My-MEAN-website-client
@@ -11,7 +10,9 @@ I share this with you as it is.
 
 I'll update this project in the future and I'll change the name to another one when Angular4 will be released.
 
+
 ## News
+- *02/26/2017* - Alpha 10 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/30/2017* - Alpha 9 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/28/2017* - Alpha 8 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *01/22/2017* - Alpha 7 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -20,6 +21,12 @@ I'll update this project in the future and I'll change the name to another one w
 
 
 ## Changelog
+
+#### Alpha 10
+- typescript 2.2
+- big refactoring
+- some fixes related to both css and scss webpack's loaders
+- fix for e2e tests (issue #12)
 
 #### Alpha 9
 - typescript 2.1
@@ -73,10 +80,9 @@ If you are already ready, you can execute this (`sudo` if you are using macOS):
 ## Test (check coverage/html/index.html with the results)
 - `npm test`
 
-## Test e2e with protractor (broken)
-~~- `npm run e2e`~~
-
-I'll fix this issue in upcoming versions. Please be patient.
+## Test e2e with protractor
+- `npm run webdriver:update` (if you have problems, try again removing `./node_modules` and executing `npm install`)
+- `npm run e2e`
 
 
 ## License
