@@ -3,7 +3,7 @@
   "version": "1.0.0-alpha.10",
   "author": "Stefano Cappa",
   "description": "Angular skeleton with webpack2",
-  "license": "Apache-v2",
+  "license": "MIT",
   "main": "src/main.ts",
   "homepage": "https://www.stefanocappa.it",
   "private": true,
