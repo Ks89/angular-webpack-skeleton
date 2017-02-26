@@ -2,10 +2,10 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar2" aria-controls="exCollapsingNavbar2" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand m-b-0" [routerLink]="['/']" href="#">KS Admin page</a>
+  <a class="navbar-brand m-b-0" [routerLink]="['/']" href="#">KS admin</a>
   <div class="collapse navbar-collapse" id="exCollapsingNavbar2">
     <div class="navbar-nav">
-      <a class="nav-item nav-link {{isNavItemActive('/')}}" [routerLink]="['/']">Link1 <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link {{isNavItemActive('/')}}" [routerLink]="['/']">Projects <span class="sr-only">(current)</span></a>
       <a *ngIf="isLoggedIn" class="nav-item nav-link {{isNavItemActive('/')}}" href="#">Profile</a>
     </div>
   </div>

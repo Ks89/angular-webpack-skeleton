@@ -27,6 +27,8 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { LazyComponent } from './lazy.component';
+import { SharedModule } from '../../shared/shared.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 let comp: LazyComponent;
 let fixture: ComponentFixture<LazyComponent>;
@@ -35,8 +37,8 @@ describe('LazyComponent', () => {
   beforeEach( async(() => {
 
     TestBed.configureTestingModule({
-      declarations: [ LazyComponent/*, PageHeaderComponent*/ ]
-      // schemas:      [ NO_ERRORS_SCHEMA ]
+      imports: [ SharedModule, NgbModule.forRoot() ],
+      declarations: [ LazyComponent ]
     }); // not necessary with webpack .compileComponents();
 
     fixture = TestBed.createComponent(LazyComponent);
@@ -54,14 +56,14 @@ describe('LazyComponent', () => {
     it('should display the lazy page', () => {
       const element: DebugElement = fixture.debugElement;
 
-      // const title: DebugElement[] = element.queryAll(By.css('h1'));
-      // expect(title.length).toBe(1);
-      // expect(title[0].nativeElement.textContent.trim()).toBe('LAZY');
+      const title: DebugElement[] = element.queryAll(By.css('h1'));
+      expect(title.length).toBe(1);
+      expect(title[0].nativeElement.textContent.trim()).toBe('LAZY');
 
       const message: DebugElement[] = element.queryAll(By.css('small'));
-      // expect(message.length).toBe(2); //because pageHeader has a <small> tag in its template
-      // expect(message[0].nativeElement.textContent.trim()).toBe('');
-      expect(message[0].nativeElement.textContent.trim()).toBe('Not implemented yet');
+      expect(message.length).toBe(2); //because pageHeader has a <small> tag in its template
+      expect(message[0].nativeElement.textContent.trim()).toBe('');
+      expect(message[1].nativeElement.textContent.trim()).toBe('Lazy loaded module');
     });
   });
 });

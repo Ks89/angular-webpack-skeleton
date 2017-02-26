@@ -22,4 +22,11 @@
  * SOFTWARE.
  */
 
-export const SERVICES: any[] = [];
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'mmw-footer',
+  styleUrls: ['footer.scss'],
+  templateUrl: 'footer.html'
+})
+export class FooterComponent {}

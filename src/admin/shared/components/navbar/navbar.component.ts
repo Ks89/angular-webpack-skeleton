@@ -21,3 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'mmw-admin-navigation',
+  templateUrl: 'navbar.html'
+})
+export class NavbarAdminComponent {
+  isLoggedIn = false;
+
+  constructor(private router: Router) {}
+
+  isNavItemActive(location: any) {
+    return location === this.router.url ? 'active' : '';
+  };
+}

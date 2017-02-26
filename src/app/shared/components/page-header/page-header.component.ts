@@ -22,4 +22,23 @@
  * SOFTWARE.
  */
 
-export * from './dashboard.component';
+import { Component, Input } from '@angular/core';
+
+export class PageHeader {
+  title: string;
+  strapline: string;
+  constructor(
+    title: string,
+    strapline: string) {
+    this.title = title;
+    this.strapline = strapline;
+  }
+}
+
+@Component({
+  selector: 'mmw-page-header',
+  templateUrl: 'page-header.html'
+})
+export class PageHeaderComponent {
+  @Input() header: PageHeader;
+}

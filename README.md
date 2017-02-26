@@ -1,5 +1,5 @@
 # Angular-webpack2-skeleton
-A simple skeleton project to use Angular4 (or 2.x.x, if you want to downgrade it), Webpack2, Boostrap 4 alpha and bootstrap-loader 2 beta together
+A simple skeleton project to use Angular4 (or 2.x.x, if you want to downgrade it), Webpack2, Boostrap 4 alpha, ng-bootstrap and bootstrap-loader 2 beta together
 
 I created this project as an example for this issue: https://github.com/shakacode/bootstrap-loader/issues/191#issuecomment-256352654
 After that, I decided to update it based on https://github.com/Ks89/My-MEAN-website-client
@@ -12,6 +12,7 @@ I'll update this project in the future and I'll change the name to another one w
 
 
 ## News
+- *02/26/2017* - Alpha 13 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *02/26/2017* - Alpha 12 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *02/26/2017* - Alpha 11 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *02/26/2017* - Alpha 10 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -24,9 +25,12 @@ I'll update this project in the future and I'll change the name to another one w
 
 ## Changelog
 
+#### Alpha 13
+- big refactoring to both app and admin single page applications
+
 #### Alpha 12
 - Fix for AppVeyor and Windows
-- Bootstrap 4 customizations thanks to bootstrap-loader. In fact, I'm overriding bootstrap colors with different hash codes. The same technique is valid for all variables into [_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)
+- Bootstrap 4 customizations thanks to bootstrap-loader. In fact, I'm overriding bootstrap colors with different hex colors. The same technique is valid for all variables into [_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)
 
 #### Alpha 11
 - MIT license :)
@@ -92,6 +96,11 @@ If you are already ready, you can execute this (`sudo` if you are using macOS):
 ## Test e2e with protractor
 - `npm run webdriver:update` (if you have problems, try again removing `./node_modules` and executing `npm install`)
 - `npm run e2e`
+
+## To generate typescript's documentation (check docs/index.html with the result)
+- `npm run docs`
+
+I have to write the documentation, but this project is ready to use typedocs
 
 
 ## License

@@ -22,6 +22,10 @@
  * SOFTWARE.
  */
 
-export * from './footer';
-export * from './navbar';
-export * from './page-header';
+import { DashboardAdminComponent } from './dashboard/dashboard.component';
+import { NotFound404Component } from './404/not-found404.component';
+
+export const ADMIN_COMPONENTS = [
+  DashboardAdminComponent,
+  NotFound404Component
+];

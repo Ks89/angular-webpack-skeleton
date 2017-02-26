@@ -1,5 +1,3 @@
-
-import { Component, Input } from '@angular/core';
 /*
  * MIT License
  *
@@ -24,11 +22,10 @@ import { Component, Input } from '@angular/core';
  * SOFTWARE.
  */
 
-@Component({
-  selector: 'mmw-page-header',
-  templateUrl: 'page-header.html'
-})
-export class PageHeaderComponent {
-  @Input() title: string;
-  @Input() strapline: string;
-}
+import { HomeComponent } from './home/home.component';
+import { NotFound404Component } from './404/not-found404.component';
+
+export const COMPONENTS = [
+  HomeComponent,
+  NotFound404Component
+];

@@ -21,4 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-export { LazyModule } from './lazy.module';
+
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'mmw-navigation',
+  templateUrl: 'navbar.html'
+})
+export class NavbarComponent {
+  isLoggedIn = false;
+
+  constructor(private router: Router) {}
+
+  isNavItemActive(location: any) {
+    return location === this.router.url ? 'active' : '';
+  };
+}

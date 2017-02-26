@@ -29,5 +29,6 @@ import { Component } from '@angular/core';
   templateUrl: 'dashboard.html'
 })
 export class DashboardAdminComponent {
-  constructor() {}
+  constructor() {
+  }
 }

@@ -22,4 +22,12 @@
  * SOFTWARE.
  */
 
-export * from './footer.component';
+import { NavbarAdminComponent } from './navbar/navbar.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
+
+export { PageHeader } from './page-header/page-header.component';
+
+export const SHARED_COMPONENTS = [
+  NavbarAdminComponent,
+  PageHeaderComponent
+];

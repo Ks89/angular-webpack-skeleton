@@ -23,6 +23,7 @@
  */
 
 import { Component } from '@angular/core';
+import { PageHeader } from '../../shared/components/components';
 
 @Component({
   selector: 'mmw-home-page',
@@ -30,14 +31,11 @@ import { Component } from '@angular/core';
   templateUrl: 'home.html'
 })
 export class HomeComponent {
-  pageHeader: any;
+  pageHeader: PageHeader;
   message: string;
 
   constructor() {
-    this.pageHeader = {
-      title: 'KS',
-      strapline: 'Welcome'
-    };
+    this.pageHeader = new PageHeader('KS', 'Welcome');
     this.message = 'Welcome to my website';
   }
 }

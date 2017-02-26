@@ -21,21 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 import { Component } from '@angular/core';
+import { PageHeader } from '../../shared/components/components';
 
 console.log('`Lazy` component loaded asynchronously');
 
 @Component({
   selector: 'mmw-cv-page',
-  templateUrl: 'lazy.html'
+  templateUrl: 'lazy.html',
+  styleUrls: ['lazy.scss']
 })
 export class LazyComponent {
-  public pageHeader: any;
+  public pageHeader: PageHeader;
 
   constructor() {
-    this.pageHeader = {
-      title: 'LAZY',
-      strapline: ''
-    };
+    this.pageHeader = new PageHeader('LAZY', '');
   }
 }

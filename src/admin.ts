@@ -23,10 +23,10 @@
  */
 
 import { enableProdMode } from '@angular/core';
-import { bootloader } from "@angularclass/hmr";
+import { bootloader } from '@angularclass/hmr';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AdminModule }  from './admin/admin.module';
-import { decorateModuleRef } from "./environment";
+import { decorateModuleRef } from './environment';
 
 if (webpack.ENV === 'prod') {
   enableProdMode();

@@ -22,4 +22,4 @@
  * SOFTWARE.
  */
 
-export * from './page-header.component';
+export const SERVICES: any[] = [];

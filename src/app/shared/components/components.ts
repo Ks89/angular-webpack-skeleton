@@ -22,11 +22,14 @@
  * SOFTWARE.
  */
 
-import { Component } from '@angular/core';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
 
-@Component({
-  selector: 'mmw-footer',
-  styleUrls: ['footer.css'],
-  templateUrl: 'footer.html'
-})
-export class FooterComponent {}
+export { PageHeader } from './page-header/page-header.component';
+
+export const SHARED_COMPONENTS = [
+  FooterComponent,
+  NavbarComponent,
+  PageHeaderComponent
+];

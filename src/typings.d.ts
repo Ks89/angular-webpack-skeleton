@@ -24,7 +24,7 @@
 
 // JQuery
 interface JQuery {
-  carousel(fn: string):any;
+  carousel(fn: string): any;
 }
 
 // Webpack

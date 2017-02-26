@@ -27,19 +27,25 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { routes } from './lazy.routes';
+
+import { SharedModule } from '../../shared/shared.module';
 import { LazyComponent } from './lazy.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 console.log('`Lazy` bundle loaded asynchronously');
 
 @NgModule({
   declarations: [
-    // Components / Directives/ Pipes
-    LazyComponent,
+    LazyComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    NgbModule.forRoot(), // forRoot ensures the providers are only created once (lazy modules are like root modules)
+    SharedModule
   ],
+  providers: []
 })
 export class LazyModule {
   public static routes = routes;

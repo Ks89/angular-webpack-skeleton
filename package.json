@@ -38,8 +38,7 @@
     "webdriver:update": "webdriver-manager update",
     "webdriver-manager": "webdriver-manager",
     "webdriver:start": "npm run webdriver-manager start",
-    "typedoc": "typedoc",
-    "docs": "npm run typedoc --out typedocs src",
+    "docs": "typedoc --out docs src",
     "coveralls": "coveralls < coverage/lcov.info",
     "codeclimate": "codeclimate-test-reporter < coverage/lcov.info",
     "next-update": "next-update -k true --tldr"
