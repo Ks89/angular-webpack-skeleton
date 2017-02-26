@@ -7,8 +7,8 @@ import { ROUTES }  from './admin.routing';
 // Third party opensource libraries (that are using scss/css)
 import 'bootstrap-loader';
 import 'font-awesome/css/font-awesome.css';
-import '../loading.css'; // css to show a centered spinner before angular's booting
-
+import '../styles/styles.scss';
+import '../styles/headings.css';
 
 import { ApplicationAdminComponent } from './application/application.component';
 import { DashboardAdminComponent } from './pages/dashboard/dashboard.component';

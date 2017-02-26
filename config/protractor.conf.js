@@ -1,20 +1,18 @@
-// 'use strict';
+
+// run:
+// 1. npm run webdriver:update
+// 2. npm run e2e
 
 require('ts-node/register');
-
-const helpers = require('./helpers');
-
-// to run this file with `protractor`:
-// 1. `npm run build`
-// 2. start server-side to serve client-side (this project)
-// 3. now you can run `protractor` on port 3001
+var helpers = require('./helpers');
 
 exports.config = {
   baseUrl: 'http://localhost:3000',
 
+  // use `npm run e2e`
   specs: [
-    helpers.root('e2e/**/*.e2e.ts'),
-    helpers.root('e2e/**/**.e2e.ts'),
+    helpers.root('src/**/**.e2e.ts'),
+    helpers.root('src/**/*.e2e.ts')
   ],
   exclude: [],
 
@@ -31,17 +29,12 @@ exports.config = {
   },
   directConnect: true,
 
-  multiCapabilities: [
-    // {
-    //   browserName: 'firefox'
-    // },
-    {
-      browserName: 'chrome',
-      chromeOptions: {
-        args: ['show-fps-counter=true']
-      }
+  capabilities: {
+    'browserName': 'chrome',
+    'chromeOptions': {
+      'args': ['show-fps-counter=true']
     }
-  ],
+  },
 
   onPrepare: function() {
     browser.ignoreSynchronization = true;

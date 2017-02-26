@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "es2015",
+    "module": "commonjs",
     "moduleResolution": "node",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
@@ -25,7 +25,9 @@
     "**/*.spec.ts",
     "**/*.e2e.ts",
     "src/main.aot.ts",
-    "src/admin.aot.ts"
+    "src/admin.aot.ts",
+    "docs",
+    "typedocs"
   ],
   "awesomeTypescriptLoaderOptions": {
     "useWebpackText": true,

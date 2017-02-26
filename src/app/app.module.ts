@@ -7,7 +7,8 @@ import { ROUTES }  from './app.routing';
 // Third party opensource libraries (that are using scss/css)
 import 'bootstrap-loader';
 import 'font-awesome/css/font-awesome.css';
-import '../loading.css'; // css to show a centered spinner before angular's booting
+import '../styles/styles.scss';
+import '../styles/headings.css';
 
 import { ApplicationComponent } from './application/application.component';
 import { HomeComponent } from './pages/home/home.component';

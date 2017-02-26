@@ -6,6 +6,8 @@ import { Router } from '@angular/router';
   templateUrl: 'navbar.html'
 })
 export class NavbarAdminComponent {
+  isLoggedIn: boolean = false;
+  currentUser: any = { name : '' };
   currentPath: string = 'fakeString';
 
   constructor(private router: Router) {}
@@ -14,3 +16,4 @@ export class NavbarAdminComponent {
     return location === this.router.url ? 'active' : '';
   };
 }
+

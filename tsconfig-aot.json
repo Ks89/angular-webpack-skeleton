@@ -24,7 +24,9 @@
     "config",
     "aot",
     "**/*.spec.ts",
-    "**/*.e2e.ts"
+    "**/*.e2e.ts",
+    "docs",
+    "typedocs"
   ],
 
   "awesomeTypescriptLoaderOptions": {
