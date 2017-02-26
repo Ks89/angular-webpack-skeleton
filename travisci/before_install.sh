@@ -23,16 +23,10 @@ echo "Installing global dependencies"
 # install global dependencies
 if [[ $TRAVIS_OS_NAME = 'osx' ]]; then
     echo "Installing $TRAVIS_OS_NAME global dependencies"
-    sudo npm install -g typescript@2.0.10
-    sudo npm install -g webdriver-manager
-    sudo npm install -g protractor
     sudo npm install -g codeclimate-test-reporter
 else
     echo "Installing $TRAVIS_OS_NAME global dependencies"
     # to fix a problem with nodejs 6 on linux
-    npm install -g typescript@2.0.10
-    npm install -g webdriver-manager
-    npm install -g protractor
     npm install -g codeclimate-test-reporter
 fi
 

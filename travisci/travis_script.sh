@@ -18,3 +18,5 @@ npm run build:prod:aot
 # run test
 echo "npm run test on $TRAVIS_OS_NAME"
 npm test
+
+# TODO add protractor tests with npm run webdriver:update && npm run e2e
