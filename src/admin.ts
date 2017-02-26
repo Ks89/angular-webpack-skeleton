@@ -28,7 +28,7 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AdminModule }  from './admin/admin.module';
 import { decorateModuleRef } from './environment';
 
-if (webpack.ENV === 'prod') {
+if (webpack.ENV === 'production') {
   enableProdMode();
 }
 
