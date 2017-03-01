@@ -23,11 +23,9 @@ node_modules
 
 .idea
 
-# Compiled front-end files
+
 dist
-
 aot
-
 .awcache
-
 docs
+dll

@@ -41,6 +41,7 @@ if ('production' === webpack.ENV) {
     const appRef = modRef.injector.get(ApplicationRef);
     const cmpRef = appRef.components[0];
 
+    // there is an open issue here https://github.com/AngularClass/angular2-webpack-starter/issues/1573
     let _ng = (<any> window).ng;
     enableDebugTools(cmpRef);
     (<any> window).ng.probe = _ng.probe;

@@ -22,19 +22,21 @@
  * SOFTWARE.
  */
 
-const webpack               = require('webpack');
-const DefinePlugin          = require('webpack/lib/DefinePlugin');
+const webpack                     = require('webpack');
+const DefinePlugin                = require('webpack/lib/DefinePlugin');
 
-const HotModuleReplacementPlugin = require('webpack/lib/HotModuleReplacementPlugin');
-const BrowserSyncPlugin     = require('browser-sync-webpack-plugin');
-const webpackMerge          = require('webpack-merge');
-const ExtractTextPlugin     = require('extract-text-webpack-plugin');
-const LoaderOptionsPlugin   = require('webpack/lib/LoaderOptionsPlugin');
+const HotModuleReplacementPlugin  = require('webpack/lib/HotModuleReplacementPlugin');
+const BrowserSyncPlugin           = require('browser-sync-webpack-plugin');
+const webpackMerge                = require('webpack-merge');
+const webpackMergeDll             = webpackMerge.strategy({plugins: 'replace'});
+const ExtractTextPlugin           = require('extract-text-webpack-plugin');
+const LoaderOptionsPlugin         = require('webpack/lib/LoaderOptionsPlugin');
+const DllBundlesPlugin            = require('webpack-dll-bundles-plugin').DllBundlesPlugin;
 
-const commonConfig          = require('./webpack.common');
-const helpers               = require('./helpers');
+const commonConfig                = require('./webpack.common');
+const helpers                     = require('./helpers');
 
-const ENV  = process.env.NODE_ENV = 'dev';
+const ENV = process.env.NODE_ENV = 'dev';
 const HOST = process.env.HOST || 'localhost';
 const PORT = process.env.PORT || 8080;
 
@@ -52,7 +54,7 @@ const DEV_SERVER_PATH = `http://${METADATA.host}:${METADATA.portWebpackDevServer
 module.exports = webpackMerge(commonConfig, {
   devtool: 'cheap-module-source-map',
   output: {
-    path    : helpers.root('dist'),
+    path: helpers.root('dist'),
     filename: '[name].js',
     sourceMapFilename: '[file].map',
     chunkFilename: '[name].js',
@@ -69,7 +71,7 @@ module.exports = webpackMerge(commonConfig, {
       aggregateTimeout: 300,
       poll: 1000
     },
-    stats: { colors: true },
+    stats: {colors: true},
     proxy: {
       //proxy all paths of the main
       //server (executed with gulp (not with nodemon))
@@ -121,6 +123,50 @@ module.exports = webpackMerge(commonConfig, {
       allChunks: true
     }),
     new DefinePlugin({'webpack': {'ENV': JSON.stringify(METADATA.env)}}),
+
+    new DllBundlesPlugin({
+      bundles: {
+        polyfills: [
+          '@angularclass/hmr',
+          'ts-helpers',
+          'zone.js',
+          'core-js',
+          'webpack-dev-server',
+          'webpack'
+        ],
+        vendor: [
+          '@angular/common',
+          '@angular/compiler',
+          '@angular/core',
+          '@angular/forms',
+          '@angular/http',
+          '@angular/platform-browser',
+          '@angular/platform-browser-dynamic',
+          '@angular/platform-server',
+          '@angular/router',
+          "@angularclass/idle-preload",
+          '@angularclass/hmr',
+          'rxjs',
+          '@ng-bootstrap/ng-bootstrap',
+          'style-loader',
+          'jquery',
+          'bootstrap-loader',
+          'hammerjs',
+          'lodash',
+          'mousetrap',
+          'ng2-validators',
+          'reflect-metadata',
+          'tether'
+        ]
+      },
+      context: __dirname,
+      dllDir: helpers.root('dll'),
+      webpackConfig: webpackMergeDll(commonConfig, {
+        devtool: 'cheap-module-source-map',
+        plugins: []
+      })
+    }),
+
     new BrowserSyncPlugin(
       // BrowserSync options
       {
