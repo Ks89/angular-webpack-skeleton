@@ -43,15 +43,15 @@
     "codeclimate": "codeclimate-test-reporter < coverage/lcov.info"
   },
   "dependencies": {
-    "@angular/common": "^4.0.0-rc.6",
-    "@angular/compiler": "^4.0.0-rc.6",
-    "@angular/core": "^4.0.0-rc.6",
-    "@angular/forms": "^4.0.0-rc.6",
-    "@angular/http": "^4.0.0-rc.6",
-    "@angular/platform-browser": "^4.0.0-rc.6",
-    "@angular/platform-browser-dynamic": "^4.0.0-rc.6",
-    "@angular/platform-server": "^4.0.0-rc.6",
-    "@angular/router": "^4.0.0-rc.6",
+    "@angular/common": "=4.0.0-rc.5",
+    "@angular/compiler": "=4.0.0-rc.5",
+    "@angular/core": "=4.0.0-rc.5",
+    "@angular/forms": "=4.0.0-rc.5",
+    "@angular/http": "=4.0.0-rc.5",
+    "@angular/platform-browser": "=4.0.0-rc.5",
+    "@angular/platform-browser-dynamic": "=4.0.0-rc.5",
+    "@angular/platform-server": "=4.0.0-rc.5",
+    "@angular/router": "=4.0.0-rc.5",
     "@angularclass/idle-preload": "^1.0.4",
     "@ng-bootstrap/ng-bootstrap": "=1.0.0-alpha.21",
     "bootstrap": "=4.0.0-alpha.6",
@@ -69,7 +69,7 @@
     "zone.js": "^0.8.5"
   },
   "devDependencies": {
-    "@angular/compiler-cli": "^4.0.0-rc.6",
+    "@angular/compiler-cli": "=4.0.0-rc.5",
     "@angularclass/hmr": "^1.2.2",
     "@angularclass/hmr-loader": "^3.0.2",
     "@types/hammerjs": "^2.0.34",
