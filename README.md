@@ -12,6 +12,7 @@ I'll update this project in the future and I'll change the name to another one w
 
 
 ## News
+- *03/23/2017* - Alpha 16 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *03/05/2017* - Alpha 15 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *02/26/2017* - Alpha 14 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *02/26/2017* - Alpha 13 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -26,6 +27,9 @@ I'll update this project in the future and I'll change the name to another one w
 
 
 ## Changelog
+
+#### Alpha 16
+- angular 4 rc 5 (no rc.6 because it's broken)
 
 #### Alpha 15
 - angular 4 rc 2
