@@ -1,17 +1,13 @@
-# Angular-webpack2-skeleton
-A simple skeleton project to use Angular4 (or 2.x.x, if you want to downgrade it), Webpack2, Boostrap 4 alpha, ng-bootstrap and bootstrap-loader 2 beta together
-
-I created this project as an example for this issue: https://github.com/shakacode/bootstrap-loader/issues/191#issuecomment-256352654
-After that, I decided to update it based on https://github.com/Ks89/My-MEAN-website-client
-And I created some branches for this issue: https://github.com/ampedandwired/html-webpack-plugin/issues/481
+# angular-webpack-skeleton
+A simple skeleton project to use Angular 4 (or 2.x.x, if you want to downgrade it), Webpack2, Bootstrap 4 alpha, ng-bootstrap and bootstrap-loader 2 together
 
 This project is a personal skeleton. If you want to use it feel free to fork it.
 I share this with you as it is.
 
-I'll update this project in the future and I'll change the name to another one when Angular4 will be released.
-
+Project renamed to "angular-webpack-skeleton"
 
 ## News
+- *03/26/2017* - Alpha 17 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *03/23/2017* - Alpha 16 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *03/05/2017* - Alpha 15 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *02/26/2017* - Alpha 14 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -27,6 +23,10 @@ I'll update this project in the future and I'll change the name to another one w
 
 
 ## Changelog
+
+#### Alpha 17
+- angular 4.0.0
+- project renamed to "angular-webpack-skeleton"
 
 #### Alpha 16
 - angular 4 rc 5 (no rc.6 because it's broken)
