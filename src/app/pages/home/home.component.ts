@@ -25,6 +25,9 @@
 import { Component } from '@angular/core';
 import { PageHeader } from '../../shared/components/components';
 
+import * as jsPDF from 'jspdf';
+import * as jspdfAutotable from 'jspdf-autotable'
+
 @Component({
   selector: 'mmw-home-page',
   styleUrls: ['home.scss'],
@@ -38,4 +41,28 @@ export class HomeComponent {
     this.pageHeader = new PageHeader('KS', 'Welcome');
     this.message = 'Welcome to my website';
   }
+
+  downloadJsPdf() {
+    let doc = new jsPDF();
+    doc.text(20, 20, 'Hello world!');
+    doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
+    doc.addPage();
+    doc.text(20, 20, 'Do you like that?');
+
+    // Save the PDF
+    doc.save('Test.pdf');
+  }
+
+  // downloadJsPdfWithTablePlugin() {
+  //   let columns = ["ID", "Name", "Country"];
+  //   let rows = [
+  //     [1, "Shaw", "Tanzania"],
+  //     [2, "Nelson", "Kazakhstan"],
+  //     [3, "Garcia", "Madagascar"]
+  //   ];
+  //
+  //   var doc = new jsPDF('p', 'pt');
+  //   doc.autoTable(columns, rows);
+  //   doc.save("table.pdf");
+  // }
 }

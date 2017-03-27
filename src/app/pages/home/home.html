@@ -2,6 +2,12 @@
   <mmw-page-header [header]="pageHeader"></mmw-page-header>
 
   <div class="container-fluid">
+
+    <button (click)="downloadJsPdf()">JSPDF button</button>
+
+    <button (click)="downloadJsPdfWithTablePlugin()">JSPDF table plugin button</button>
+
+
     <div class="row">
       Custom bootstrap buttons thanks to bootstrap-loader (folder ./bootstrap).
       To override other variables check https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
