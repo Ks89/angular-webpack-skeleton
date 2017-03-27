@@ -25,8 +25,8 @@
 import { Component } from '@angular/core';
 import { PageHeader } from '../../shared/components/components';
 
-import * as jsPDF from 'jspdf';
-import * as jspdfAutotable from 'jspdf-autotable'
+import * as JsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 @Component({
   selector: 'mmw-home-page',
@@ -43,7 +43,7 @@ export class HomeComponent {
   }
 
   downloadJsPdf() {
-    let doc = new jsPDF();
+    let doc = new JsPDF();
     doc.text(20, 20, 'Hello world!');
     doc.text(20, 30, 'This is client-side Javascript, pumping out a PDF.');
     doc.addPage();
@@ -53,16 +53,17 @@ export class HomeComponent {
     doc.save('Test.pdf');
   }
 
-  // downloadJsPdfWithTablePlugin() {
-  //   let columns = ["ID", "Name", "Country"];
-  //   let rows = [
-  //     [1, "Shaw", "Tanzania"],
-  //     [2, "Nelson", "Kazakhstan"],
-  //     [3, "Garcia", "Madagascar"]
-  //   ];
-  //
-  //   var doc = new jsPDF('p', 'pt');
-  //   doc.autoTable(columns, rows);
-  //   doc.save("table.pdf");
-  // }
+  downloadJsPdfWithTablePlugin() {
+    let columns = ["ID", "Name", "Country"];
+    let rows = [
+      [1, "Shaw", "Tanzania"],
+      [2, "Nelson", "Kazakhstan"],
+      [3, "Garcia", "Madagascar"]
+    ];
+
+    var doc = new JsPDF('p', 'pt');
+    // TODO fix TS2339 here
+    doc.autoTable(columns, rows);
+    doc.save("table.pdf");
+  }
 }
