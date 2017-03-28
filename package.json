@@ -77,7 +77,6 @@
     "@types/hammerjs": "^2.0.34",
     "@types/jasmine": "^2.5.46",
     "@types/jquery": "^2.0.41",
-    "@types/jspdf": "^1.1.31",
     "@types/mousetrap": "^1.5.33",
     "@types/node": "^7.0.11",
     "@types/selenium-webdriver": "^3.0.0",
