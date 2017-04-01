@@ -1,0 +1,15 @@
+machine:
+  node:
+    version: 7
+
+dependencies:
+  override:
+    - npm install --dev
+  pre:
+    - rm -rf ./node_modules
+  cache_directories:
+    - ~/.npm
+
+test:
+  post:
+    - ./circleci/run.sh
