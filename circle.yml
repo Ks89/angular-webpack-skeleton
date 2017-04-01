@@ -3,8 +3,6 @@ machine:
     version: 7
 
 dependencies:
-  override:
-    - npm install --dev
   pre:
     - rm -rf ./node_modules
   cache_directories:

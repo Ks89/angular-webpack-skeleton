@@ -1,18 +1,16 @@
-#!/usr/bin/env bash
-
 # run debug build
-echo "npm run debug build on $TRAVIS_OS_NAME"
+#echo "npm run debug build on $TRAVIS_OS_NAME"
 npm run build:dev
 
 # run production build
-echo "npm run production build on $TRAVIS_OS_NAME"
+#echo "npm run production build on $TRAVIS_OS_NAME"
 npm run build:prod
 
 # clean before the real production build
 npm run clean
 
 # run production + AOT build
-echo "npm run production + AOT build on $TRAVIS_OS_NAME"
+#echo "npm run production + AOT build on $TRAVIS_OS_NAME"
 npm run build:prod:aot
 
 # run test
