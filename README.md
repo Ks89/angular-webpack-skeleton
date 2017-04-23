@@ -1,5 +1,5 @@
 # angular-webpack-skeleton
-A simple skeleton project to use Angular 4 (or 2.x.x, if you want to downgrade it), Webpack2, Bootstrap 4 alpha, ng-bootstrap and bootstrap-loader 2 together
+A simple skeleton project to use Angular 4, Webpack2, Bootstrap 4 alpha, ng-bootstrap and bootstrap-loader 2 together
 
 This project is a personal skeleton. If you want to use it feel free to fork it.
 I share this with you as it is.
@@ -7,6 +7,7 @@ I share this with you as it is.
 Project renamed to "angular-webpack-skeleton"
 
 ## News
+- *04/23/2017* - Alpha 18 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *03/26/2017* - Alpha 17 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *03/23/2017* - Alpha 16 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *03/05/2017* - Alpha 15 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -23,6 +24,14 @@ Project renamed to "angular-webpack-skeleton"
 
 
 ## Changelog
+
+#### Alpha 18
+- update to codelyzer 3
+- update to tslint 5
+- update to ngc-webpack 2
+- polyfills.ts taken from angular-cli's default project
+- temporary fix for e2e test (issue #32) but I'm waiting for a real solution
+- fix IE performance issue with debug mode (issue #34)
 
 #### Alpha 17
 - angular 4.0.0
@@ -114,6 +123,11 @@ If you are already ready, you can execute this (`sudo` if you are using macOS):
 - `npm run docs`
 
 I have to write the documentation, but this project is ready to use typedocs
+
+
+## To generate webpack bundle's results
+- `npm run build:dev` (or `build:prod` or `build:prod:aot`)
+- `npm run analyze:bundle`
 
 
 ## Credits
