@@ -22,11 +22,14 @@
  * SOFTWARE.
  */
 
-import { ApplicationAdminComponent } from './application.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
 
-describe('ApplicationAdminComponent', () => {
-  it('is successfully instantiated', () => {
-    const app = new ApplicationAdminComponent();
-    expect(app instanceof ApplicationAdminComponent).toEqual(true);
-  });
-});
+export { PageHeader } from './page-header/page-header.component';
+
+export const CORE_COMPONENTS = [
+  FooterComponent,
+  NavbarComponent,
+  PageHeaderComponent
+];

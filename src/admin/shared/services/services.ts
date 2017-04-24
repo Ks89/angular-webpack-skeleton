@@ -22,4 +22,9 @@
  * SOFTWARE.
  */
 
-export const SERVICES: any[] = [];
+import { ExampleService } from './example.service';
+export { ExampleService } from './example.service';
+
+export const SHARED_SERVICES: any[] = [
+  ExampleService
+];

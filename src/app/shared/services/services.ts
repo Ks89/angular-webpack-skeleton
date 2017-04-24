@@ -22,11 +22,9 @@
  * SOFTWARE.
  */
 
-import { Component, ViewEncapsulation } from '@angular/core';
+import { ExampleService } from './example.service';
+export { ExampleService } from './example.service';
 
-@Component({
-  selector: 'mmw-admin-application',
-  templateUrl: 'application.html',
-  encapsulation: ViewEncapsulation.None
-})
-export class ApplicationAdminComponent {}
+export const SHARED_SERVICES: any[] = [
+  ExampleService
+];

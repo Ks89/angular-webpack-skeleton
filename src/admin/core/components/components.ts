@@ -22,26 +22,12 @@
  * SOFTWARE.
  */
 
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { NavbarAdminComponent } from './navbar/navbar.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
 
-import { SHARED_SERVICES } from './services/services';
+export { PageHeader } from './page-header/page-header.component';
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-@NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    NgbModule // without forRoot, because this is a child module
-  ],
-  exports:[],
-  declarations: [],
-  providers: [
-    SHARED_SERVICES
-  ]
-})
-
-export class SharedModule {
-}
+export const CORE_COMPONENTS = [
+  NavbarAdminComponent,
+  PageHeaderComponent
+];

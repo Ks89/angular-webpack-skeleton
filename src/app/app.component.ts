@@ -25,7 +25,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'mmw-application',
-  templateUrl: 'application.html'
+  selector: 'mmw-app',
+  templateUrl: 'app.html'
 })
-export class ApplicationComponent {}
+export class AppComponent {}

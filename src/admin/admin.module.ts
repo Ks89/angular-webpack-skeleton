@@ -33,9 +33,10 @@ import 'bootstrap-loader';
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
+import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { ADMIN_COMPONENTS } from './pages/components';
-import { ApplicationAdminComponent } from './application/application.component';
+import { AdminComponent } from './admin.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { createNewHosts, createInputTransfer, removeNgStyles } from '@angularclass/hmr';
@@ -51,14 +52,15 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
     ReactiveFormsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules }),
+    CoreModule,
     SharedModule
   ],
   declarations: [
-    ApplicationAdminComponent,
+    AdminComponent,
     ADMIN_COMPONENTS
   ],
   providers: [],
-  bootstrap: [ ApplicationAdminComponent ]
+  bootstrap: [ AdminComponent ]
 })
 
 export class AdminModule {

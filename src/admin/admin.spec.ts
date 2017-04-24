@@ -22,26 +22,11 @@
  * SOFTWARE.
  */
 
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { AdminComponent } from './admin.component';
 
-import { SHARED_SERVICES } from './services/services';
-
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-@NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    NgbModule // without forRoot, because this is a child module
-  ],
-  exports:[],
-  declarations: [],
-  providers: [
-    SHARED_SERVICES
-  ]
-})
-
-export class SharedModule {
-}
+describe('AdminComponent', () => {
+  it('is successfully instantiated', () => {
+    const app = new AdminComponent();
+    expect(app instanceof AdminComponent).toEqual(true);
+  });
+});

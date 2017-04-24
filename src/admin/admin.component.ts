@@ -22,26 +22,11 @@
  * SOFTWARE.
  */
 
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Component, ViewEncapsulation } from '@angular/core';
 
-import { SHARED_SERVICES } from './services/services';
-
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-@NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    NgbModule // without forRoot, because this is a child module
-  ],
-  exports:[],
-  declarations: [],
-  providers: [
-    SHARED_SERVICES
-  ]
+@Component({
+  selector: 'mmw-admin',
+  templateUrl: 'admin.html',
+  encapsulation: ViewEncapsulation.None
 })
-
-export class SharedModule {
-}
+export class AdminComponent {}

@@ -23,7 +23,7 @@
  */
 
 import { Component } from '@angular/core';
-import { PageHeader } from '../../shared/components/components';
+import { PageHeader } from '../../core/components/components';
 
 @Component({
   selector: 'mmw-home-page',

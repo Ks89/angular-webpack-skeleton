@@ -33,9 +33,10 @@ import 'bootstrap-loader';
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
+import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { COMPONENTS } from './pages/components';
-import { ApplicationComponent } from './application/application.component';
+import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
@@ -51,14 +52,15 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
     ReactiveFormsModule,
     NgbModule.forRoot(), // forRoot ensures the providers are only created once
     RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules }),
+    CoreModule,
     SharedModule
 ],
   declarations: [
-    ApplicationComponent,
+    AppComponent,
     COMPONENTS
   ],
   providers: [],
-  bootstrap: [ ApplicationComponent ]
+  bootstrap: [ AppComponent ]
 })
 
 export class AppModule {

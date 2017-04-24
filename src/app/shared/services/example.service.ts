@@ -22,14 +22,27 @@
  * SOFTWARE.
  */
 
-import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { PageHeaderComponent } from './page-header/page-header.component';
+import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 
-export { PageHeader } from './page-header/page-header.component';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
-export const SHARED_COMPONENTS = [
-  FooterComponent,
-  NavbarComponent,
-  PageHeaderComponent
-];
+@Injectable()
+export class ExampleService {
+  constructor(private http: Http) {}
+
+  getExample(): Observable<any> {
+    return this.http.get('/api/example')
+      .map(response => response.json())
+      .catch(this.handleError);
+  }
+
+  private handleError (error: any) {
+    // TODO In a real world app, we might send the error to remote logging infrastructure
+    let errMsg = error.message || 'Server error';
+    console.error(errMsg); // log to console instead
+    return Observable.throw(new Error(errMsg));
+  }
+}
