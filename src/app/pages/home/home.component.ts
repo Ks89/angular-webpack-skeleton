@@ -24,6 +24,7 @@
 
 import { Component } from '@angular/core';
 import { PageHeader } from '../../core/components/components';
+import { ExampleService } from "../../shared/services/example.service";
 
 @Component({
   selector: 'mmw-home-page',
@@ -34,7 +35,7 @@ export class HomeComponent {
   pageHeader: PageHeader;
   message: string;
 
-  constructor() {
+  constructor(private exampleService: ExampleService) {
     this.pageHeader = new PageHeader('KS', 'Welcome');
     this.message = 'Welcome to my website';
   }

@@ -23,12 +23,12 @@
  */
 
 import { Component } from '@angular/core';
+import { ExampleService } from "../../shared/services/example.service";
 
 @Component({
   selector: 'mmw-admin-dashboard-page',
   templateUrl: 'dashboard.html'
 })
 export class DashboardAdminComponent {
-  constructor() {
-  }
+  constructor(private exampleService: ExampleService) {}
 }

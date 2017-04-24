@@ -24,6 +24,7 @@
 
 import { Component } from '@angular/core';
 import { PageHeader } from '../../core/components/components';
+import {ExampleService} from "../../shared/services/example.service";
 
 console.log('`Lazy` component loaded asynchronously');
 
@@ -35,7 +36,7 @@ console.log('`Lazy` component loaded asynchronously');
 export class LazyComponent {
   public pageHeader: PageHeader;
 
-  constructor() {
+  constructor(private exampleService: ExampleService) {
     this.pageHeader = new PageHeader('LAZY', '');
   }
 }
