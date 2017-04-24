@@ -26,9 +26,10 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
-import { CoreModule } from '../../core/core.module';
-import { SharedModule } from "../../shared/shared.module";
 import { LazyComponent } from './lazy.component';
+import { SharedModule } from "../../shared/shared.module";
+import { CoreModule}  from "../../core/core.module";
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 let comp: LazyComponent;
@@ -38,7 +39,7 @@ describe('LazyComponent', () => {
   beforeEach( async(() => {
 
     TestBed.configureTestingModule({
-      imports: [ CoreModule, NgbModule.forRoot(), SharedModule ],
+      imports: [ NgbModule.forRoot(), SharedModule, CoreModule ],
       declarations: [ LazyComponent ]
     }); // not necessary with webpack .compileComponents();
 

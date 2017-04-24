@@ -26,7 +26,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { SHARED_SERVICES } from './services/services';
+import { SHARED_COMPONENTS } from './components/components';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -36,11 +36,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     NgbModule // without forRoot, because this is a child module
   ],
-  exports:[],
-  declarations: [],
-  providers: [
-    SHARED_SERVICES
-  ]
+  exports:[
+    SHARED_COMPONENTS
+  ],
+  declarations: [
+    SHARED_COMPONENTS
+  ],
+  providers: []
 })
 
 export class SharedModule {

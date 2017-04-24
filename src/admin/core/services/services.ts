@@ -22,14 +22,9 @@
  * SOFTWARE.
  */
 
-import { FooterComponent } from './footer/footer.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { PageHeaderComponent } from './page-header/page-header.component';
+import { ExampleService } from './example.service';
+export { ExampleService } from './example.service';
 
-export { PageHeader } from './page-header/page-header.component';
-
-export const CORE_COMPONENTS = [
-  FooterComponent,
-  NavbarComponent,
-  PageHeaderComponent
+export const CORE_SERVICES: any[] = [
+  ExampleService
 ];

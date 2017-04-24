@@ -22,27 +22,14 @@
  * SOFTWARE.
  */
 
-import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PageHeaderComponent } from './page-header/page-header.component';
 
-import { CORE_SERVICES } from './services/services';
-import { throwIfAlreadyLoaded } from "./module-import-guard";
+export { PageHeader } from './page-header/page-header.component';
 
-@NgModule({
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  exports:[],
-  declarations: [],
-  providers: [
-    CORE_SERVICES
-  ]
-})
-
-export class CoreModule {
-  constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
-    throwIfAlreadyLoaded(parentModule, 'CoreModule');
-  }
-}
+export const SHARED_COMPONENTS = [
+  FooterComponent,
+  NavbarComponent,
+  PageHeaderComponent
+];

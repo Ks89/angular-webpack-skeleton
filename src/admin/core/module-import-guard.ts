@@ -22,9 +22,8 @@
  * SOFTWARE.
  */
 
-import { ExampleService } from './example.service';
-export { ExampleService } from './example.service';
-
-export const SHARED_SERVICES: any[] = [
-  ExampleService
-];
+export function throwIfAlreadyLoaded(parentModule: any, moduleName: string) {
+  if (parentModule) {
+    throw new Error(`${moduleName} has already been loaded. Import Core modules in the AppModule only.`);
+  }
+}

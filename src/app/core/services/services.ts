@@ -25,6 +25,6 @@
 import { ExampleService } from './example.service';
 export { ExampleService } from './example.service';
 
-export const SHARED_SERVICES: any[] = [
+export const CORE_SERVICES: any[] = [
   ExampleService
 ];

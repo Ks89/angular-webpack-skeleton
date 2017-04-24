@@ -22,28 +22,27 @@
  * SOFTWARE.
  */
 
-import { NgModule } from '@angular/core';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { CORE_COMPONENTS } from './components/components';
-
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CORE_SERVICES } from './services/services';
+import { throwIfAlreadyLoaded } from "./module-import-guard";
 
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule,
-    NgbModule // without forRoot, because this is a child module
+    RouterModule
   ],
-  exports:[
-    CORE_COMPONENTS
-  ],
-  declarations: [
-    CORE_COMPONENTS
-  ],
-  providers: []
+  exports:[],
+  declarations: [],
+  providers: [
+    CORE_SERVICES
+  ]
 })
 
 export class CoreModule {
+  constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
+    throwIfAlreadyLoaded(parentModule, 'CoreModule');
+  }
 }

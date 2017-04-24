@@ -23,7 +23,7 @@
  */
 
 import { Component } from '@angular/core';
-import { ExampleService } from "../../shared/services/example.service";
+import {ExampleService} from "../../core/services/example.service";
 
 @Component({
   selector: 'mmw-admin-dashboard-page',

@@ -23,8 +23,8 @@
  */
 
 import { Component } from '@angular/core';
-import { PageHeader } from '../../core/components/components';
-import {ExampleService} from "../../shared/services/example.service";
+import { PageHeader } from '../../shared/components/components';
+import {ExampleService} from "../../core/services/example.service";
 
 console.log('`Lazy` component loaded asynchronously');
 

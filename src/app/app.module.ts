@@ -33,8 +33,8 @@ import 'bootstrap-loader';
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
-import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 import { COMPONENTS } from './pages/components';
 import { AppComponent } from './app.component';
 
