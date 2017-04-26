@@ -36,7 +36,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RouterModule,
     NgbModule // without forRoot, because this is a child module
   ],
-  exports:[
+  exports: [
     SHARED_COMPONENTS
   ],
   declarations: [
