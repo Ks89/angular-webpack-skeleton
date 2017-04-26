@@ -1,3 +1,7 @@
+[![Travis Build](https://travis-ci.org/Ks89/angular-webpack-skeleton.svg?branch=master)](https://travis-ci.org/Ks89/angular-webpack-skeleton)   [![AppVeyor Build](https://ci.appveyor.com/api/projects/status/w96f5qv0rbodqnx1/branch/master?svg=true)](https://ci.appveyor.com/project/Ks89/angular-webpack-skeleton/branch/master)   [![Code Climate](https://codeclimate.com/github/Ks89/angular-webpack-skeleton/badges/gpa.svg)](https://codeclimate.com/github/Ks89/angular-webpack-skeleton)   [![CodeClimate Coverage](https://codeclimate.com/github/Ks89/angular-webpack-skeleton/badges/coverage.svg)](https://codeclimate.com/github/Ks89/angular-webpack-skeleton/coverage)   [![Coveralls Coverage](https://coveralls.io/repos/github/Ks89/angular-webpack-skeleton/badge.svg?branch=master)](https://coveralls.io/github/Ks89/angular-webpack-skeleton?branch=master)   [![Known Vulnerabilities](https://snyk.io/test/github/ks89/angular2-webpack2-skeleton/badge.svg)](https://snyk.io/test/github/ks89/angular2-webpack2-skeleton)
+
+<br>
+
 # angular-webpack-skeleton
 A simple skeleton project to use Angular 4, Webpack2, Bootstrap 4 alpha, ng-bootstrap and bootstrap-loader 2 together
 

@@ -65,9 +65,9 @@ environment:
   CI: yes
   APPVEYOR: yes
   CODECLIMATE_REPO_TOKEN:
-    secure: Hyo87FXYunQqMYXKzfJ8AxvDlLcBuTr80oSEaHAhZ+Yf/uaMOIc63gXmEqjXavDZoH5qZzEPaxbMgH/DTrD4ZuGVXgf75lO/VwkOXcxFXAA=
+    secure: 6JVnrBCedivK2uWNn8gCpKPOcni/pprCZwsS4qRHRFQDeWYtn+Gakf0V//XPK0aoWyqMbzf22FhTVe+vo0ciFltU780UOh5/n3TKBlaPOW0=
   COVERALLS_REPO_TOKEN:
-    secure: desVFXndwhyS8sCXOUeHfY9N0NgCFa7IDlSLRRcgK2FJAQdA7OZ99gNNDrJzMjmP
+    secure: yPyhFiKIQeJBzGxRCdz0gHaR1epFzH2cL0dpBKswJjWlUGmY2zDUzdnyic5mYz4O
 
 # this is how to allow failing jobs in the matrix
 matrix:
