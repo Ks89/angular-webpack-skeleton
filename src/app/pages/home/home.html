@@ -31,6 +31,21 @@
     <br>
     <br>
 
+    <br>
+    <p>For example:</p>
+    <ul>
+      <li *ngFor="let element of elements">{{element.field}}</li>
+    </ul>
+    <br>
+    <p>For async example:</p>
+    <ul>
+      <li *ngFor="let elementObs of elementsObs | async">{{elementObs.field}}</li>
+    </ul>
+    <br>
+    <p>If Example:</p>
+    <p *ngIf="elements.length >= 0">Elements contains at leats on element</p>
+    <br>
+
     <div class="row">
       <!-- taken from https://ng-bootstrap.github.io/#/components/accordion -->
       <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">

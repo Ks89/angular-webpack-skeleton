@@ -22,21 +22,40 @@
  * SOFTWARE.
  */
 
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+
 import { PageHeader } from '../../shared/components/components';
 import { ExampleService } from "../../core/services/example.service";
+
+import { Observable } from "rxjs/Observable";
+import 'rxjs/add/operator/delay';
 
 @Component({
   selector: 'mmw-home-page',
   styleUrls: ['home.scss'],
   templateUrl: 'home.html'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit, OnDestroy {
   pageHeader: PageHeader;
   message: string;
+  elements: Array<Object> = [
+    { field: 'el1' },
+    { field: 'el2' },
+    { field: 'el3' }
+  ];
+
+  elementsObs: Observable<Object> = Observable.of(this.elements).delay(500);
 
   constructor(private exampleService: ExampleService) {
     this.pageHeader = new PageHeader('KS', 'Welcome');
     this.message = 'Welcome to my website';
+  }
+
+  ngOnInit() {
+    console.log('Init called');
+  }
+
+  ngOnDestroy() {
+    console.log('Destroy called');
   }
 }
