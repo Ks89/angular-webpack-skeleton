@@ -54,7 +54,7 @@
     "@angular/platform-server": "^4.0.3",
     "@angular/router": "^4.0.3",
     "@angularclass/idle-preload": "^1.0.4",
-    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.22",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.25",
     "bootstrap": "=4.0.0-alpha.6",
     "bootstrap-loader": "^2.0.0",
     "core-js": "^2.4.1",
