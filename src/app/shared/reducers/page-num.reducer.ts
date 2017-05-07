@@ -19,7 +19,7 @@ import { Action } from '@ngrx/store';
 export const GET_PAGE = 'GET_PAGE';
 export const SET_PAGE = 'SET_PAGE';
 
-export const pageNum = (state = 0, action: Action) => {
+export function pageNum(state = 0, action: Action) {
   switch (action.type) {
     case GET_PAGE:
       return state;
@@ -29,4 +29,4 @@ export const pageNum = (state = 0, action: Action) => {
     default:
       return state;
   }
-};
+}
