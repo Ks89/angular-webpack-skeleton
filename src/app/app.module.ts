@@ -37,11 +37,14 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { COMPONENTS } from './pages/components';
 import { AppComponent } from './app.component';
+import { pageNum } from './shared/reducers/page-num.reducer';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 import { IdlePreloadModule } from '@angularclass/idle-preload';
 import { RouterModule, PreloadAllModules } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   imports: [
@@ -53,7 +56,13 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
     NgbModule.forRoot(), // forRoot ensures the providers are only created once
     RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules }),
     CoreModule,
-    SharedModule
+    SharedModule,
+
+    StoreModule.provideStore({
+      pageNum: pageNum
+    }),
+
+    StoreDevtoolsModule.instrumentOnlyWithExtension(),
 ],
   declarations: [
     AppComponent,

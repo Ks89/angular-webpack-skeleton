@@ -25,10 +25,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { PageHeader } from '../../shared/components/components';
-import { ExampleService } from "../../core/services/example.service";
+import { ExampleService } from '../../core/services/example.service';
+import { SET_PAGE } from '../../shared/reducers/page-num.reducer';
 
-import { Observable } from "rxjs/Observable";
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/delay';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'mmw-home-page',
@@ -46,9 +48,19 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   elementsObs: Observable<Object> = Observable.of(this.elements).delay(500);
 
-  constructor(private exampleService: ExampleService) {
+  constructor(private pageStore: Store<number>,
+              private exampleService: ExampleService) {
     this.pageHeader = new PageHeader('KS', 'Welcome');
     this.message = 'Welcome to my website';
+
+    // dispatch a number equals to 4 (it's only an example),
+    // to save it into ngrx-store
+    this.pageStore.dispatch({type: SET_PAGE, payload: 4});
+
+    // retrieve the stored value from ngrx-store and log it
+    this.pageStore.select('pageNum').subscribe(val => {
+      console.log('ngrx-store value: ' + val);
+    });
   }
 
   ngOnInit() {
