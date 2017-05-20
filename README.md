@@ -11,6 +11,7 @@ I share this with you as it is.
 Project renamed to "angular-webpack-skeleton"
 
 ## News
+- *05/20/2017* - Alpha 20 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *04/25/2017* - Alpha 19 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *04/23/2017* - Alpha 18 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *03/26/2017* - Alpha 17 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -72,10 +73,13 @@ If you are already ready, you can execute this (`sudo` if you are using macOS):
 
 I have to write the documentation, but this project is ready to use typedocs
 
-
 ## To generate webpack bundle's results
 - `npm run build:dev` (or `build:prod` or `build:prod:aot`)
 - `npm run analyze:bundle`
+
+## To use webpack-visualizer-plugin
+- `npm run build:dev` (or `build:prod` or `build:prod:aot`)
+- open in your browser `dist/webpack-visualizer-report.html`
 
 
 ## Credits

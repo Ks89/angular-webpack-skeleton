@@ -59,9 +59,11 @@
     "@ngrx/store": "^2.2.2",
     "bootstrap": "=4.0.0-alpha.6",
     "bootstrap-loader": "^2.1.0",
+    "classlist.js": "^1.1.20150312",
     "core-js": "^2.4.1",
     "font-awesome": "^4.6.3",
     "hammerjs": "^2.0.8",
+    "intl": "^1.2.5",
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "mousetrap": "^1.6.0",
@@ -69,6 +71,7 @@
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.4.0",
     "tether": "^1.3.8",
+    "web-animations-js": "^2.2.5",
     "zone.js": "^0.8.11"
   },
   "devDependencies": {

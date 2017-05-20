@@ -1,3 +1,15 @@
+#### Alpha 20
+- ngrx-store #24
+- fixed deprecated templates preventing page render #35 (thanks to @joshuaharrison)
+- bug fix: loading spinner not displayed correctly #25
+- webpack-visualizer-plugin (check README.md for mor info)
+- examples of *ngIf and *ngFor in home.html
+- CI services: AppVeyor, TravisCI and CircleCI
+- Other services: Coveralls and CodeClimate
+- add badges in readme.md #30
+- ng-bootstrap alpha 25
+- enabled all imports in polyfills to support older browsers
+
 #### Alpha 19
 - full refactoring based on [Angular Style Guide](https://angular.io/styleguide), finally with CoreModule and SharedModule following all best practices
 
