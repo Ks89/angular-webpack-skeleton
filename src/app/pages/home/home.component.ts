@@ -46,10 +46,11 @@ export class HomeComponent implements OnInit, OnDestroy {
     { field: 'el3' }
   ];
 
-  elementsObs: Observable<Object> = Observable.of(this.elements).delay(500);
+  elementsObs: Observable<Object> = Observable.of(this.elements).delay(1000);
 
   constructor(private pageStore: Store<number>,
               private exampleService: ExampleService) {
+
     this.pageHeader = new PageHeader('KS', 'Welcome');
     this.message = 'Welcome to my website';
 

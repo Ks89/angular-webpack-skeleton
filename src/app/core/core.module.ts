@@ -27,14 +27,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { CORE_SERVICES } from './services/services';
-import { throwIfAlreadyLoaded } from "./module-import-guard";
+import { throwIfAlreadyLoaded } from './module-import-guard';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule
   ],
-  exports:[],
+  exports: [],
   declarations: [],
   providers: [
     CORE_SERVICES

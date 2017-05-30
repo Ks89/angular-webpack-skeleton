@@ -291,7 +291,6 @@ module.exports = {
       // Log level. Can be 'info', 'warn', 'error' or 'silent'.
       logLevel: 'info'
     }),
-
     new VisualizerPlugin({
       filename: './webpack-visualizer-report.html'
     })
