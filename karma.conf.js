@@ -24,6 +24,10 @@
 
 'use strict';
 
+/**
+ * File used to configure Karma for unit testing
+ */
+
 const webpackConfig = require('./config/webpack.test');
 const os = require('os');
 

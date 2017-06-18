@@ -22,11 +22,15 @@
  * SOFTWARE.
  */
 
+/**
+ * Initial component with its template displayed as initial page for `admin entry-point`.
+ * Template could contain router-outlets, navbars, footers and so on
+ */
+
 import { Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'mmw-admin',
-  templateUrl: 'admin.html',
-  encapsulation: ViewEncapsulation.None
+  templateUrl: 'admin.html'
 })
 export class AdminComponent {}

@@ -22,6 +22,10 @@
  * SOFTWARE.
  */
 
+/**
+ * Custom additional types for Typescript.
+ */
+
 // support NodeJS modules without type definitions
 declare module '*';
 

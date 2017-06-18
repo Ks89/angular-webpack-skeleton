@@ -28,8 +28,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { ROUTES }  from './admin.routing';
 
-// Third party opensource libraries (that are using scss/css)
+// Third party libraries (that are using scss/css)
 import 'bootstrap-loader';
+
+// import my styles (scss/css)
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -52,12 +54,16 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
     ReactiveFormsModule,
     NgbModule.forRoot(),
     RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules }),
+
+    // CoreModule must be loaded only on time
     CoreModule,
+
+    // SharedModule could be loaded in all sub-modules, if you need a feature from its
     SharedModule
   ],
   declarations: [
-    AdminComponent,
-    ADMIN_COMPONENTS
+    AdminComponent, // main component for `admin entry-point`
+    ADMIN_COMPONENTS // all components for `admin entry-point` that you want to load as part of the main module
   ],
   providers: [],
   bootstrap: [ AdminComponent ]

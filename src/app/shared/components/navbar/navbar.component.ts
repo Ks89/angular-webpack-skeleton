@@ -22,6 +22,10 @@
  * SOFTWARE.
  */
 
+/**
+ * Navbar of your application with the main horizontal menu
+ */
+
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 

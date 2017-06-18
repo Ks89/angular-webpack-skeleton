@@ -22,6 +22,10 @@
  * SOFTWARE.
  */
 
+/**
+ * Footer of your application with copyright info and so on
+ */
+
 import { Component } from '@angular/core';
 
 @Component({

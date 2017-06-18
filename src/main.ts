@@ -22,6 +22,13 @@
  * SOFTWARE.
  */
 
+/**
+ * This is the main file for 'app entry-point'.
+ * It boots Angular with either `debug` or `prod` configuration.
+ * It's used by Angular JIT (Just-In-Time) compiler when building
+ * this application with all scripts, except for `npm run build:prod:aot`.
+ */
+
 import { enableProdMode } from '@angular/core';
 import { bootloader } from '@angularclass/hmr';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';

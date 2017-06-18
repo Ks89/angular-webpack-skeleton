@@ -22,11 +22,15 @@
  * SOFTWARE.
  */
 
+/**
+ * Component with features, template and so on. This is the component used to display the home page of `app entry-point`.
+ */
+
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { PageHeader } from '../../shared/components/components';
 import { ExampleService } from '../../core/services/example.service';
-import { SET_PAGE } from '../../shared/reducers/page-num.reducer';
+import { SET_PAGE } from '../../reducers/page-num.reducer';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/delay';

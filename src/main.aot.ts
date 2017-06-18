@@ -22,6 +22,11 @@
  * SOFTWARE.
  */
 
+/**
+ * This file is like `main.ts`, but it's used by Angular AOT (Ahead-Of-Time)
+ * compiler when building this application with `npm run build:prod:aot`.
+ */
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowser } from '@angular/platform-browser';
 import { AppModuleNgFactory } from '../aot/src/app/app.module.ngfactory';

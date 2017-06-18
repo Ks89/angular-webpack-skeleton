@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+/**
+ * Reducer to get and set a page number into a reactive storage built with a
+ * library called `ng-rx store`. You can add other reducers to save data into a singleton in-memory storage between different pages.
+ * Its extremely powerful, so I suggest to check the official documentation on Github of `ng-rx store`.
+ */
+
 import { Action } from '@ngrx/store';
 
 export const GET_PAGE = 'GET_PAGE';

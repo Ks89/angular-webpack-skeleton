@@ -22,4 +22,8 @@
  * SOFTWARE.
  */
 
+/**
+ * File used by protractor Karma for end-to-end (e2e) testing
+ */
+
 module.exports = require('./config/protractor.conf.js');

@@ -22,6 +22,10 @@
  * SOFTWARE.
  */
 
+/**
+ * Page header component to display a big title and a smaller strapline (or subtitle)
+ */
+
 import { Component, Input } from '@angular/core';
 
 export class PageHeader {

@@ -22,6 +22,10 @@
  * SOFTWARE.
  */
 
+/**
+ * Component of the lazy loaded module
+ */
+
 import { Component } from '@angular/core';
 import { PageHeader } from '../../shared/components/components';
 import {ExampleService} from "../../core/services/example.service";

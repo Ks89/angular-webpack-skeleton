@@ -37,7 +37,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { COMPONENTS } from './pages/components';
 import { AppComponent } from './app.component';
-import { pageNum } from './shared/reducers/page-num.reducer';
+import { pageNum } from './reducers/page-num.reducer';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
@@ -65,8 +65,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     StoreDevtoolsModule.instrumentOnlyWithExtension(),
 ],
   declarations: [
-    AppComponent,
-    COMPONENTS
+    AppComponent, // main component for `app entry-point`
+    COMPONENTS // all components for `app entry-point` that you want to load as part of the main module
   ],
   providers: [],
   bootstrap: [ AppComponent ]

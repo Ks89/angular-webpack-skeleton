@@ -22,6 +22,11 @@
  * SOFTWARE.
  */
 
+/**
+ * Initial component with its template displayed as initial page for `app entry-point`.
+ * Template could contain router-outlets, navbars, footers and so on
+ */
+
 import { Component } from '@angular/core';
 
 @Component({

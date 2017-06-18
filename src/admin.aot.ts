@@ -22,6 +22,11 @@
  * SOFTWARE.
  */
 
+/**
+ * This file is like `admin.ts`, but it's used by Angular AOT (Ahead-Of-Time)
+ * compiler when building this application with `npm run build:prod:aot`.
+ */
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowser } from '@angular/platform-browser';
 import { AdminModuleNgFactory } from '../aot/src/admin/admin.module.ngfactory';

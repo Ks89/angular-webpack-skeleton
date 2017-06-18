@@ -22,6 +22,10 @@
  * SOFTWARE.
  */
 
+/**
+ * Load routes of the lazy loaded module
+ */
+
 import { LazyComponent } from './lazy.component';
 
 export const routes = [

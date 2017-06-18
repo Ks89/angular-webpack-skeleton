@@ -1,14 +1,14 @@
 // taken from https://github.com/AngularClass/angular2-webpack-starter/blob/master/src/app/environment.ts
 
+/**
+ * Configure Angular environment.
+ * This file is used by all entry points
+ */
+
 // Angular 2
-import {
-  enableDebugTools,
-  disableDebugTools
-} from '@angular/platform-browser';
-import {
-  ApplicationRef,
-  enableProdMode
-} from '@angular/core';
+import { enableDebugTools, disableDebugTools } from '@angular/platform-browser';
+import { ApplicationRef, enableProdMode } from '@angular/core';
+
 // Environment Providers
 let PROVIDERS: any[] = [
   // common env directives

@@ -22,4 +22,9 @@
  * SOFTWARE.
  */
 
+/**
+ * File used by webpack to build, start, test, release this application.
+ * Check `./config` for all webpack config files
+ */
+
 module.exports = require('./config/webpack.dev.js');

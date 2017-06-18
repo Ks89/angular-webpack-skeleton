@@ -22,6 +22,10 @@
  * SOFTWARE.
  */
 
+/**
+ * Main configuration to run protractor for e2e testing
+ */
+
 // run:
 // 1. npm run webdriver:update
 // 2. npm run e2e

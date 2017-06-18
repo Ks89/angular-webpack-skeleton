@@ -22,13 +22,17 @@
  * SOFTWARE.
  */
 
+/**
+ * Angular routes for your `app entry-point`.
+ */
+
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFound404Component } from './pages/404/not-found404.component';
 
 export const ROUTES: Routes = [
-  {path: '',                                component: HomeComponent},
-  {path: 'home',                            component: HomeComponent},
-  {path: 'lazy',                            loadChildren: './pages/lazy/lazy.module#LazyModule'},
-  {path: '**',                              component: NotFound404Component}
+  {path: '',             component: HomeComponent},                             //`http://localhost:3300/`
+  {path: 'home',         component: HomeComponent},                             //`http://localhost:3300/home`
+  {path: 'lazy',         loadChildren: './pages/lazy/lazy.module#LazyModule'},  //`http://localhost:3300/lazy`
+  {path: '**',           component: NotFound404Component}                       // every other routes
 ];

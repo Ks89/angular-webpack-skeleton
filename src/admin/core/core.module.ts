@@ -22,6 +22,10 @@
  * SOFTWARE.
  */
 
+/**
+ * Core module that you can import only one time into the main module. If you try to import it again, you'll get a runtime error.
+ */
+
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
