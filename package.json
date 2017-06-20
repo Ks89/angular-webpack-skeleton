@@ -82,7 +82,7 @@
     "@angularclass/hmr-loader": "^3.0.2",
     "@ngrx/store-devtools": "^3.2.4",
     "@types/hammerjs": "^2.0.34",
-    "@types/jasmine": "^2.5.52",
+    "@types/jasmine": "=2.5.38",
     "@types/jquery": "^3.2.2",
     "@types/mousetrap": "^1.5.34",
     "@types/node": "^8.0.0",
