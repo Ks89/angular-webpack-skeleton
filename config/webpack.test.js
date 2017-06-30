@@ -53,7 +53,6 @@ module.exports = {
           helpers.root('node_modules/@angular')
         ]
       },
-
       {
         test: /\.ts$/,
         use: [
@@ -70,7 +69,7 @@ module.exports = {
                 removeComments: true
 
               }
-            },
+            }
           },
           'angular2-template-loader'
         ],
@@ -122,4 +121,4 @@ module.exports = {
       helpers.root('./src') // location of your src
     )
   ]
-}
+};

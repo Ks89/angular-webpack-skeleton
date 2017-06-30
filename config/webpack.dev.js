@@ -69,15 +69,15 @@ module.exports = webpackMerge(commonConfig, {
     historyApiFallback: true,
     watchOptions: {
       aggregateTimeout: 300,
-      poll: 1000
+      poll: 1000,
+      ignored: /node_modules/
     },
     stats: {colors: true},
     proxy: {
       //proxy all paths of the main
       //server (executed with gulp (not with nodemon))
       "/api/**": MAIN_SERVER_PATH
-    },
-
+    }
   },
   module: {
     rules: [
@@ -123,7 +123,6 @@ module.exports = webpackMerge(commonConfig, {
       allChunks: true
     }),
     new DefinePlugin({'webpack': {'ENV': JSON.stringify(METADATA.env)}}),
-
     new DllBundlesPlugin({
       bundles: {
         polyfills: [

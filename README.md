@@ -3,14 +3,13 @@
 <br>
 
 # angular-webpack-skeleton
-A simple skeleton project to use Angular 4, Webpack2, Bootstrap 4 alpha, ng-bootstrap and bootstrap-loader 2 together
+A simple skeleton project to use Angular 4, Webpack 3, Bootstrap 4 alpha, ng-bootstrap and bootstrap-loader 2 together
 
 This project is a personal skeleton. If you want to use it feel free to fork it.
 I share this with you as it is.
 
-Project renamed to "angular-webpack-skeleton"
-
 ## News
+- *??/??/2017* - Alpha 21 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *05/20/2017* - Alpha 20 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *04/25/2017* - Alpha 19 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *04/23/2017* - Alpha 18 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -67,6 +66,8 @@ If you are already ready, you can execute this (`sudo` if you are using macOS):
 ## Test e2e with protractor
 - `npm run webdriver:update` (if you have problems, try again removing `./node_modules` and executing `npm install`)
 - `npm run e2e`
+
+If you have problems with e2e testing, you should downgrade `@types/jasmine` to version `2.5.38`.
 
 ## To generate typescript's documentation (check docs/index.html with the result)
 - `npm run docs`

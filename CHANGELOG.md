@@ -1,3 +1,9 @@
+#### Alpha 21
+- Angular 4.2 and other dependencies updated
+- Webpack 3
+- initial impl of 'add docs + example for typedocs' #21
+- fix again e2e testing error (@types/jasmine downgraded) #32
+
 #### Alpha 20
 - ngrx-store #24
 - fixed deprecated templates preventing page render #35 (thanks to @joshuaharrison)

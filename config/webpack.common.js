@@ -29,6 +29,7 @@ const CommonsChunkPlugin           = require('webpack/lib/optimize/CommonsChunkP
 const LoaderOptionsPlugin          = require('webpack/lib/LoaderOptionsPlugin');
 const ContextReplacementPlugin     = require('webpack/lib/ContextReplacementPlugin');
 const NamedModulesPlugin           = require('webpack/lib/NamedModulesPlugin');
+const ModuleConcatenationPlugin    = require('webpack/lib/optimize/ModuleConcatenationPlugin');
 
 const CopyWebpackPlugin            = require('copy-webpack-plugin');
 const HtmlWebpackPlugin            = require('html-webpack-plugin');
@@ -49,6 +50,7 @@ const TEMPLATE_HTML                = 'index.html';
 const TEMPLATE_ADMIN_HTML          = 'admin.html';
 
 const AOT                          = helpers.hasNpmFlag('aot');
+const PROD                         = helpers.hasNpmFlag('prod');
 const TS_CONFIG                    = AOT ? 'tsconfig-aot.json' : 'tsconfig.json';
 
 module.exports = {
@@ -84,7 +86,8 @@ module.exports = {
           {
             loader: 'awesome-typescript-loader',
             options: {
-              configFileName: '${TS_CONFIG}'
+              configFileName: '${TS_CONFIG}',
+              useCache: !AOT && !PROD
             }
           },
           {
@@ -136,6 +139,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new ModuleConcatenationPlugin(),
     new NamedModulesPlugin(),
     new CommonsChunkPlugin({
       name: 'polyfills',
@@ -153,7 +157,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: TITLE,
       inject: true,
-      // chunksSortMode: 'auto', // auto is the default value
+      chunksSortMode: 'dependency',
       chunks: ['polyfills', 'vendor', 'app'],
       template: TEMPLATE_PATH,
       filename: TEMPLATE_HTML
@@ -161,18 +165,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: TITLE_ADMIN,
       inject: true,
-      chunksSortMode: function (chunk1, chunk2) {
-        let orders = ['polyfills', 'vendor', 'admin'];
-        let order1 = orders.indexOf(chunk1.names[0]);
-        let order2 = orders.indexOf(chunk2.names[0]);
-        if (order1 > order2) {
-          return 1;
-        } else if (order1 < order2) {
-          return -1;
-        } else {
-          return 0;
-        }
-      },
+      chunksSortMode: 'dependency',
       chunks: ['polyfills', 'vendor', 'admin'],
       template: TEMPLATE_ADMIN_PATH,
       filename: TEMPLATE_ADMIN_HTML
