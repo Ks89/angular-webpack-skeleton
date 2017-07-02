@@ -26,13 +26,12 @@ import {browser, by, element} from 'protractor';
 
 describe('App', () => {
 
-  beforeEach(() => {
-    browser.get('/');
+  beforeEach(async () => {
+    await browser.get('/');
   });
 
-  it('should have a title', () => {
-    let subject = browser.getTitle();
-    let result = 'My MEAN Website';
-    expect(subject).toEqual(result);
+  it('should have a title', async () => {
+    let subject = await browser.getTitle();
+    expect(subject).toEqual('My MEAN Website');
   });
 });
