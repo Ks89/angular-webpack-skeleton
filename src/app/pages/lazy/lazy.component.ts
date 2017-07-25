@@ -26,9 +26,16 @@
  * Component of the lazy loaded module
  */
 
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+
 import { PageHeader } from '../../shared/components/components';
-import {ExampleService} from "../../core/services/example.service";
+import { ExampleService } from '../../core/services/example.service';
+
+import { Store } from '@ngrx/store';
+import * as fromPageNum from './reducers';
+import * as PageNum from './actions/page-num';
 
 console.log('`Lazy` component loaded asynchronously');
 
@@ -37,20 +44,43 @@ console.log('`Lazy` component loaded asynchronously');
   templateUrl: 'lazy.html',
   styleUrls: ['lazy.scss']
 })
-export class LazyComponent {
+export class LazyComponent implements OnInit, OnDestroy {
   public pageHeader: PageHeader;
 
-  constructor(private exampleService: ExampleService) {
+  private pageNum$: Observable<number>;
+  private pageNumSubscription: Subscription;
+  private exampleServiceSubscription: Subscription;
+
+  constructor(private exampleService: ExampleService,
+              private store: Store<fromPageNum.State>) {
+
     this.pageHeader = new PageHeader('LAZY', '');
 
+    this.pageNum$ = this.store.select(fromPageNum.getPageNum);
 
-    // // dispatch a number equals to 4 (it's only an example),
-    // // to save it into ngrx-store
-    // this.pageStore.dispatch(new PageNum.SetPageNum(4));
-    //
-    // // retrieve the stored value from ngrx-store and log it
-    // this.pageStore.select(fromPageNum.selectPageNumState).subscribe(val => {
-    //   console.log('ngrx-store value: ' + val);
-    // });
+    // example of ngrx-store's usage
+    // subscribe to pageNum
+    this.pageNumSubscription = this.pageNum$.subscribe((val: number) => {
+      console.log(`Page num retrieved from ngrx is ${val}`);
+    });
+
+    // call a service and dispatch an action to ng-rx to trigger the pageNumSubscription
+    this.exampleServiceSubscription = this.exampleService.getExample().subscribe((val: string) => {
+      console.log(`Result of getExample ${val}`);
+
+      // dispatch an action
+      this.store.dispatch(new PageNum.SetPageNum(4));
+    });
+
+  }
+
+  ngOnInit() {
+    console.log('Init called');
+  }
+
+  ngOnDestroy() {
+    console.log('Destroy called');
+    this.pageNumSubscription.unsubscribe();
+    this.exampleServiceSubscription.unsubscribe();
   }
 }

@@ -30,12 +30,14 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { routes } from './lazy.routes';
 import { LazyComponent } from './lazy.component';
-import { SharedModule } from "../../shared/shared.module";
 
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { StoreModule } from '@ngrx/store';
+import { SharedModule } from '../../shared/shared.module';
+import { reducers } from './reducers';
 
 console.log('`Lazy` bundle loaded asynchronously');
 
@@ -47,7 +49,9 @@ console.log('`Lazy` bundle loaded asynchronously');
     CommonModule,
     RouterModule.forChild(routes),
     NgbModule.forRoot(), // forRoot ensures the providers are only created once (lazy modules are like root modules)
-    SharedModule
+    SharedModule,
+
+    StoreModule.forFeature('pageNum', reducers),
   ],
   providers: []
 })
