@@ -22,35 +22,17 @@
  * SOFTWARE.
  */
 
-/**
- * Component of the lazy loaded module
- */
+import { Action } from '@ngrx/store';
 
-import { Component } from '@angular/core';
-import { PageHeader } from '../../shared/components/components';
-import {ExampleService} from "../../core/services/example.service";
+export const SAY_HELLO = '[Example] Say Hello';
+export const SAY_BYEBYE = '[Example] Say ByeBye';
 
-console.log('`Lazy` component loaded asynchronously');
-
-@Component({
-  selector: 'mmw-cv-page',
-  templateUrl: 'lazy.html',
-  styleUrls: ['lazy.scss']
-})
-export class LazyComponent {
-  public pageHeader: PageHeader;
-
-  constructor(private exampleService: ExampleService) {
-    this.pageHeader = new PageHeader('LAZY', '');
-
-
-    // // dispatch a number equals to 4 (it's only an example),
-    // // to save it into ngrx-store
-    // this.pageStore.dispatch(new PageNum.SetPageNum(4));
-    //
-    // // retrieve the stored value from ngrx-store and log it
-    // this.pageStore.select(fromPageNum.selectPageNumState).subscribe(val => {
-    //   console.log('ngrx-store value: ' + val);
-    // });
-  }
+export class SayHelloAction implements Action {
+  readonly type = SAY_HELLO;
 }
+
+export class SayByeByeAction implements Action {
+  readonly type = SAY_BYEBYE;
+}
+
+export type Actions = SayHelloAction | SayByeByeAction;

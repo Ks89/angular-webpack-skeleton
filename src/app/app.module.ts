@@ -26,7 +26,7 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { ROUTES }  from './app.routing';
+import { ROUTES } from './app.routing';
 
 // Third party opensource libraries (that are using scss/css)
 import 'bootstrap-loader';
@@ -37,14 +37,15 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { COMPONENTS } from './pages/components';
 import { AppComponent } from './app.component';
-import { pageNum } from './reducers/page-num.reducer';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 import { IdlePreloadModule } from '@angularclass/idle-preload';
 import { RouterModule, PreloadAllModules } from '@angular/router';
+
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { reducers, developmentReducerFactory } from './reducers/index';
 
 @NgModule({
   imports: [
@@ -58,12 +59,29 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     CoreModule,
     SharedModule,
 
-    StoreModule.provideStore({
-      pageNum: pageNum
+    /**
+     * StoreModule.forRoot is imported once in the root module, accepting a reducer
+     * function or object map of reducer functions. If passed an object of
+     * reducers, combineReducers will be run creating your application
+     * meta-reducer. This returns all providers for an @ngrx/store
+     * based application.
+     */
+    StoreModule.forRoot(reducers, {
+      reducerFactory: webpack.ENV !== 'production' ? developmentReducerFactory : undefined,
     }),
 
-    StoreDevtoolsModule.instrumentOnlyWithExtension(),
-],
+    /**
+     * Store devtools instrument the store retaining past versions of state
+     * and recalculating new states. This enables powerful time-travel
+     * debugging.
+     *
+     * To use the debugger, install the Redux Devtools extension for either
+     * Chrome or Firefox
+     *
+     * See: https://github.com/zalmoxisus/redux-devtools-extension
+     */
+    webpack.ENV !== 'production' ? StoreDevtoolsModule.instrument() : []
+  ],
   declarations: [
     AppComponent, // main component for `app entry-point`
     COMPONENTS // all components for `app entry-point` that you want to load as part of the main module

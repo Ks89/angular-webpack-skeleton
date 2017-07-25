@@ -22,35 +22,31 @@
  * SOFTWARE.
  */
 
-/**
- * Component of the lazy loaded module
- */
+import * as example from '../actions/hello-example';
 
-import { Component } from '@angular/core';
-import { PageHeader } from '../../shared/components/components';
-import {ExampleService} from "../../core/services/example.service";
+export interface State {
+  message: string;
+}
 
-console.log('`Lazy` component loaded asynchronously');
+const initialState: State = {
+  message: '',
+};
 
-@Component({
-  selector: 'mmw-cv-page',
-  templateUrl: 'lazy.html',
-  styleUrls: ['lazy.scss']
-})
-export class LazyComponent {
-  public pageHeader: PageHeader;
+export function reducer(state = initialState, action: example.Actions): State {
+  switch (action.type) {
+    case example.SAY_BYEBYE:
+      return {
+        message: 'bye bye!',
+      };
 
-  constructor(private exampleService: ExampleService) {
-    this.pageHeader = new PageHeader('LAZY', '');
+    case example.SAY_HELLO:
+      return {
+        message: 'hello!',
+      };
 
-
-    // // dispatch a number equals to 4 (it's only an example),
-    // // to save it into ngrx-store
-    // this.pageStore.dispatch(new PageNum.SetPageNum(4));
-    //
-    // // retrieve the stored value from ngrx-store and log it
-    // this.pageStore.select(fromPageNum.selectPageNumState).subscribe(val => {
-    //   console.log('ngrx-store value: ' + val);
-    // });
+    default:
+      return state;
   }
 }
+
+export const getHelloExample = (state: State) => state.message;

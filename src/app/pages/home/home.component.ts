@@ -28,13 +28,15 @@
 
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
-import { PageHeader } from '../../shared/components/components';
-import { ExampleService } from '../../core/services/example.service';
-import { SET_PAGE } from '../../reducers/page-num.reducer';
-
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/delay';
+
+import { PageHeader } from '../../shared/components/components';
+import { ExampleService } from '../../core/services/example.service';
+
 import { Store } from '@ngrx/store';
+import * as fromRoot from '../../core/reducers/hello-example';
+import * as example from '../../core/actions/hello-example';
 
 @Component({
   selector: 'mmw-home-page',
@@ -42,37 +44,43 @@ import { Store } from '@ngrx/store';
   templateUrl: 'home.html'
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  helloExample$: Observable<string>;
+
   pageHeader: PageHeader;
   message: string;
   elements: Array<Object> = [
-    { field: 'el1' },
-    { field: 'el2' },
-    { field: 'el3' }
+    {field: 'el1'},
+    {field: 'el2'},
+    {field: 'el3'}
   ];
 
   elementsObs: Observable<Object> = Observable.of(this.elements).delay(1000);
 
-  constructor(private pageStore: Store<number>,
-              private exampleService: ExampleService) {
+  constructor(private exampleService: ExampleService,
+              private store: Store<fromRoot.State>) {
 
     this.pageHeader = new PageHeader('KS', 'Welcome');
     this.message = 'Welcome to my website';
 
-    // dispatch a number equals to 4 (it's only an example),
-    // to save it into ngrx-store
-    this.pageStore.dispatch({type: SET_PAGE, payload: 4});
-
-    // retrieve the stored value from ngrx-store and log it
-    this.pageStore.select('pageNum').subscribe(val => {
-      console.log('ngrx-store value: ' + val);
+    this.exampleService.getExample().subscribe((val: string) => {
+      console.log(`Result of getExample ${val}`);
     });
+
+    // example of ngrx-store's usage
+    this.helloExample$ = this.store.select(fromRoot.getHelloExample);
   }
 
   ngOnInit() {
-    console.log('Init called');
+    console.log('Init called - say hello!');
+
+    // dispatch an action
+    this.store.dispatch(new example.SayHelloAction());
   }
 
   ngOnDestroy() {
-    console.log('Destroy called');
+    console.log('Destroy called - say bye bye!');
+
+    // dispatch an action
+    this.store.dispatch(new example.SayByeByeAction());
   }
 }

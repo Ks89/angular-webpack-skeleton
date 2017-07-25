@@ -1,5 +1,5 @@
 # AppVeyor file
-# based on the official example https://www.appveyor.com/docs/appveyor-yml/
+# based on the official hello-hello-example.ts https://www.appveyor.com/docs/appveyor-yml/
 
 #---------------------------------#
 #      general configuration      #
