@@ -28,8 +28,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { ROUTES } from './app.routing';
 
-// Third party opensource libraries (that are using scss/css)
+// Third party libraries that are using scss/css
 import 'bootstrap-loader';
+// Additional styles used in this project
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
@@ -45,7 +46,7 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { mainReducers, developmentReducerFactory } from './reducers/index';
+import { mainReducers } from './reducers/index';
 
 @NgModule({
   imports: [
@@ -65,10 +66,9 @@ import { mainReducers, developmentReducerFactory } from './reducers/index';
      * mainReducers, combineReducers will be run creating your application
      * meta-reducer. This returns all providers for an @ngrx/store
      * based application.
+     * TODO: find a way to add also developmentReducerFactory without breaking AOT
      */
-    StoreModule.forRoot(mainReducers, {
-      reducerFactory: webpack.ENV !== 'production' ? developmentReducerFactory : undefined,
-    }),
+    StoreModule.forRoot(mainReducers),
 
     /**
      * Store devtools instrument the store retaining past versions of state
