@@ -45,7 +45,7 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducers, developmentReducerFactory } from './reducers/index';
+import { mainReducers, developmentReducerFactory } from './reducers/index';
 
 @NgModule({
   imports: [
@@ -62,11 +62,11 @@ import { reducers, developmentReducerFactory } from './reducers/index';
     /**
      * StoreModule.forRoot is imported once in the root module, accepting a reducer
      * function or object map of reducer functions. If passed an object of
-     * reducers, combineReducers will be run creating your application
+     * mainReducers, combineReducers will be run creating your application
      * meta-reducer. This returns all providers for an @ngrx/store
      * based application.
      */
-    StoreModule.forRoot(reducers, {
+    StoreModule.forRoot(mainReducers, {
       reducerFactory: webpack.ENV !== 'production' ? developmentReducerFactory : undefined,
     }),
 

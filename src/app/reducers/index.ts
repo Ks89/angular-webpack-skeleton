@@ -41,7 +41,7 @@ export interface State {
  * These reducer functions are called with each dispatched action
  * and the current or initial state and return a new immutable state.
  */
-export const reducers: ActionReducerMap<State> = {
+export const mainReducers: ActionReducerMap<State> = {
   helloExample: fromHelloExample.reducer,
 };
 
@@ -72,6 +72,6 @@ export function logger(reducer: ActionReducer<State>) {
  */
 /**
  * By default, @ngrx/store uses combineReducers with the reducer map to compose the root meta-reducer.
- * To add more meta-reducers, provide a custom reducer factory.
+ * To add more meta-mainReducers, provide a custom reducer factory.
  */
 export const developmentReducerFactory: ActionReducerFactory<State, Action> = compose(logger, combineReducers);

@@ -27,10 +27,14 @@ import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 import { LazyComponent } from './lazy.component';
-import { SharedModule } from "../../shared/shared.module";
-import { CoreModule}  from "../../core/core.module";
+import { SharedModule } from '../../shared/shared.module';
+import { CoreModule }  from '../../core/core.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers';
+import { mainReducers } from '../../reducers/index';
 
 let comp: LazyComponent;
 let fixture: ComponentFixture<LazyComponent>;
@@ -39,7 +43,8 @@ describe('LazyComponent', () => {
   beforeEach( async(() => {
 
     TestBed.configureTestingModule({
-      imports: [ NgbModule.forRoot(), SharedModule, CoreModule ],
+      imports: [ NgbModule.forRoot(), SharedModule, CoreModule,
+        StoreModule.forRoot(mainReducers, { reducerFactory: undefined }), StoreModule.forFeature('pageNum', reducers)],
       declarations: [ LazyComponent ]
     }); // not necessary with webpack .compileComponents();
 
@@ -63,7 +68,7 @@ describe('LazyComponent', () => {
       expect(title[0].nativeElement.textContent.trim()).toBe('LAZY');
 
       const message: DebugElement[] = element.queryAll(By.css('small'));
-      expect(message.length).toBe(2); //because pageHeader has a <small> tag in its template
+      expect(message.length).toBe(2); // because pageHeader has a <small> tag in its template
       expect(message[0].nativeElement.textContent.trim()).toBe('');
       expect(message[1].nativeElement.textContent.trim()).toBe('Lazy loaded module');
     });

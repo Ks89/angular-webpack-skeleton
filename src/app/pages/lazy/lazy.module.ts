@@ -34,9 +34,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { routes } from './lazy.routes';
 import { LazyComponent } from './lazy.component';
+import { SharedModule } from '../../shared/shared.module';
 
 import { StoreModule } from '@ngrx/store';
-import { SharedModule } from '../../shared/shared.module';
 import { reducers } from './reducers';
 
 console.log('`Lazy` bundle loaded asynchronously');
@@ -52,7 +52,7 @@ console.log('`Lazy` bundle loaded asynchronously');
     SharedModule,
 
     // add ngrx to this lazy loaded module
-    StoreModule.forFeature('pageNum', reducers),
+    StoreModule.forFeature('pageNum', reducers)
   ],
   providers: []
 })
