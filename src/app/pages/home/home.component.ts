@@ -67,20 +67,22 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
 
     // example of ngrx-store's usage
+    // If you want, you can subscribe to this Observable to log 'message' saved
+    // inside ngrx-store, thanks to this.store.dispatch.
     this.helloExample$ = this.store.select(fromRoot.getHelloExample);
   }
 
   ngOnInit() {
     console.log('Init called - say hello!');
 
-    // dispatch an action
+    // dispatch an action to send the 'hello' message
     this.store.dispatch(new example.SayHelloAction());
   }
 
   ngOnDestroy() {
     console.log('Destroy called - say bye bye!');
 
-    // dispatch an action
+    // dispatch an action to send the 'bye bye' message
     this.store.dispatch(new example.SayByeByeAction());
   }
 }

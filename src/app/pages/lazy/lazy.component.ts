@@ -26,7 +26,7 @@
  * Component of the lazy loaded module
  */
 
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -44,7 +44,7 @@ console.log('`Lazy` component loaded asynchronously');
   templateUrl: 'lazy.html',
   styleUrls: ['lazy.scss']
 })
-export class LazyComponent implements OnInit, OnDestroy {
+export class LazyComponent implements OnDestroy {
   public pageHeader: PageHeader;
 
   private pageNum$: Observable<number>;
@@ -59,28 +59,32 @@ export class LazyComponent implements OnInit, OnDestroy {
     this.pageNum$ = this.store.select(fromPageNum.getPageNum);
 
     // example of ngrx-store's usage
-    // subscribe to pageNum
+    // subscribe to pageNum (a number, for instance the current page of a table with pagination)
+    // initially is 0, after it will be 4 (see below) -> this is only an example for demonstration purpose
     this.pageNumSubscription = this.pageNum$.subscribe((val: number) => {
-      console.log(`Page num retrieved from ngrx is ${val}`);
+      console.log(`Page num retrieved from ngrx-store is ${val}`);
     });
 
-    // call a service and dispatch an action to ng-rx to trigger the pageNumSubscription
-    this.exampleServiceSubscription = this.exampleService.getExample().subscribe((val: string) => {
-      console.log(`Result of getExample ${val}`);
+    // call a service and dispatch an action to ngrx to trigger a new event into pageNum$ Observable
+    this.exampleServiceSubscription = this.exampleService.getExample()
+      .subscribe((val: string) => {
+        console.log(`Result of getExample ${val}`);
 
-      // dispatch an action
-      this.store.dispatch(new PageNum.SetPageNum(4));
-    });
+        // dispatch the setPageNum action with '4' as payload
+        this.store.dispatch(new PageNum.SetPageNum(4)); // I chose a constant value for this example :)
+      });
 
-  }
-
-  ngOnInit() {
-    console.log('Init called');
   }
 
   ngOnDestroy() {
     console.log('Destroy called');
-    this.pageNumSubscription.unsubscribe();
-    this.exampleServiceSubscription.unsubscribe();
+
+    // unsubscribe to all Subscriptions to prevent memory leaks and wrong behaviour
+    if (this.pageNumSubscription) {
+      this.pageNumSubscription.unsubscribe();
+    }
+    if (this.exampleServiceSubscription) {
+      this.exampleServiceSubscription.unsubscribe();
+    }
   }
 }

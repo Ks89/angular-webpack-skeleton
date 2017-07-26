@@ -22,6 +22,8 @@
  * SOFTWARE.
  */
 
+// This file is used into ../../app.module.ts
+
 import * as example from '../actions/hello-example';
 
 export interface State {

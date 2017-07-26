@@ -51,6 +51,7 @@ console.log('`Lazy` bundle loaded asynchronously');
     NgbModule.forRoot(), // forRoot ensures the providers are only created once (lazy modules are like root modules)
     SharedModule,
 
+    // add ngrx to this lazy loaded module
     StoreModule.forFeature('pageNum', reducers),
   ],
   providers: []

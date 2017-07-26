@@ -22,6 +22,8 @@
  * SOFTWARE.
  */
 
+// This file is used into ../../app.module.ts
+
 import { Action } from '@ngrx/store';
 
 export const SAY_HELLO = '[Example] Say Hello';
