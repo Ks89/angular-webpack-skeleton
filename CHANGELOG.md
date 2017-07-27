@@ -1,11 +1,10 @@
 #### Alpha 21
 - Angular 4.3 and other dependencies updated
-- Example of a real rest call to Github from a service using the new Angular's HttpClient
+- Example of a real rest call to Github from a service using the new Angular's HttpClient #38
 - Webpack 3.x.x
 - Update to ngrx platform 4 #39
 - initial impl of 'add docs + example for typedocs' #21
 - fix again e2e testing error (@types/jasmine downgraded) #32
-- Add an example with the new Angular 4.3.x httpclient #38
 
 #### Alpha 20
 - ngrx-store #24
