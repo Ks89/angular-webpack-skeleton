@@ -97,10 +97,6 @@ module.exports = {
         exclude: [/\.(spec|e2e)\.ts$/]
       },
       {
-        test: /\.json$/,
-        use: 'json-loader'
-      },
-      {
         test: /\.css$/,
         use: ['to-string-loader', 'css-loader'],
         exclude: [helpers.root('src', 'styles')]

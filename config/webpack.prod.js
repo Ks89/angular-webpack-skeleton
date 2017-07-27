@@ -44,7 +44,7 @@ module.exports = webpackMerge(commonConfig, {
   output: {
     path: helpers.root('dist'),
     filename: '[name].[chunkhash].js',
-    sourceMapFilename: '[name].[chunkhash].map',
+    sourceMapFilename: '[file].map', // saw here https://github.com/AngularClass/angular-starter/pull/1449/commits/87821298697de5e02c842a4069478e5e3b43ccee
     chunkFilename: '[name].[chunkhash].js',
     publicPath: './'
   },
