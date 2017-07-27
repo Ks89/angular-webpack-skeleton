@@ -9,7 +9,7 @@ This project is a personal skeleton. If you want to use it feel free to fork it.
 I share this with you as it is.
 
 ## News
-- *07/??/2017* - Alpha 21 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
+- *07/27/2017* - Alpha 21 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *05/20/2017* - Alpha 20 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *04/25/2017* - Alpha 19 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *04/23/2017* - Alpha 18 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
