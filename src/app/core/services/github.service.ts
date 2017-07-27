@@ -22,12 +22,38 @@
  * SOFTWARE.
  */
 
-import { ExampleService } from './example.service';
-export { ExampleService } from './example.service';
-import { GithubService } from './github.service'
-export { GithubService } from './github.service'
+/**
+ * An example of a service to retrieve remote data from https://api.github.com/users/Ks89
+ */
 
-export const CORE_SERVICES: any[] = [
-  ExampleService,
-  GithubService
-];
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+import { Observable } from 'rxjs/Observable';
+
+export class GithubUser {
+  constructor(
+    public login: string,
+    public id: number,
+    public url: string,
+    public repos_url: string,
+    public name: string | void,
+    public company: string | void,
+    public location: string | void
+  ) {}
+
+}
+
+@Injectable()
+export class GithubService {
+
+  constructor(private httpClient: HttpClient) {}
+
+  /**
+   * Method to get my Github profile asynchronously using Github's apis.
+   * @returns A Observable<GithubUser> with data inside.
+   */
+  getGithubUser(): Observable<GithubUser> {
+    return this.httpClient.get<GithubUser>('https://api.github.com/users/Ks89');
+  }
+}

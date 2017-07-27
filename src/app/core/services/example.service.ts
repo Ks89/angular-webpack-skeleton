@@ -23,20 +23,19 @@
  */
 
 /**
- * A example of a service to retrieve data
+ * An example of a service to retrieve data
  */
 
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/of';
 
 @Injectable()
 export class ExampleService {
 
   /**
    * Method to get example data synchronously.
-   * @returns A Observable<string> with data inside.
+   * @returns An Observable<string> with data inside.
    */
   getExample(): Observable<string> {
     return Observable.of('example');

@@ -1,6 +1,9 @@
 <div>
   <mmw-page-header [header]="pageHeader"></mmw-page-header>
 
+  <br>
+  <p><b>Please, open your browser's console to see all features of this application!!!</b></p>
+
   <div class="container-fluid">
     <div class="row">
       Custom bootstrap buttons thanks to bootstrap-loader (folder ./bootstrap).
@@ -26,23 +29,23 @@
     <br>
 
     <div class="row">
-      <span>Font-awesome hello-hello-example.ts:   <i class="fa fa-address-book fa-3x" aria-hidden="true"></i></span>
+      <span>Font-awesome example:   <i class="fa fa-address-book fa-3x" aria-hidden="true"></i></span>
     </div>
     <br>
     <br>
 
     <br>
-    <p>For hello-hello-example.ts:</p>
+    <p>For cycle example.ts:</p>
     <ul>
       <li *ngFor="let element of elements">{{element.field}}</li>
     </ul>
     <br>
-    <p>For async hello-hello-example.ts:</p>
+    <p>For async cycle example:</p>
     <ul>
       <li *ngFor="let elementObs of elementsObs | async">{{elementObs.field}}</li>
     </ul>
     <br>
-    <p>If Example:</p>
+    <p>If example:</p>
     <p *ngIf="elements.length >= 0">`Elements` contains at least on element</p>
     <br>
 
