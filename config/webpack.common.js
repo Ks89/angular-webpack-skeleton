@@ -164,7 +164,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: TITLE,
-      inject: 'head', //true
+      inject: 'body', //true or 'head'
       //metadata: METADATA,
       chunksSortMode: 'dependency',
       chunks: ['polyfills', 'vendor', 'app'],
@@ -173,7 +173,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: TITLE_ADMIN,
-      inject: 'head', //true
+      inject: 'body', //true or 'head'
       //metadata: METADATA,
       chunksSortMode: 'dependency',
       chunks: ['polyfills', 'vendor', 'admin'],
