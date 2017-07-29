@@ -1,29 +1,37 @@
 // taken from https://github.com/AngularClass/angular2-webpack-starter/blob/master/src/app/environment.ts
 
 /**
- * Configure Angular environment.
- * This file is used by all entry points
+ * Angular 2
  */
-
-// Angular 2
-import { enableDebugTools, disableDebugTools } from '@angular/platform-browser';
-import { ApplicationRef, enableProdMode } from '@angular/core';
-
-// Environment Providers
+import {
+  enableDebugTools,
+  disableDebugTools
+} from '@angular/platform-browser';
+import {
+  ApplicationRef,
+  enableProdMode
+} from '@angular/core';
+/**
+ * Environment Providers
+ */
 let PROVIDERS: any[] = [
-  // common env directives
+  /**
+   * Common env directives
+   */
 ];
 
-// Angular debug tools in the dev console
-// https://github.com/angular/angular/blob/86405345b781a9dc2438c0fbe3e9409245647019/TOOLS_JS.md
-let _decorateModuleRef = <T>(value: T): T => {
-  return value;
-};
+/**
+ * Angular debug tools in the dev console
+ * https://github.com/angular/angular/blob/86405345b781a9dc2438c0fbe3e9409245647019/TOOLS_JS.md
+ */
+let _decorateModuleRef = <T>(value: T): T => { return value; };
 
 if ('production' === webpack.ENV) {
   enableProdMode();
 
-  // Production
+  /**
+   * Production
+   */
   _decorateModuleRef = (modRef: any) => {
     disableDebugTools();
 
@@ -32,7 +40,9 @@ if ('production' === webpack.ENV) {
 
   PROVIDERS = [
     ...PROVIDERS,
-    // custom providers in production
+    /**
+     * Custom providers in production.
+     */
   ];
 
 } else {
@@ -41,18 +51,18 @@ if ('production' === webpack.ENV) {
     const appRef = modRef.injector.get(ApplicationRef);
     const cmpRef = appRef.components[0];
 
-    // there is an open issue here https://github.com/AngularClass/angular2-webpack-starter/issues/1573
-    let _ng = (<any> window).ng;
     enableDebugTools(cmpRef);
-    (<any> window).ng.probe = _ng.probe;
-    (<any> window).ng.coreTokens = _ng.coreTokens;
     return modRef;
   };
 
-  // Development
+  /**
+   * Development
+   */
   PROVIDERS = [
     ...PROVIDERS,
-    // custom providers in development
+    /**
+     * Custom providers in development.
+     */
   ];
 
 }

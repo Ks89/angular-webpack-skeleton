@@ -21,37 +21,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+const webpack = require('webpack');
+const DefinePlugin = require('webpack/lib/DefinePlugin');
+const ProvidePlugin = require('webpack/lib/ProvidePlugin');
+const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
+const LoaderOptionsPlugin = require('webpack/lib/LoaderOptionsPlugin');
+const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
+const NamedModulesPlugin = require('webpack/lib/NamedModulesPlugin');
+const ModuleConcatenationPlugin = require('webpack/lib/optimize/ModuleConcatenationPlugin');
 
-const webpack                      = require('webpack');
-const DefinePlugin                 = require('webpack/lib/DefinePlugin');
-const ProvidePlugin                = require('webpack/lib/ProvidePlugin');
-const CommonsChunkPlugin           = require('webpack/lib/optimize/CommonsChunkPlugin');
-const LoaderOptionsPlugin          = require('webpack/lib/LoaderOptionsPlugin');
-const ContextReplacementPlugin     = require('webpack/lib/ContextReplacementPlugin');
-const NamedModulesPlugin           = require('webpack/lib/NamedModulesPlugin');
-const ModuleConcatenationPlugin    = require('webpack/lib/optimize/ModuleConcatenationPlugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const autoprefixer = require('autoprefixer');
+const ngcWebpack = require('ngc-webpack');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const VisualizerPlugin = require('webpack-visualizer-plugin');
+const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 
-const CopyWebpackPlugin            = require('copy-webpack-plugin');
-const HtmlWebpackPlugin            = require('html-webpack-plugin');
-const autoprefixer                 = require('autoprefixer');
-const ngcWebpack                   = require('ngc-webpack');
-const ScriptExtHtmlWebpackPlugin   = require('script-ext-html-webpack-plugin');
-const BundleAnalyzerPlugin         = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const VisualizerPlugin             = require('webpack-visualizer-plugin');
+const HtmlElementsPlugin = require('./html-elements-plugin');
 
-const HtmlElementsPlugin           = require('./html-elements-plugin');
+const helpers = require('./helpers');
+const TITLE = 'My MEAN Website';
+const TITLE_ADMIN = 'Admin My MEAN Website';
+const TEMPLATE_PATH = './src/index.ejs';
+const TEMPLATE_ADMIN_PATH = './src/admin.ejs';
+const TEMPLATE_HTML = 'index.html';
+const TEMPLATE_ADMIN_HTML = 'admin.html';
 
-const helpers                      = require('./helpers');
-const TITLE                        = 'My MEAN Website';
-const TITLE_ADMIN                  = 'Admin My MEAN Website';
-const TEMPLATE_PATH                = './src/index.ejs';
-const TEMPLATE_ADMIN_PATH          = './src/admin.ejs';
-const TEMPLATE_HTML                = 'index.html';
-const TEMPLATE_ADMIN_HTML          = 'admin.html';
-
-const AOT                          = helpers.hasNpmFlag('aot');
-const PROD                         = helpers.hasNpmFlag('prod');
-const TS_CONFIG                    = AOT ? 'tsconfig-aot.json' : 'tsconfig.json';
+const AOT = helpers.hasNpmFlag('aot');
+const PROD = helpers.hasNpmFlag('prod');
+const TS_CONFIG = AOT ? 'tsconfig-aot.json' : 'tsconfig.json';
 
 module.exports = {
   entry: {
@@ -65,6 +65,7 @@ module.exports = {
   },
   module: {
     rules: [
+
       {
         test: /\.ts$/,
         use: [
@@ -88,6 +89,13 @@ module.exports = {
             options: {
               configFileName: '${TS_CONFIG}',
               useCache: !AOT && !PROD
+            }
+          },
+          {
+            loader: 'ngc-webpack',
+            options: {
+              // to create smaller aot builds
+              disable: !AOT,
             }
           },
           {
@@ -150,9 +158,14 @@ module.exports = {
     new CommonsChunkPlugin({
       name: ['polyfills', 'vendor'].reverse()
     }),
+    new CommonsChunkPlugin({
+      name: ['manifest'],
+      minChunks: Infinity,
+    }),
     new HtmlWebpackPlugin({
       title: TITLE,
-      inject: true,
+      inject: 'head', //true
+      //metadata: METADATA,
       chunksSortMode: 'dependency',
       chunks: ['polyfills', 'vendor', 'app'],
       template: TEMPLATE_PATH,
@@ -160,7 +173,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       title: TITLE_ADMIN,
-      inject: true,
+      inject: 'head', //true
+      //metadata: METADATA,
       chunksSortMode: 'dependency',
       chunks: ['polyfills', 'vendor', 'admin'],
       template: TEMPLATE_ADMIN_PATH,
@@ -195,7 +209,8 @@ module.exports = {
       headTags: require('./head-config.common')
     }),
     new CopyWebpackPlugin([
-      { from: './assets',
+      {
+        from: './assets',
         to: './assets'
       },
       {
@@ -212,6 +227,15 @@ module.exports = {
       /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
       helpers.root('./src') // location of your src
     ),
+
+    /**
+     * Plugin: InlineManifestWebpackPlugin
+     * Inline Webpack's manifest.js in index.html
+     *
+     * https://github.com/szrenwei/inline-manifest-webpack-plugin
+     */
+    new InlineManifestWebpackPlugin(),
+
     new ngcWebpack.NgcWebpackPlugin({
       disabled: !AOT,
       tsConfig: helpers.root('tsconfig-aot.json')
@@ -242,7 +266,7 @@ module.exports = {
     new LoaderOptionsPlugin({
       options: {
         context: __dirname,
-        output: { path :  './' },
+        output: {path: './'},
         postcss: [autoprefixer],
         tslint: {
           emitErrors: false,
