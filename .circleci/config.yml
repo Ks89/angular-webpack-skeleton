@@ -32,4 +32,4 @@ jobs:
          command: npm run webdriver:update
       - run:
          name: run-e2e
-         command: npm run e2ever:update && npm run e2e
+         command: npm run e2e
