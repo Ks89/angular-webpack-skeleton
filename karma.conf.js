@@ -39,11 +39,13 @@ function isCI() {
 
 function getBrowsers() {
   if (process.env.CI) {
-    if(process.env.APPVEYOR) { // variable defined by APPVEYOR itself
+    if (process.env.APPVEYOR) { // variable defined by APPVEYOR itself
       // only for AppVeyor
       return ['Chrome', 'Firefox', 'IE'];
-    } else {
-      return ['PhantomJS', 'Firefox'];  // Travis CI and Circle CI
+    } else if (process.env.TRAVIS) { // variable defined by TRAVIS itself
+      return ['PhantomJS', 'Firefox'];
+    } else if (process.env.CIRCLECI) { // variable defined by CIRCLECI itself
+      return ['PhantomJS', 'Chrome', 'Firefox'];
     }
   } else {
     switch(os.platform()) {
