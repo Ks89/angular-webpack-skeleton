@@ -13,7 +13,7 @@
     "npm": ">=4.2.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --progress --port 8080",
+    "start": "webpack-dev-server --config config/webpack.dev.js --progress --port 8080",
     "prebuild": "npm run clean-build",
     "build:dev": "webpack --config config/webpack.dev.js --colors --progress --display-error-details --display-cached --profile",
     "build:prod": "webpack --config config/webpack.prod.js --colors --progress --display-error-details --display-cached --profile",

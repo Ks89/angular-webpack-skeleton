@@ -23,8 +23,14 @@
  */
 
 /**
- * File used by webpack to build, start, test, release this application.
- * Check `./config` for all webpack config files
+ * Module used to display an error page when you are navigating to a wrong route
+ * (or not defined into `app.routing.ts`)
  */
 
-module.exports = require('./config/webpack.dev.js');
+import { Component } from '@angular/core';
+@Component({
+  selector: 'mmw-not-found',
+  template: '<h3>Error 404: Not found</h3>'
+})
+
+export class NotFoundComponent { }

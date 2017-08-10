@@ -28,11 +28,11 @@
 
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { NotFound404Component } from './pages/404/not-found404.component';
+import { NotFoundComponent } from './pages/404/not-found.component';
 
 export const ROUTES: Routes = [
-  {path: '',             component: HomeComponent},                             //`http://localhost:3300/`
-  {path: 'home',         component: HomeComponent},                             //`http://localhost:3300/home`
-  {path: 'lazy',         loadChildren: './pages/lazy/lazy.module#LazyModule'},  //`http://localhost:3300/lazy`
-  {path: '**',           component: NotFound404Component}                       // every other routes
+  {path: '',             component: HomeComponent},                             // `http://localhost:3300/`
+  {path: 'home',         component: HomeComponent},                             // `http://localhost:3300/home`
+  {path: 'lazy',         loadChildren: './pages/lazy/lazy.module#LazyModule'},  // `http://localhost:3300/lazy`
+  {path: '**',           component: NotFoundComponent}                          // every other routes
 ];

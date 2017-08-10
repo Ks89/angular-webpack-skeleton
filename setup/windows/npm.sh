@@ -11,4 +11,5 @@ then
   npm install -g --production windows-build-tools
   npm install -g node-gyp
   npm install -g npm-check
+  npm install -g lite-server
 fi

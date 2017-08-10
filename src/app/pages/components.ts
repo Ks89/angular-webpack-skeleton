@@ -23,9 +23,9 @@
  */
 
 import { HomeComponent } from './home/home.component';
-import { NotFound404Component } from './404/not-found404.component';
+import { NotFoundComponent } from './404/not-found.component';
 
 export const COMPONENTS = [
   HomeComponent,
-  NotFound404Component
+  NotFoundComponent
 ];

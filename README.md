@@ -3,10 +3,48 @@
 <br>
 
 # angular-webpack-skeleton
-A simple skeleton project to use Angular 4, Webpack 3, Bootstrap 4 alpha, ng-bootstrap and bootstrap-loader 2 together
+A simple skeleton project with Angular 4, Webpack 3 and Bootstrap 4 alpha ready to use.
 
-This project is a personal skeleton. If you want to use it feel free to fork it.
-I share this with you as it is.
+You can fork or clone this repository and build your project on it.
+I suggest to add this repo as git remote to your repository to be able to update your project with newer releases of this project.
+
+## Features
+- Typescript 2
+- Angular 4
+    - [Ahead of Time (AOT)](https://angular.io/guide/aot-compiler)
+    - [Lazy loading](https://angular.io/guide/ngmodule#lazy-loading-modules-with-the-router)
+    - The new [HttpClient](https://angular.io/guide/http#httpclient) of Angular >= 4.3
+- [Bootstrap 4](https://v4-alpha.getbootstrap.com/), [ng-bootstrap](https://github.com/ng-bootstrap/ng-bootstrap), [bootstrap-loader](https://github.com/shakacode/bootstrap-loader)
+- [Font-awesome](http://fontawesome.io/)
+- [jQuery](https://jquery.com/)
+- Reactive storage
+    - [@ngrx/store](https://github.com/ngrx/store) >= 4
+    - [@ngrx/store-devtools](https://github.com/ngrx/store-devtools) >= 4
+- Webpack 3
+    - 3 profiles: 'dev', 'prod' and 'prod:aot'
+    - [Hot Module Replacement (HMR)](https://webpack.js.org/concepts/hot-module-replacement/)
+    - [Dynamically Linked Library (DLL)](https://webpack.js.org/plugins/dll-plugin/)
+    - [Tree shaking](https://webpack.js.org/guides/tree-shaking/)
+    - [SASS support](https://github.com/webpack-contrib/sass-loader)
+    - Multiple entry point with 2 SPAs (Single Page Applications): app and admin
+    - [UglifyJs](https://github.com/webpack-contrib/uglifyjs-webpack-plugin) and [Compression plugin](https://github.com/webpack-contrib/compression-webpack-plugin) for production builds
+    - [Bundle Analyzer](https://github.com/th0r/webpack-bundle-analyzer)
+    - [Visualizer Plugin](https://github.com/chrisbateman/webpack-visualizer)
+- Testing
+    - Unit testing with [Karma](https://karma-runner.github.io) and [Jasmine](https://jasmine.github.io/)
+    - End to end (E2E) testing with [Protractor](http://www.protractortest.org) and [WebDriver JS](https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs)
+    - Code coverage with [IstanbulJs](https://github.com/istanbuljs/istanbuljs)
+- Code analysis ad quality
+    - [TSLint](https://github.com/palantir/tslint)
+    - [Codelyzer](https://github.com/mgechev/codelyzer)
+- Documentation
+    - [TypeDoc](https://github.com/TypeStrong/typedoc)
+- Continous Integration
+    - [Travis CI](https://travis-ci.org/)
+    - [Circle CI](https://circleci.com/)
+    - [AppVeyor](https://www.appveyor.com/)
+- and many more...
+
 
 ## News
 - *07/27/2017* - Alpha 21 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -29,56 +67,164 @@ I share this with you as it is.
 
 
 ## Changelog
-
 Full changelog [HERE](https://github.com/Ks89/angular-webpack-skeleton/blob/master/CHANGELOG.md)
 
 
-## Install global dependencies
+## File structure
+This reduced structure is based on [Angular style-guide](https://angular.io/guide/styleguide) and on my personal experience.
+For the full file structure check [HERE](https://github.com/Ks89/angular-webpack-skeleton/FILE-STRUCTURE.md).
+
+```
+angular-webpack-skeleton/
+ ├─assets/                        * Images, icons and so on
+ ├─bootstrap/                     * bootstrap-loader configuration files
+ │ ├─after.scss                   * this gets loaded after bootstrap/variables is loaded
+ │ └─before.scss                  * this gets loaded before bootstrap/variables is loaded
+ │
+ ├─config/                        * config files
+ │ ├─html-elements-plugin/        * webpack plugin to add css, icons... during the creation of html files
+ │ ├─head-config.common.js        * list of files to be loaded by 'html-elements-plugin'
+ │ ├─helpers.js                   * helper functions for configuration files
+ │ ├─karma-test-runner.js         * karma config for unit tests
+ │ ├─protractor.conf.js           * protractor config for e2e tests
+ │ ├─webpack.common.js            * common webpack config (for both dev and prod)
+ │ ├─webpack.dev.js               * local developmet webpack config
+ │ ├─webpack.prod.js              * production webpack config
+ │ └─webpack.test.js              * testing webpack config
+ │
+ ├─src/                           * mai source folder
+ │ ├─admin/                       * source folder of 'admin' SPA. Similar to 'app'
+ │ │
+ │ ├─app/                         * source folder of 'app' SPA
+ │ │ ├─core/                      * CoreModule provides services. You can import this module only on time in the root module
+ │ │ │ ├─actions/                 * folder of ngrx actions
+ │ │ │ │ └─hello.example.ts       * hello-example ngrx action
+ │ │ │ ├─reducers/                * folder of ngrx reducers
+ │ │ │ │ └─hello.example.ts       * hello-example ngrx reducer
+ │ │ │ ├─services/                * services of the CoreModule
+ │ │ │ │ ├─example.service.ts     * example of a synchronous service
+ │ │ │ │ ├─github.service.ts      * example of an asynchronous service with HttpClient
+ │ │ │ │ └─services.ts            * export an array of services to easely import into the module's definition
+ │ │ │ ├─core.module.ts           * definition of the CoreModule
+ │ │ │ └─module-import-guard.ts   * guard to prevent multiple import of the CoreModule
+ │ │ │
+ │ │ ├─pages/                     * pages/features of the 'app' SPA
+ │ │ │ ├─404/
+ │ │ │ │ └─not-found.component.ts * 404 component shown for route '**'
+ │ │ │ ├─home/
+ │ │ │ │ ├─home.component.ts      * homepage component shown for route '/'
+ │ │ │ │ ├─home.html              * homepage template
+ │ │ │ │ └─home.scss              * homepage scss file with local styles
+ │ │ │ ├─lazy/                    * lazy loaded module shown for route 'lazy'
+ │ │ │ │ ├─actions/               * ngrx actions only for this lazy loaded module
+ │ │ │ │ ├─reducers/              * ngrx reducers only for this lazy loaded module
+ │ │ │ │ ├─lazy.component.spec.ts * unit test of lazy loaded component
+ │ │ │ │ ├─lazy.component.ts      * lazy loaded component
+ │ │ │ │ ├─lazy.html              * template of the lazy loaded component
+ │ │ │ │ ├─lazy.module.ts         * definition of the lazy loaded module
+ │ │ │ │ ├─lazy.routes.ts         * local routes for the lazy loaded module
+ │ │ │ │ └─lazy.scss              * lazy loaded module's scss file with local styles
+ │ │ │ └─components.ts            * export an array of components to easely import into the module's definition
+ │ │ │
+ │ │ ├─reducers/                  * define main ngrx reducer for the app SPA
+ │ │ │
+ │ │ ├─shared/                    * SharedModule provides common components, directives... It can be imported more times also by sub-modules
+ │ │ │ ├─components/              * components of the SharedModule
+ │ │ │ │ ├─footer/                * footer component
+ │ │ │ │ ├─navbar/                * navbar componet
+ │ │ │ │ ├─page-header/           * page header component
+ │ │ │ │ └─components.ts          * export an array of components to easely import into the module's definition
+ │ │ │ └─shared.module.ts         * definition of the SharedModule
+ │ │ │
+ │ │ ├─app.component.ts           * main component of the app SPA
+ │ │ ├─app.e2e.ts                 * example of an e2e test for 'app' SPA
+ │ │ ├─app.html                   * main template's component of the app SPA
+ │ │ ├─app.module.ts              * root module of the app SPA
+ │ │ └─app.routing.ts             * routes of the app SPA
+ │ │
+ │ ├─styles/                      * root styles (CSS/SCSS) for the entire application (all SPAs)
+ │ │ ├─headings.css               * css file (to show that you can use both css and scss)
+ │ │ ├─loading.scss               * SCSS loading spinner
+ │ │ ├─styles.scss                * main SCSS that imports all other SCSS in this directory (loading ad variables)
+ │ │ └─variables.scss             * SCSS variables
+ │ │
+ │ ├─admin.aot.ts                 * main file to boot 'admin' SPA with AOT compiler
+ │ ├─admin.ejs                    * admin template that will be converted into an html (admin SPA)
+ │ ├─admin.ts                     * main file to boot 'admin' SPA
+ │ ├─environmet.ts                * file to configure Angular debug/prod (don't touch this)
+ │ ├─index.ejs                    * index template that will be converted into an html (app SPA)
+ │ ├─main.aot.ts                  * main file to boot 'app' SPA with AOT compiler
+ │ ├─main.ts                      * main file to boot 'app' SPA
+ │ ├─polyfills.ts                 * polyfills used by Angular to support older browsers
+ │ └─typings.d.ts                 * custom types for Typescript
+ │
+ ├─.bootstraprc                   * main bootstrap-loader config file
+ ├─karma.conf.js                  * karma config file for unit testing
+ ├─protractor.config.js           * main protractor config file for e2e testing
+ ├─tsconfig.json                  * Config file for Typescript
+ ├─tsconfig-aot.json              * Config file for Typescript used by AOT compiler
+ └─tslit.json                     * TSLint config file
+```
+
+
+## Requirenments
+- Nodejs >= 7.10.0 (>= 8.3.0 recommended)
+- npm >= 4.2.0 (>= 5.0.0 recommended)
+
+## Install
+
+### Install global dependencies
 I created some scripts inside 'setup' folder to initialize the environment.
 If you are already ready, you can execute this (`sudo` if you are using macOS):
 
 - `npm install -g lite-server`
 
-## Install local dependencies
+### Install local dependencies
 - `npm install`
 
-## Run with webpack-dev-server (developing mode)
+## Build
+
+### Run with webpack-dev-server (developing mode)
 - `npm start`
 
-## Build the application in 'dist' folder (debug mode)
+### Build the application in 'dist' folder (debug mode)
 - `npm run build:dev`
 - `cd dist`
 - `lite-server`
 
-## Build the application in 'dist' folder (production mode)
+### Build the application in 'dist' folder (production mode)
 - `npm run build:prod`
 - `cd dist`
 - `lite-server`
 
-## Build the application in 'dist' folder (production + AOT mode)
+### Build the application in 'dist' folder (production + AOT mode)
 - `npm run build:prod:aot`
 - `cd dist`
 - `lite-server`
 
-## Test (check coverage/html/index.html with the results)
+## Test
+
+### Test (check coverage/html/index.html with the results)
 - `npm test`
 
-## Test e2e with protractor
+### Test e2e with protractor
 - `npm run webdriver:update` (if you have problems, try again removing `./node_modules` and executing `npm install`)
 - `npm run e2e`
 
 If you have problems with e2e testing, you should downgrade `@types/jasmine` to version `2.5.38`.
 
-## To generate typescript's documentation (check docs/index.html with the result)
+## Other
+
+### To generate typescript's documentation (check docs/index.html with the result)
 - `npm run docs`
 
 I have to write the documentation, but this project is ready to use typedocs
 
-## To generate webpack bundle's results
+### To generate webpack bundle's results
 - `npm run build:dev` (or `build:prod` or `build:prod:aot`)
 - `npm run analyze:bundle`
 
-## To use webpack-visualizer-plugin
+### To use webpack-visualizer-plugin
 - `npm run build:dev` (or `build:prod` or `build:prod:aot`)
 - open in your browser `dist/webpack-visualizer-report.html`
 

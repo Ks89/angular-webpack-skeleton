@@ -9,4 +9,5 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
   echo installing npm global packages
   sudo npm install -g npm-check
+  sudo npm install -g lite-server
 fi
