@@ -6,18 +6,18 @@ jobs:
       - image: circleci/node:7.10.0-browsers
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
-      - restore_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+#      - run:
+#          name: update-npm
+#          command: 'sudo npm install -g npm@latest'
+#      - restore_cache:
+#          key: dependency-cache-{{ checksum "package.json" }}
       - run:
           name: install-npm-wee
           command: npm install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-          - ./node_modules
+#      - save_cache:
+#          key: dependency-cache-{{ checksum "package.json" }}
+#          paths:
+#          - ./node_modules
 #      - run:
 #         name: run-debug
 #         command: npm run build:dev
