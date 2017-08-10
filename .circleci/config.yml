@@ -27,45 +27,8 @@ jobs:
       - run:
          name: run-prod-aot
          command: npm run build:prod:aot
-#
+      - run:
+         name: run-test
+         command: npm test
 
-#     - run:
-#      name: test
-#      command: npm test
-#     - run:
-#      name: code-coverage
-#      command: './node_modules/.bin/nyc report --reporter=text-lcov'
-#     - store_artifacts:
-#      path: test-results.xml
-#      prefix: tests
-#     - store_artifacts:
-#      path: coverage
-#      prefix: coverage
-#     - store_test_results:
-#      path: test-results.xml
-
-#
-#
-#machine:
-#  node:
-#    version: 7
-#
-#dependencies:
-#  pre:
-#    - rm -rf ./node_modules
-#  cache_directories:
-#    - ~/.npm
-#
-#test:
-#  post:
-#    - # run debug build
-#    - echo "npm run debug build on circle ci"
-#    - npm run build:dev
-#    # run production build
-#    - echo "npm run production build on circle ci"
-#    - npm run build:prod
-#    # run production + AOT build
-#    - npm run clean
-#    - echo "npm run production + AOT build on circle ci"
-#    - npm run build:prod:aot
 #    # TODO add protractor tests with npm run webdriver:update && npm run e2e
