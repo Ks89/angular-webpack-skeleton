@@ -7,26 +7,26 @@ jobs:
     steps:
       - checkout
       - run:
-        name: update-npm
-        command: 'sudo npm install -g npm@latest'
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
       - restore_cache:
-        key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ checksum "package.json" }}
       - run:
-        name: install-npm-wee
-        command: npm install
+          name: install-npm-wee
+          command: npm install
       - save_cache:
-        key: dependency-cache-{{ checksum "package.json" }}
-        paths:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
           - ./node_modules
 #      - run:
-#        name: run-debug
-#        command: npm run build:dev
+#         name: run-debug
+#         command: npm run build:dev
 #      - run:
-#        name: run-prod
-#        command: npm run build:prod
+#         name: run-prod
+#         command: npm run build:prod
 #      - run:
-#        name: run-prod-aot
-#        command: npm run build:prod:aot
+#         name: run-prod-aot
+#         command: npm run build:prod:aot
 #
 
 #     - run:
