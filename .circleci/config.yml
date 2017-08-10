@@ -12,23 +12,29 @@ jobs:
 #      - restore_cache:
 #          key: dependency-cache-{{ checksum "package.json" }}
       - run:
-          name: install-npm-wee
+          name: npm-install
           command: npm install
 #      - save_cache:
 #          key: dependency-cache-{{ checksum "package.json" }}
 #          paths:
 #          - ./node_modules
       - run:
-         name: run-debug
+         name: run-build-dev
          command: npm run build:dev
       - run:
-         name: run-prod
+         name: run-build-prod
          command: npm run build:prod
       - run:
-         name: run-prod-aot
+         name: run-build-prod-aot
          command: npm run build:prod:aot
       - run:
          name: run-test
          command: npm test
+      - run:
+         name: run-webdriver-update
+         command: npm run webdriver:update
+      - run:
+         name: run-e2e
+         command: npm run e2e
 
 #    # TODO add protractor tests with npm run webdriver:update && npm run e2e

@@ -43,12 +43,12 @@ function getBrowsers() {
       // only for AppVeyor
       return ['Chrome', 'Firefox', 'IE'];
     } else {
-      return ['PhantomJS', 'Firefox'];  // Travis CI
+      return ['PhantomJS', 'Firefox'];  // Travis CI and Circle CI
     }
   } else {
     switch(os.platform()) {
       case 'win32': // Windows
-        // TODO add 'PhantomJS' - at the moment isn't working on Windows10 (only for test in ProfileComponent, WTF!!!)
+        // TODO add 'PhantomJS' - at the moment isn't working well on Windows10
         return ['Chrome', 'Firefox', 'IE'];
       case 'darwin': // macOS
         return ['PhantomJS', 'Chrome', 'Firefox'/*, 'Safari'*/];
