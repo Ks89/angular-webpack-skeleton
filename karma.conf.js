@@ -50,13 +50,10 @@ function getBrowsers() {
       case 'win32': // Windows
         // TODO add 'PhantomJS' - at the moment isn't working on Windows10 (only for test in ProfileComponent, WTF!!!)
         return ['Chrome', 'Firefox', 'IE'];
-        break;
       case 'darwin': // macOS
         return ['PhantomJS', 'Chrome', 'Firefox'/*, 'Safari'*/];
-        break;
       default: // other (linux, freebsd, openbsd, sunos, aix)
         return ['PhantomJS', 'Chrome', 'Firefox'];
-        break;
     }
   }
 }
