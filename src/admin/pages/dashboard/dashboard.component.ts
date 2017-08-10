@@ -22,13 +22,13 @@
  * SOFTWARE.
  */
 
-/**
- * Component with features, template and so on. This is the component used to display the home page of `admin entry-point`.
- */
-
 import { Component } from '@angular/core';
-import {ExampleService} from "../../core/services/example.service";
+import { ExampleService } from '../../core/services/example.service';
 
+/**
+ * Component with features, template and so on. This is
+ * the component used to display the home page of the admin SPA.
+ */
 @Component({
   selector: 'mmw-admin-dashboard-page',
   templateUrl: 'dashboard.html'

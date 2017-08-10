@@ -25,6 +25,9 @@
 import { ExampleService } from './example.service';
 export { ExampleService } from './example.service';
 
+/**
+ * Array of core services for the admin SPA
+ */
 export const CORE_SERVICES: any[] = [
   ExampleService
 ];

@@ -27,6 +27,9 @@ import { PageHeaderComponent } from './page-header/page-header.component';
 
 export { PageHeader } from './page-header/page-header.component';
 
+/**
+ * Array of exported components
+ */
 export const SHARED_COMPONENTS = [
   NavbarAdminComponent,
   PageHeaderComponent

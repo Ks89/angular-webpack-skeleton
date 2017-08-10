@@ -22,13 +22,8 @@
  * SOFTWARE.
  */
 
-/**
- * An example of a service to retrieve remote data from https://api.github.com/users/Ks89
- */
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
 import { Observable } from 'rxjs/Observable';
 
 export class GithubUser {
@@ -41,9 +36,11 @@ export class GithubUser {
     public company: string | void,
     public location: string | void
   ) {}
-
 }
 
+/**
+ * Example of a service to retrieve remote data from https://api.github.com/users/Ks89
+ */
 @Injectable()
 export class GithubService {
 

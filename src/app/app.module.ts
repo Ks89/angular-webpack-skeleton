@@ -48,6 +48,9 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { mainReducers } from './reducers/index';
 
+/**
+ * Root module of the app SPA
+ */
 @NgModule({
   imports: [
     IdlePreloadModule.forRoot(), // forRoot ensures the providers are only created once
@@ -87,7 +90,6 @@ import { mainReducers } from './reducers/index';
   providers: [],
   bootstrap: [ AppComponent ]
 })
-
 export class AppModule {
 
   // ----------- Hot Module Replacement via AngularClass library - BEGIN ------------

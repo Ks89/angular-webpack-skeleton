@@ -22,11 +22,6 @@
  * SOFTWARE.
  */
 
-/**
- * Lazy loaded module (asynchronously) to reduce the initial boot time required to start the application.
- * This module is loaded asynchronously with a network call when the app is ready to use.
- */
-
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -41,6 +36,10 @@ import { reducers } from './reducers';
 
 console.log('`Lazy` bundle loaded asynchronously');
 
+/**
+ * Lazy loaded module (asynchronously) to reduce the initial boot time required to start the application.
+ * This module is loaded asynchronously with a network call when the app is ready to use.
+ */
 @NgModule({
   declarations: [
     LazyComponent

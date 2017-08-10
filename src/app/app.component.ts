@@ -29,6 +29,9 @@
 
 import { Component } from '@angular/core';
 
+/**
+ * Main component of the app SPA
+ */
 @Component({
   selector: 'mmw-app',
   templateUrl: 'app.html'

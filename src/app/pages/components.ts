@@ -25,6 +25,9 @@
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './404/not-found.component';
 
+/**
+ * Array of exported components
+ */
 export const COMPONENTS = [
   HomeComponent,
   NotFoundComponent

@@ -25,6 +25,9 @@
 import { DashboardAdminComponent } from './dashboard/dashboard.component';
 import { NotFound404Component } from './404/not-found404.component';
 
+/**
+ * Array of exported components
+ */
 export const ADMIN_COMPONENTS = [
   DashboardAdminComponent,
   NotFound404Component

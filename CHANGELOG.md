@@ -1,3 +1,14 @@
+#### Beta 1
+##### Features
+- #41 Add autodll-webpack-plugin instead of the other plugi
+- #42 circle ci 2
+- #40 support e2e testing with Headless Chrome
+- #19 add properties.js + dotenv to configure this project
+
+##### Chores
+- #22 write project documentation
+- #21 add docs + example for typedocs
+
 #### Alpha 21
 - Angular 4.3 and other dependencies updated
 - Example of a real rest call to Github from a service using the new Angular's HttpClient #38

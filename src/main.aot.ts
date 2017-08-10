@@ -36,6 +36,9 @@ if (webpack.ENV === 'production') {
   enableProdMode();
 }
 
+/**
+ * main function to boot the application.
+ */
 export function main(): Promise<any> {
   return platformBrowser()
     .bootstrapModuleFactory(AppModuleNgFactory)
@@ -43,6 +46,10 @@ export function main(): Promise<any> {
     .catch((err: any) => console.error(err));
 }
 
+/**
+ * call the main function when HTML document has been completely loaded
+ * and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+ */
 export function bootstrapDomReady(): any {
   document.addEventListener('DOMContentLoaded', main);
 }

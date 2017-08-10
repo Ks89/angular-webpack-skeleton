@@ -22,14 +22,13 @@
  * SOFTWARE.
  */
 
-/**
- * Angular routes for your `app entry-point`.
- */
-
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/404/not-found.component';
 
+/**
+ * Array of routes for the app SPA
+ */
 export const ROUTES: Routes = [
   {path: '',             component: HomeComponent},                             // `http://localhost:3300/`
   {path: 'home',         component: HomeComponent},                             // `http://localhost:3300/home`

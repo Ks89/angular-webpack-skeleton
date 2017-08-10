@@ -39,7 +39,9 @@ if (webpack.ENV === 'production') {
   enableProdMode();
 }
 
-// to be able to use Hot Module Replacement by AngularClass
+/**
+ * main function to boot the application.
+ */
 export function main(): Promise<any> {
   return platformBrowserDynamic()
     .bootstrapModule(AppModule)
@@ -47,6 +49,4 @@ export function main(): Promise<any> {
     .catch((err: any) => console.error(err));
 }
 
-// boot on document ready
-// uses Hot Module Replacement by AngularClass
 bootloader(main);

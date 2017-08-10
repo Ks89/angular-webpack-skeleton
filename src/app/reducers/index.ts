@@ -45,7 +45,11 @@ export const mainReducers: ActionReducerMap<State> = {
   helloExample: fromHelloExample.reducer,
 };
 
-// console.log all actions
+/**
+ * Logger function to log state and actions in console
+ * @param {ActionReducer<State>} reducer
+ * @returns {(state: State, action: any) => State}
+ */
 export function logger(reducer: ActionReducer<State>) {
   return function(state: State, action: any) {
     console.log('state', state);

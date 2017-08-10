@@ -22,13 +22,12 @@
  * SOFTWARE.
  */
 
-/**
- * Navbar of your application with the main horizontal menu
- */
-
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
+/**
+ * Navbar of your application with the main horizontal menu
+ */
 @Component({
   selector: 'mmw-admin-navigation',
   templateUrl: 'navbar.html'
@@ -40,5 +39,5 @@ export class NavbarAdminComponent {
 
   isNavItemActive(location: any) {
     return location === this.router.url ? 'active' : '';
-  };
+  }
 }

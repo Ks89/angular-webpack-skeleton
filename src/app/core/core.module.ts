@@ -22,10 +22,6 @@
  * SOFTWARE.
  */
 
-/**
- * Core module that you can import only one time into the main module. If you try to import it again, you'll get a runtime error.
- */
-
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -33,6 +29,10 @@ import { RouterModule } from '@angular/router';
 import { CORE_SERVICES } from './services/services';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 
+/**
+ * Core module that you can import only one time into the main module of the app SPA.
+ * If you try to import it again, you'll get a runtime error.
+ */
 @NgModule({
   imports: [
     CommonModule,
@@ -44,7 +44,6 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
     CORE_SERVICES
   ]
 })
-
 export class CoreModule {
   constructor( @Optional() @SkipSelf() parentModule: CoreModule) {
     throwIfAlreadyLoaded(parentModule, 'CoreModule');

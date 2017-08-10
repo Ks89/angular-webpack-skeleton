@@ -22,12 +22,11 @@
  * SOFTWARE.
  */
 
+import { Component } from '@angular/core';
+
 /**
  * Footer of your application with copyright info and so on
  */
-
-import { Component } from '@angular/core';
-
 @Component({
   selector: 'mmw-footer',
   styleUrls: ['footer.scss'],

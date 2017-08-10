@@ -22,10 +22,6 @@
  * SOFTWARE.
  */
 
-/**
- * Component of the lazy loaded module
- */
-
 import { Component, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs/Subscription';
@@ -39,6 +35,9 @@ import * as PageNum from './actions/page-num';
 
 console.log('`Lazy` component loaded asynchronously');
 
+/**
+ * Component of the lazy loaded module for the app SPA
+ */
 @Component({
   selector: 'mmw-cv-page',
   templateUrl: 'lazy.html',

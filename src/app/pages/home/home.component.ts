@@ -22,10 +22,6 @@
  * SOFTWARE.
  */
 
-/**
- * Component with features, template and so on. This is the component used to display the home page of `app entry-point`.
- */
-
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -41,6 +37,10 @@ import { Store } from '@ngrx/store';
 import * as fromRoot from '../../core/reducers/hello-example';
 import * as example from '../../core/actions/hello-example';
 
+/**
+ * Component with features, template and so on. This is the
+ * component used to display the home page of the app SPA.
+ */
 @Component({
   selector: 'mmw-home-page',
   styleUrls: ['home.scss'],

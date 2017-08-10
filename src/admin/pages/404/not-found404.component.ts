@@ -22,15 +22,14 @@
  * SOFTWARE.
  */
 
+import { Component } from '@angular/core';
+
 /**
  * Module used to display an error page when you are navigating to a wrong route
  * (or not defined into `admin.routing.ts`)
  */
-
-import { Component } from '@angular/core';
 @Component({
   selector: 'mmw-admin-not-found',
   template: '<h3>Error 404: Not found</h3>'
 })
-
 export class NotFound404Component { }

@@ -24,9 +24,12 @@
 
 import { ExampleService } from './example.service';
 export { ExampleService } from './example.service';
-import { GithubService } from './github.service'
-export { GithubService } from './github.service'
+import { GithubService } from './github.service';
+export { GithubService } from './github.service';
 
+/**
+ * Array of core services for the app SPA
+ */
 export const CORE_SERVICES: any[] = [
   ExampleService,
   GithubService

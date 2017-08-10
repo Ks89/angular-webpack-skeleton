@@ -22,11 +22,6 @@
  * SOFTWARE.
  */
 
-/**
- * Shared module that you can import everywhere, because it haven't providers.
- * It contains navbar, page-header and so on.
- */
-
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -35,6 +30,10 @@ import { SHARED_COMPONENTS } from './components/components';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+/**
+ * Shared module that you can import everywhere, because it haven't providers.
+ * It contains navbar, page-header and so on.
+ */
 @NgModule({
   imports: [
     CommonModule,

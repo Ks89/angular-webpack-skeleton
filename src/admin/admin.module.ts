@@ -45,6 +45,9 @@ import { createNewHosts, createInputTransfer, removeNgStyles } from '@angularcla
 import { IdlePreloadModule } from '@angularclass/idle-preload';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
+/**
+ * Root module of the admin SPA.
+ */
 @NgModule({
   imports: [
     IdlePreloadModule.forRoot(), // forRoot ensures the providers are only created once
@@ -68,7 +71,6 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
   providers: [],
   bootstrap: [ AdminComponent ]
 })
-
 export class AdminModule {
 
   // ----------- Hot Module Replacement via AngularClass library - BEGIN ------------

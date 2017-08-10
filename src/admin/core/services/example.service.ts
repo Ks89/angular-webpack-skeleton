@@ -22,14 +22,13 @@
  * SOFTWARE.
  */
 
-/**
- * An example of a service to retrieve data
- */
-
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
+/**
+ * Example of an Angular Service
+ */
 @Injectable()
 export class ExampleService {
 

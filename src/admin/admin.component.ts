@@ -27,8 +27,11 @@
  * Template could contain router-outlets, navbars, footers and so on
  */
 
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 
+/**
+ * Main component of the admin SPA
+ */
 @Component({
   selector: 'mmw-admin',
   templateUrl: 'admin.html'

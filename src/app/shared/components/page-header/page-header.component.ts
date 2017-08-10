@@ -22,12 +22,11 @@
  * SOFTWARE.
  */
 
-/**
- * Page header component to display a big title and a smaller strapline (or subtitle)
- */
-
 import { Component, Input } from '@angular/core';
 
+/**
+ * Page header class
+ */
 export class PageHeader {
   title: string;
   strapline: string;
@@ -39,6 +38,9 @@ export class PageHeader {
   }
 }
 
+/**
+ * Page header component to display a big title and a smaller strapline (or subtitle)
+ */
 @Component({
   selector: 'mmw-page-header',
   templateUrl: 'page-header.html'

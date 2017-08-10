@@ -22,15 +22,14 @@
  * SOFTWARE.
  */
 
-/**
- * Angular routes for your `admin entry-point`
- */
-
 import { Routes } from '@angular/router';
 import { NotFound404Component } from './pages/404/not-found404.component';
 import { DashboardAdminComponent } from './pages/dashboard/dashboard.component';
 
+/**
+ * Array of routes for the admin SPA
+ */
 export const ROUTES: Routes = [
-  {path: '',                    component: DashboardAdminComponent}, //`http://localhost:3300/admin.html/`
+  {path: '',                    component: DashboardAdminComponent}, // `http://localhost:3300/admin.html/`
   {path: '**',                  component: NotFound404Component}     // every other routes
 ];
