@@ -47,7 +47,7 @@ I suggest to add this repo as git remote to your repository to be able to update
 
 
 ## News
-- *??/??/2017* - Beta 1 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
+- *08/10/2017* - Beta 1 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *07/27/2017* - Alpha 21 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *05/20/2017* - Alpha 20 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *04/25/2017* - Alpha 19 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -73,7 +73,7 @@ Full changelog [HERE](https://github.com/Ks89/angular-webpack-skeleton/blob/mast
 
 ## File structure
 This reduced structure is based on [Angular style-guide](https://angular.io/guide/styleguide) and on my personal experience.
-For the full file structure check [HERE](https://github.com/Ks89/angular-webpack-skeleton/FILE-STRUCTURE.md).
+For the full file structure check [HERE](https://github.com/Ks89/angular-webpack-skeleton/blob/master/FILE-STRUCTURE.md).
 
 ```
 angular-webpack-skeleton/
