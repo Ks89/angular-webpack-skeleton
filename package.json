@@ -9,8 +9,8 @@
   "private": true,
   "repository": "https://github.com/Ks89/angular-webpack-skeleton",
   "engines": {
-    "node": ">=8.0.0",
-    "npm": ">=5.0.0"
+    "node": ">=7.10.0",
+    "npm": ">=4.2.0"
   },
   "scripts": {
     "start": "webpack-dev-server --progress --port 8080",
@@ -134,6 +134,7 @@
     "ngc-webpack": "^3.1.0",
     "node-sass": "^4.5.3",
     "node-static": "^0.7.8",
+    "npm-run-all": "^4.0.2",
     "null-loader": "^0.1.1",
     "optimize-js-plugin": "^0.0.4",
     "phantomjs-prebuilt": "^2.1.14",
