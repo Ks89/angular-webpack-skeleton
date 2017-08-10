@@ -1,6 +1,6 @@
 #### Beta 1
 ##### Features
-- #41 Add autodll-webpack-plugin instead of the other plugi
+- #41 Add autodll-webpack-plugin instead of the other plugin
 - #42 circle ci 2
 - #40 support e2e testing with Headless Chrome
 - #19 add properties.js + dotenv to configure this project
