@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/project
     docker:
-      - image: circleci/node:7.0.0
+      - image: circleci/node:7.10.0-browsers
     steps:
       - checkout
       - run:
@@ -18,16 +18,16 @@ jobs:
         key: dependency-cache-{{ checksum "package.json" }}
         paths:
           - ./node_modules
-      - run:
-        name: run-debug
-        command: npm run build:dev
-      - run:
-        name: run-prod
-        command: npm run build:prod
-      - run:
-        name: run-prod-aot
-        command: npm run build:prod:aot
-
+#      - run:
+#        name: run-debug
+#        command: npm run build:dev
+#      - run:
+#        name: run-prod
+#        command: npm run build:prod
+#      - run:
+#        name: run-prod-aot
+#        command: npm run build:prod:aot
+#
 
 #     - run:
 #      name: test
