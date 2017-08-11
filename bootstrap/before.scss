@@ -32,6 +32,9 @@
 // $input-color: $gray !default;
 // This means you can define $input-color before we load _variables.scss
 
+// at the beginning to support Bootstrap 4 beta 1
+@import "~bootstrap/scss/_functions.scss";
+
 // Start with assigning color names to specific hex values.
 $white:  #fff !default;
 $black:  #000 !default;

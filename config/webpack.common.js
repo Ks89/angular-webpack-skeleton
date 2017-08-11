@@ -244,6 +244,7 @@ module.exports = {
       jQuery: 'jquery',
       jquery: 'jquery',
       $: 'jquery',
+      'Popper': 'popper.js',
       'Tether': 'tether',
       'window.Tether': 'tether',
       //---------------------------------------------------
