@@ -3,7 +3,7 @@
 <br>
 
 # angular-webpack-skeleton
-A simple skeleton project with Angular 4, Webpack 3 and Bootstrap 4 alpha ready to use.
+A simple skeleton project with Angular 4, Webpack 3 and Bootstrap 4 beta ready to use.
 
 You can fork or clone this repository and build your project on it.
 I suggest to add this repo as git remote to your repository to be able to update your project with newer releases of this project.
@@ -14,7 +14,7 @@ I suggest to add this repo as git remote to your repository to be able to update
     - [Ahead of Time (AOT)](https://angular.io/guide/aot-compiler)
     - [Lazy loading](https://angular.io/guide/ngmodule#lazy-loading-modules-with-the-router)
     - The new [HttpClient](https://angular.io/guide/http#httpclient) of Angular >= 4.3
-- [Bootstrap 4](https://v4-alpha.getbootstrap.com/), [ng-bootstrap](https://github.com/ng-bootstrap/ng-bootstrap), [bootstrap-loader](https://github.com/shakacode/bootstrap-loader)
+- [Bootstrap 4](http://getbootstrap.com/), [ng-bootstrap](https://github.com/ng-bootstrap/ng-bootstrap), [bootstrap-loader](https://github.com/shakacode/bootstrap-loader)
 - [Font-awesome](http://fontawesome.io/)
 - [jQuery](https://jquery.com/)
 - Reactive storage
@@ -47,6 +47,7 @@ I suggest to add this repo as git remote to your repository to be able to update
 
 
 ## News
+- *08/11/2017* - Beta 1 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *08/10/2017* - Beta 1 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *07/27/2017* - Alpha 21 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *05/20/2017* - Alpha 20 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)

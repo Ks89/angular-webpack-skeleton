@@ -1,3 +1,9 @@
+#### Beta 2
+##### Features
+- #44 update to angular 5 beta
+- #45 update to bootstrap 4 beta 1
+
+
 #### Beta 1
 ##### Features
 - #41 Add autodll-webpack-plugin instead of the other plugin
@@ -8,6 +14,7 @@
 - #22 write project documentation
 - #21 add docs + example for typedocs
 
+
 #### Alpha 21
 - Angular 4.3 and other dependencies updated
 - Example of a real rest call to Github from a service using the new Angular's HttpClient #38
@@ -15,6 +22,7 @@
 - Update to ngrx platform 4 #39
 - initial impl of 'add docs + example for typedocs' #21
 - fix again e2e testing error (@types/jasmine downgraded) #32
+
 
 #### Alpha 20
 - ngrx-store #24
@@ -28,8 +36,10 @@
 - ng-bootstrap alpha 25
 - enabled all imports in polyfills to support older browsers
 
+
 #### Alpha 19
 - full refactoring based on [Angular Style Guide](https://angular.io/styleguide), finally with CoreModule and SharedModule following all best practices
+
 
 #### Alpha 18
 - update to codelyzer 3
@@ -39,29 +49,37 @@
 - temporary fix for e2e test (issue #32) but I'm waiting for a real solution
 - fix IE performance issue with debug mode (issue #34)
 
+
 #### Alpha 17
 - angular 4.0.0
 - project renamed to "angular-webpack-skeleton"
 
+
 #### Alpha 16
 - angular 4 rc 5 (no rc.6 because it's broken)
+
 
 #### Alpha 15
 - angular 4 rc 2
 - Webpack DLL plugin
 
+
 #### Alpha 14
 - font-awesome fixed
 
+
 #### Alpha 13
 - big refactoring to both app and admin single page applications
+
 
 #### Alpha 12
 - Fix for AppVeyor and Windows
 - Bootstrap 4 customizations thanks to bootstrap-loader. In fact, I'm overriding bootstrap colors with different hex colors. The same technique is valid for all variables into [_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)
 
+
 #### Alpha 11
 - MIT license :)
+
 
 #### Alpha 10
 - typescript 2.2
@@ -69,19 +87,24 @@
 - some fixes related to both css and scss webpack's loaders
 - fix for e2e tests (issue #12)
 
+
 #### Alpha 9
 - typescript 2.1
 - awesome-typescript-loader 3.0.0 beta
+
 
 #### Alpha 8
 - improve npm scripts names #15
 - remove ./node_modules/.bin from npm scripts #13
 
+
 #### Alpha 7
 - AOT + Lazy Loading together (thanks to `ng-router-loader`)
 
+
 #### Alpha 6
 - AOT #9
+
 
 #### Alpha 5
 - HMR
