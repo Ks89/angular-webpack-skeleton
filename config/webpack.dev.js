@@ -144,6 +144,8 @@ module.exports = webpackMerge(commonConfig, {
           '@angular/http',
           '@angular/router',
           '@angularclass/hmr',
+          '@ngrx/store',
+          '@ngrx/store-devtools',
           'rxjs',
           '@ng-bootstrap/ng-bootstrap',
           'jquery',
