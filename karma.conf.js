@@ -43,7 +43,7 @@ function getBrowsers() {
       // only for AppVeyor
       return ['Chrome', 'Firefox', 'IE'];
     } else if (process.env.TRAVIS) { // variable defined by TRAVIS itself
-      return ['PhantomJS', 'Firefox'];
+      return ['PhantomJS', 'Chrome', 'Firefox'];
     } else if (process.env.CIRCLECI) { // variable defined by CIRCLECI itself
       return ['PhantomJS', 'Chrome', 'Firefox'];
     }
