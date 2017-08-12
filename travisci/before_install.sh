@@ -29,11 +29,3 @@ else
     # to fix a problem with nodejs 6 on linux
     npm install -g codeclimate-test-reporter
 fi
-
-
-
-# - sudo apt-get update
-# - sudo apt-get install -y libappindicator1 fonts-liberation
-# - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-# - sudo dpkg -i google-chrome*.deb
-# - export CHROME_BIN=/usr/bin/google-chrome
