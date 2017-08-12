@@ -5,7 +5,7 @@ node_js:
   - "6.3"
 os:
   - linux
- # - osx
+  - osx
 env:
   global:
     - secure: Kvfbrwbb4WuzYjdYAFAAIsn43Hk1ed3b7MlezqjENKgXEqJhHmx64BWtVrVuDsgi8b3d23aVSAe7xlRniQc4XbWm1igsgGHese7ubw60rpxovnmbSFTvlPCnRHKsxTGTOKOrVEdBO0s/WiG1efYnQCzW2B7rhETj1F3akwWPASkBJ8nSwpmRuF/iGT7l0TOsb8vNagHrvD++Wxu2EOco8P7ktnuptkyMR1eCLCFl0fqPOY4kgeRBvy4/H2+xuKEy/hGfjznTuD/N0Rc6LZYMmriaMDZo2/r8lGdvzx2MOXSrAW84NxwDczmVOIn+P1jQwfyxQn/yJqwKaMhNDHc1oQSBVyeGEZydEMYQjmSmsaiiD3sM39GIFWdS+fmZYP2byiaLAAt1CMY6ZrQNb2BysdwlkurKJPJzAFGTYpZh55wgKnz5FwIqmbFm+A0R9axRZhHEP7ThsxDT4hrvX/z87DSx2gTEt2C37H17ndsfkI43o3yPYaQAxdH7xErOEreROIvxoqALP0BNMpl0Shmz5ZCUez55GdcyTLuWOCExqV4XKcELEIUK1hv4nWTFIiThrEbGIegPvCaAj1cFGwpHo2FbMAchG2vahb6cnvmfXQjTGQEbwKTCBJXMLrgSVfxx9G51p656ekPSnYeYCEDFIXmUNElS4dMNe2MjYfSh6wI= # CODECLIMATE
