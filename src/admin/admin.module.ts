@@ -25,6 +25,7 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ROUTES }  from './admin.routing';
 
@@ -52,6 +53,7 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
   imports: [
     IdlePreloadModule.forRoot(), // forRoot ensures the providers are only created once
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
