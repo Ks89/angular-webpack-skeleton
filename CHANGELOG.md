@@ -1,5 +1,10 @@
 #### Beta 2
 ##### Features
+- refactoring and cleanup
+- Improved e2e testing
+
+#### Beta 2
+##### Features
 - #44 update to angular 5 beta
 - #45 update to bootstrap 4 beta 1
 

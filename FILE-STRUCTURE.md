@@ -12,7 +12,8 @@ angular-webpack-skeleton/
  │ ├─html-elements-plugin/        * webpack plugin to add css, icons... during the creation of html files
  │ ├─head-config.common.js        * list of files to be loaded by 'html-elements-plugin'
  │ ├─helpers.js                   * helper functions for configuration files
- │ ├─karma-test-runner.js         * karma config for unit tests
+ │ ├─karma.conf.js                * karma config file for unit testing
+ │ ├─karma-test-runner.js         * karma test-runner file for unit testing
  │ ├─protractor.conf.js           * protractor config for e2e tests
  │ ├─webpack.common.js            * common webpack config (for both dev and prod)
  │ ├─webpack.dev.js               * local developmet webpack config
@@ -95,14 +96,15 @@ angular-webpack-skeleton/
  ├─.bootstraprc                   * main bootstrap-loader config file
  ├─.travis.yml                    * travis ci config
  ├─appveyor.yml                   * appveyor config
- ├─karma.conf.js                  * karma config file for unit testing
+ ├─karma.conf.js                  * main karma config file for unit testing
  ├─package.json                   * npm packages.json
  ├─package-lock.json              * lock file for npm >= 5
  ├─postcss.config.js              * postcss config file
  ├─protractor.config.js           * main protractor config file for e2e testing
  ├─tsconfig.json                  * Config file for Typescript
  ├─tsconfig-aot.json              * Config file for Typescript used by AOT compiler
- └─tslit.json                     * TSLint config file
+ ├─tslit.json                     * TSLint config file
+ └─webpack.conf.js                * main webpack config file
 ```
 
 Created by Stefano Cappa (Ks89)

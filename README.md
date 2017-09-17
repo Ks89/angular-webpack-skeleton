@@ -3,14 +3,14 @@
 <br>
 
 # angular-webpack-skeleton
-A simple skeleton project with Angular 4, Webpack 3 and Bootstrap 4 beta ready to use.
+A simple skeleton project with Angular 5, Webpack 3 and Bootstrap 4 beta ready to use.
 
 You can fork or clone this repository and build your project on it.
 I suggest to add this repo as git remote to your repository to be able to update your project with newer releases of this project.
 
 ## Features
 - Typescript 2
-- Angular 4
+- Angular 5
     - [Ahead of Time (AOT)](https://angular.io/guide/aot-compiler)
     - [Lazy loading](https://angular.io/guide/ngmodule#lazy-loading-modules-with-the-router)
     - The new [HttpClient](https://angular.io/guide/http#httpclient) of Angular >= 4.3
@@ -47,6 +47,7 @@ I suggest to add this repo as git remote to your repository to be able to update
 
 
 ## News
+- *09/17/2017* - Beta 3 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *08/11/2017* - Beta 2 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *08/10/2017* - Beta 1 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *07/27/2017* - Alpha 21 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -87,7 +88,8 @@ angular-webpack-skeleton/
  │ ├─html-elements-plugin/        * webpack plugin to add css, icons... during the creation of html files
  │ ├─head-config.common.js        * list of files to be loaded by 'html-elements-plugin'
  │ ├─helpers.js                   * helper functions for configuration files
- │ ├─karma-test-runner.js         * karma config for unit tests
+ │ ├─karma.conf.js                * karma config file for unit testing
+ │ ├─karma-test-runner.js         * karma test-runner file for unit testing
  │ ├─protractor.conf.js           * protractor config for e2e tests
  │ ├─webpack.common.js            * common webpack config (for both dev and prod)
  │ ├─webpack.dev.js               * local developmet webpack config
@@ -161,11 +163,12 @@ angular-webpack-skeleton/
  │ └─typings.d.ts                 * custom types for Typescript
  │
  ├─.bootstraprc                   * main bootstrap-loader config file
- ├─karma.conf.js                  * karma config file for unit testing
+ ├─karma.conf.js                  * main karma config file for unit testing
  ├─protractor.config.js           * main protractor config file for e2e testing
  ├─tsconfig.json                  * Config file for Typescript
  ├─tsconfig-aot.json              * Config file for Typescript used by AOT compiler
- └─tslit.json                     * TSLint config file
+ ├─tslit.json                     * TSLint config file
+ └─webpack.conf.js                * main webpack config file
 ```
 
 
