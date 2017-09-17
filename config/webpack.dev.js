@@ -148,6 +148,7 @@ module.exports = webpackMerge(commonConfig, {
           '@ngrx/store-devtools',
           'rxjs',
           '@ng-bootstrap/ng-bootstrap',
+          'style-loader',
           'jquery',
           'bootstrap-loader',
           'hammerjs',

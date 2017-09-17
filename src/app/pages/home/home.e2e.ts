@@ -22,16 +22,18 @@
  * SOFTWARE.
  */
 
-import { browser } from 'protractor';
+import { browser, by, element } from 'protractor';
 
-describe('Application', () => {
+describe('Home page', () => {
 
-  beforeEach(() => {
+  beforeAll( () => {
     browser.get('/');
   });
 
-  it('should have a title', () => {
-    const subject: any = browser.getTitle();
-    expect(subject).toEqual('My MEAN Website');
+  it('should display the homepage', () => {
+
+    const titleText: any =  element(by.id('title')).getText();
+    expect(titleText).toEqual('KS Welcome');
+
   });
 });
