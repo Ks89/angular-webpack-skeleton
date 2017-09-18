@@ -30,12 +30,12 @@ jobs:
       - run:
          name: run-test
          command: npm test
-      - run:
-         name: run-webdriver-update
-         command: npm run webdriver:update
-      - run:
-         name: run-e2e
-         command: npm run e2e
+#      - run:
+#         name: run-webdriver-update
+#         command: npm run webdriver:update
+#      - run:
+#         name: run-e2e
+#         command: npm run e2e
       - run:
          name: run-docs
          command: npm run docs
