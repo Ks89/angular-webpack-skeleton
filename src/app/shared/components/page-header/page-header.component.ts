@@ -22,6 +22,8 @@
  * SOFTWARE.
  */
 
+/* tslint:disable:max-classes-per-file */
+
 import { Component, Input } from '@angular/core';
 
 /**

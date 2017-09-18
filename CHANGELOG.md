@@ -1,7 +1,18 @@
-#### Beta 2
+#### Beta 4
+##### Features
+- refactoring and cleanup
+- fix some tslint's rules
+- Upgrade to Angular 5.0.0 beta-7
+- Upgrade to Typescript 2.4.2
+- Remove deprecated @angularclass/idle-preload
+- Remove PhantomJs. Now I'm using Chrome Headless :)
+
+
+#### Beta 3
 ##### Features
 - refactoring and cleanup
 - Improved e2e testing
+
 
 #### Beta 2
 ##### Features

@@ -7,7 +7,7 @@
   ],
   "rules": {
     "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
-    "interface-name": [false, "always-prefix"],
+    "interface-name": ["always-prefix"],
 
     "component-selector": [true, "element", ["mmw", "admin"], "kebab-case"],
     "component-class-suffix": [true, "Component"],
@@ -15,7 +15,7 @@
     "directive-class-suffix": [true, "Directive"],
     "import-destructuring-spacing": true,
     "invoke-injectable": true,
-    "no-access-missing-member": true,
+    "member-access": [true, "no-public"],
     "no-attribute-parameter-decorator": true,
     "no-forward-ref": true,
     "no-input-rename": true,
@@ -29,6 +29,8 @@
     "use-output-property-decorator": true,
     "use-pipe-transform-interface": true,
 
+    "arrow-parens": false,
+    "array-type": [true, "array-simple"],
     "no-console": [true,
       "time",
       "timeEnd",

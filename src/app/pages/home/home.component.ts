@@ -49,14 +49,14 @@ import * as example from '../../core/actions/hello-example';
 export class HomeComponent implements OnInit, OnDestroy {
   pageHeader: PageHeader;
   message: string;
-  elements: Array<Object> = [
+  elements: any[] = [
     {field: 'el1'},
     {field: 'el2'},
     {field: 'el3'}
   ];
 
   helloExample$: Observable<string>;
-  elementsObs: Observable<Object> = Observable.of(this.elements).delay(1000);
+  elementsObs: Observable<any> = Observable.of(this.elements).delay(1000);
 
   private githubSubscription: Subscription;
 

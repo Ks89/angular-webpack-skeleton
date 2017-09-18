@@ -22,6 +22,8 @@
  * SOFTWARE.
  */
 
+/* tslint:disable:max-classes-per-file */
+
 // This file is used into ../../app.module.ts
 
 import { Action } from '@ngrx/store';

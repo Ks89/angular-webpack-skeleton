@@ -22,6 +22,8 @@
  * SOFTWARE.
  */
 
+/* tslint:disable:max-classes-per-file variable-name */
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';

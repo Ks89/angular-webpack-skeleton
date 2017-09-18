@@ -22,6 +22,8 @@
  * SOFTWARE.
  */
 
+/* tslint:disable:max-classes-per-file */
+
 import { Action } from '@ngrx/store';
 
 export const GET_PAGE = '[PageNum] Get Page';

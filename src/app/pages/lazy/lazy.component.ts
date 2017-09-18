@@ -44,7 +44,7 @@ console.log('`Lazy` component loaded asynchronously');
   styleUrls: ['lazy.scss']
 })
 export class LazyComponent implements OnDestroy {
-  public pageHeader: PageHeader;
+  pageHeader: PageHeader;
 
   private pageNum$: Observable<number>;
   private pageNumSubscription: Subscription;

@@ -56,5 +56,5 @@ console.log('`Lazy` bundle loaded asynchronously');
   providers: []
 })
 export class LazyModule {
-  public static routes = routes;
+  static routes = routes;
 }

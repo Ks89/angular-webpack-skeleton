@@ -27,7 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { ROUTES }  from './admin.routing';
+import { ROUTES } from './admin.routing';
 
 // Third party libraries (that are using scss/css)
 import 'bootstrap-loader';
@@ -51,14 +51,16 @@ import { RouterModule, PreloadAllModules } from '@angular/router';
  */
 @NgModule({
   imports: [
-    IdlePreloadModule.forRoot(), // forRoot ensures the providers are only created once
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     NgbModule.forRoot(),
-    RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(ROUTES, {
+      useHash: Boolean(history.pushState) === false,
+      preloadingStrategy: PreloadAllModules
+    }),
 
     // CoreModule must be loaded only on time
     CoreModule,
@@ -94,7 +96,7 @@ export class AdminModule {
     delete store.restoreInputValues;
   }
   hmrOnDestroy(store: any): any {
-    let cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
+    const cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
     // recreate elements
     store.disposeOldHosts = createNewHosts(cmpLocation);
     // inject your AppStore and grab state then set it on store

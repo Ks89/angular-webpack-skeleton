@@ -54,7 +54,6 @@ import { mainReducers } from './reducers/index';
  */
 @NgModule({
   imports: [
-    IdlePreloadModule.forRoot(), // forRoot ensures the providers are only created once
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -116,7 +115,7 @@ export class AppModule {
     delete store.restoreInputValues;
   }
   hmrOnDestroy(store: any): any {
-    let cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
+    const cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
     // recreate elements
     store.disposeOldHosts = createNewHosts(cmpLocation);
     // inject your AppStore and grab state then set it on store

@@ -38,7 +38,7 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
     CommonModule,
     RouterModule
   ],
-  exports:[],
+  exports: [],
   declarations: [],
   providers: [
     CORE_SERVICES
