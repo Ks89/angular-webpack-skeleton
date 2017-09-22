@@ -1,3 +1,9 @@
+#### Beta 5
+##### Features
+- add e2e tests to CI #46
+- add manifest.json to create standalone apps on mobile devices #48
+
+
 #### Beta 4
 ##### Features
 - refactoring and cleanup

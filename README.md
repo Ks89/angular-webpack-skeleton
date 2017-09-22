@@ -43,10 +43,12 @@ I suggest to add this repo as git remote to your repository to be able to update
     - [Travis CI](https://travis-ci.org/)
     - [Circle CI](https://circleci.com/)
     - [AppVeyor](https://www.appveyor.com/)
+- `manifest.json` support to add it as a standalone app on mobile devices
 - and many more...
 
 
 ## News
+- *09/23/2017* - Beta 5 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *09/18/2017* - Beta 4 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *09/17/2017* - Beta 3 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *08/11/2017* - Beta 2 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -80,7 +82,7 @@ For the full file structure check [HERE](https://github.com/Ks89/angular-webpack
 
 ```
 angular-webpack-skeleton/
- ├─assets/                        * Images, icons and so on
+ ├─assets/                        * Images, icons, manifest.json and so on
  ├─bootstrap/                     * bootstrap-loader configuration files
  │ ├─after.scss                   * this gets loaded after bootstrap/variables is loaded
  │ └─before.scss                  * this gets loaded before bootstrap/variables is loaded

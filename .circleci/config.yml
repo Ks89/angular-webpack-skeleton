@@ -19,29 +19,32 @@ jobs:
           paths:
             - ./node_modules
       - run:
-         name: run-build-dev
-         command: npm run build:dev
+          name: run-build-dev
+          command: npm run build:dev
       - run:
-         name: run-build-prod
-         command: npm run build:prod
+          name: run-build-prod
+          command: npm run build:prod
       - run:
-         name: run-build-prod-aot
-         command: npm run build:prod:aot
+          name: run-clean
+          command: npm run clean # clean before the real production build
       - run:
-         name: run-test
-         command: npm test
-#      - run:
-#         name: run-webdriver-update
-#         command: npm run webdriver:update
-#      - run:
-#         name: run-e2e
-#         command: npm run e2e
+          name: run-build-prod-aot
+          command: npm run build:prod:aot
       - run:
-         name: run-docs
-         command: npm run docs
+          name: run-test
+          command: npm test
       - run:
-         name: run-codeclimate
-         command: npm run codeclimate
+          name: run-webdriver-update
+          command: npm run webdriver:update
       - run:
-         name: run-coveralls
-         command: npm run coveralls
+          name: run-e2e
+          command: npm run e2e:ci
+      - run:
+          name: run-docs
+          command: npm run docs
+      - run:
+          name: run-codeclimate
+          command: npm run codeclimate
+      - run:
+          name: run-coveralls
+          command: npm run coveralls

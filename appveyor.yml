@@ -24,10 +24,11 @@ branches:
 #skip_tags: true
 
 # Skipping commits affecting specific files (GitHub only). More details here: /docs/appveyor-yml
-#skip_commits:
-#  files:
-#    - docs/*
-#    - '**/*.html'
+skip_commits:
+  files:
+     - .circleci/*
+     - travisci/*
+     - .travis.yml
 
 # Including commits affecting specific files (GitHub only). More details here: /docs/appveyor-yml
 #only_commits:
@@ -49,6 +50,9 @@ branches:
 # scripts that are called at very beginning, before repo cloning
 init:
   - git config --global core.autocrlf input
+   # used to access with Windows Remote Desktop
+  #  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
 
 # fetch repository as zip archive
 #shallow_clone: true  # default is false
@@ -90,7 +94,7 @@ install:
   # install nodejs and dependencies both global and local
   # use appveyor-retry to retry if npm install fails
   - cmd: appveyor-retry powershell Install-Product node $env:nodejs_version
-  - npm install -g npm@latest
+  - npm install -g npm@5.3
   - set PATH=%APPDATA%\npm;%PATH%
   - npm install -g codeclimate-test-reporter
   - npm install
@@ -130,7 +134,6 @@ build_script:
   - npm run clean
   - echo "npm run production + AOT build on $TRAVIS_OS_NAME"
   - npm run build:prod:aot
-  # TODO add protractor tests with npm run webdriver:update && npm run e2e
 
 #---------------------------------#
 #       tests configuration       #
@@ -148,6 +151,9 @@ test_script:
   - ps: "npm --version # PowerShell" # Pass comment to PS for easier debugging
   # run tests
   - npm test
+  # update webdriver + run e2e tests
+  - npm run webdriver:update
+  - npm run e2e:ci
 
 #---------------------------------#
 #      artifacts configuration    #
@@ -178,6 +184,7 @@ deploy_script:
 
 # on successful build
 on_success:
+  - npm run docs
   - codeclimate-test-reporter < coverage/lcov.info
   - node .\node_modules\coveralls\bin\coveralls.js < .\coverage\lcov.info
 

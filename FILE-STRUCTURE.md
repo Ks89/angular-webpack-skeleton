@@ -3,7 +3,7 @@ Complete file structure:
 ```
 angular-webpack-skeleton/
  ├─.circleci/                     * Circle CI 2 config folder
- ├─assets/                        * Images, icons and so on
+ ├─assets/                        * Images, icons, manifest.json and so on
  ├─bootstrap/                     * bootstrap-loader configuration files
  │ ├─after.scss                   * this gets loaded after bootstrap/variables is loaded
  │ └─before.scss                  * this gets loaded before bootstrap/variables is loaded
