@@ -27,4 +27,4 @@ npm run webdriver:update
 sleep 5
 
 echo "npm run e2e on $TRAVIS_OS_NAME"
-npm run ci:e2e
+npm run e2e:ci
