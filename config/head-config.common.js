@@ -35,9 +35,11 @@ module.exports = {
     // { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/assets/icon/favicon-32x32.png' },
     // { rel: 'icon', type: 'image/png', sizes: '96x96', href: '/assets/icon/favicon-96x96.png' },
     // { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/assets/icon/favicon-16x16.png' },
-    //
-    // /** <link> tags for a Web App Manifest **/
-    // { rel: 'manifest', href: '/assets/manifest.json' },
+
+    /**
+     * <link> tags for a Web App Manifest
+     */
+    { rel: 'manifest', href: '/assets/manifest.json' },
 
     /** font-awesome css **/
     { rel: 'stylesheet', href: '/assets/font-awesome/css/font-awesome.min.css' }
