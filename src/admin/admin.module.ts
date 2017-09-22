@@ -43,7 +43,6 @@ import { AdminComponent } from './admin.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { createNewHosts, createInputTransfer, removeNgStyles } from '@angularclass/hmr';
-import { IdlePreloadModule } from '@angularclass/idle-preload';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
 /**

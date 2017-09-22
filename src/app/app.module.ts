@@ -42,7 +42,6 @@ import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
-import { IdlePreloadModule } from '@angularclass/idle-preload';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import { StoreModule } from '@ngrx/store';
