@@ -24,6 +24,8 @@ sleep 5
 # update webdriver to be able to run e2e tests
 npm run webdriver:update
 
+# here you must have ./dist folder with your app built thanks to: npm run build:prod:aot
+
 sleep 5
 
 echo "npm run e2e on $TRAVIS_OS_NAME"

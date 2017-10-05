@@ -34,7 +34,7 @@ I suggest to add this repo as git remote to your repository to be able to update
     - Unit testing with [Karma](https://karma-runner.github.io) and [Jasmine](https://jasmine.github.io/)
     - End to end (E2E) testing with [Protractor](http://www.protractortest.org) and [WebDriver JS](https://github.com/SeleniumHQ/selenium/wiki/WebDriverJs)
     - Code coverage with [IstanbulJs](https://github.com/istanbuljs/istanbuljs)
-- Code analysis ad quality
+- Code analysis and quality
     - [TSLint](https://github.com/palantir/tslint)
     - [Codelyzer](https://github.com/mgechev/codelyzer)
 - Documentation
@@ -48,6 +48,7 @@ I suggest to add this repo as git remote to your repository to be able to update
 
 
 ## News
+- *10/05/2017* - Beta 6 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *09/22/2017* - Beta 5 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *09/18/2017* - Beta 4 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *09/17/2017* - Beta 3 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
