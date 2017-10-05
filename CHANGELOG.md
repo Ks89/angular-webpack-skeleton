@@ -1,3 +1,9 @@
+#### Beta 6
+##### Bugfixes
+- fix e2e tests on Windows. There are also some improvements for all other platforms
+- fix e2e for CI (not for CircleCI, because I'm waiting for [THIS](https://discuss.circleci.com/t/update-chrome-to-version-59-or-greater-for-circleci-2-0/16323))
+
+
 #### Beta 5
 ##### Features
 - add e2e tests to CI #46
