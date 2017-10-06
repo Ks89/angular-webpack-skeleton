@@ -39,7 +39,7 @@ I suggest to add this repo as git remote to your repository to be able to update
     - [Codelyzer](https://github.com/mgechev/codelyzer)
 - Documentation
     - [TypeDoc](https://github.com/TypeStrong/typedoc)
-    - [Compodod](https://github.com/compodoc/compodoc)
+    - [Compodoc](https://github.com/compodoc/compodoc)
 - Continous Integration
     - [Travis CI](https://travis-ci.org/)
     - [Circle CI](https://circleci.com/)
