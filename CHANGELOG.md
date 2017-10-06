@@ -1,3 +1,8 @@
+#### Beta 7
+##### Features
+- add compodoc support #50
+
+
 #### Beta 6
 ##### Bugfixes
 - fix e2e tests on Windows. There are also some improvements for all other platforms

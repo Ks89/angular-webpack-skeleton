@@ -28,4 +28,5 @@ dist
 aot
 .awcache
 docs
+documentation
 dll

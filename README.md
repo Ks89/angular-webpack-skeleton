@@ -39,6 +39,7 @@ I suggest to add this repo as git remote to your repository to be able to update
     - [Codelyzer](https://github.com/mgechev/codelyzer)
 - Documentation
     - [TypeDoc](https://github.com/TypeStrong/typedoc)
+    - [Compodod](https://github.com/compodoc/compodoc)
 - Continous Integration
     - [Travis CI](https://travis-ci.org/)
     - [Circle CI](https://circleci.com/)
@@ -48,6 +49,7 @@ I suggest to add this repo as git remote to your repository to be able to update
 
 
 ## News
+- *10/06/2017* - Beta 7 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *10/05/2017* - Beta 6 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *09/22/2017* - Beta 5 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *09/18/2017* - Beta 4 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -224,10 +226,11 @@ If you have problems with e2e testing, you should downgrade `@types/jasmine` to 
 
 ## Other
 
-### To generate typescript's documentation (check docs/index.html with the result)
+### To generate typescript's documentation with typedocs (check docs/index.html for the result)
 - `npm run docs`
 
-I have to write the documentation, but this project is ready to use typedocs
+### To generate the really cool compodoc's documentation (check documentation/index.html for the result)
+- `npm run compodoc`
 
 ### To generate webpack bundle's results
 - `npm run build:dev` (or `build:prod` or `build:prod:aot`)
