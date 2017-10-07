@@ -1,3 +1,7 @@
+#### Beta 9
+##### Features
+- #47 add sonarqube + sonarcloud 6.x support
+
 #### Beta 8
 ##### Bugfixes
 - #53 temporary workaround to fix: "typedocs error: Interface 'AbstractExtendedWebDriver' incorrectly extends interface 'ExtendedWebDriver'". Waiting for a solution [here](https://github.com/angular/protractor/issues/4361)

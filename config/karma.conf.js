@@ -88,7 +88,7 @@ module.exports = function (config) {
       // stats: 'errors-only'
     },
 
-    reporters: ['progress', 'mocha', 'kjhtml', 'coverage', 'remap-coverage'],
+    reporters: ['progress', 'mocha', 'kjhtml', 'coverage', 'remap-coverage', 'sonarqubeUnit'],
 
 
     // webpackServer: {noInfo: true},
@@ -104,6 +104,15 @@ module.exports = function (config) {
 
     coverageReporter: {
       type: 'in-memory'
+    },
+
+    sonarQubeUnitReporter: {
+      sonarQubeVersion: '5.x',
+      outputFile: 'reports/ut_report.xml',
+      overrideTestDescription: true,
+      testPath: 'src',
+      testFilePattern: '.spec.ts',
+      useBrowserName: false
     },
 
     remapCoverageReporter: {

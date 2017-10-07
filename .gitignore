@@ -23,10 +23,13 @@ node_modules
 
 .idea
 
-
 dist
 aot
 .awcache
 docs
 documentation
 dll
+
+# sonarqube
+.scannerwork
+/reports/

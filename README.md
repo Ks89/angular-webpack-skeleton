@@ -44,11 +44,13 @@ I suggest to add this repo as git remote to your repository to be able to update
     - [Travis CI](https://travis-ci.org/)
     - [Circle CI](https://circleci.com/)
     - [AppVeyor](https://www.appveyor.com/)
+    - [SonarQube](https://www.sonarqube.org/) on [SonarCloud](https://sonarcloud.io/dashboard?id=angular-webpack-skeleton)
 - `manifest.json` support to add it as a standalone app on mobile devices
 - and many more...
 
 
 ## News
+- *10/07/2017* - Beta 9 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *10/07/2017* - Beta 8 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *10/06/2017* - Beta 7 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *10/05/2017* - Beta 6 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -172,6 +174,7 @@ angular-webpack-skeleton/
  ├─.bootstraprc                   * main bootstrap-loader config file
  ├─karma.conf.js                  * main karma config file for unit testing
  ├─protractor.config.js           * main protractor config file for e2e testing
+ ├─sonar-project.properties       * Config file for SonarQube
  ├─tsconfig.json                  * Config file for Typescript
  ├─tsconfig-aot.json              * Config file for Typescript used by AOT compiler
  ├─tslit.json                     * TSLint config file
@@ -240,6 +243,21 @@ If you have problems with e2e testing, you should downgrade `@types/jasmine` to 
 ### To use webpack-visualizer-plugin
 - `npm run build:dev` (or `build:prod` or `build:prod:aot`)
 - open in your browser `dist/webpack-visualizer-report.html`
+
+### SonarQube support -a little bit experimental :)-
+- download, install and configure both [SonarQube](https://www.sonarqube.org/) and [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) on your local machine
+- start your SonarQube server with `./<sonar-installation-folder>/bin/<your-operative-system>/sonar.sh start`
+- navigate to `http://localhost:9000` to check if SonarQube is running (you should wait a couple of minutes)
+- install this plugin https://github.com/Pablissimo/SonarTsPlugin/releases downloading the latest version of the `.jar` inside your `<sonar-installation-folder>/extensions/plugins`
+- restart SonarQube with `./<sonar-installation-folder>/bin/<your-operative-system>/sonar.sh restart` (you should wait a couple of minutes)
+- add `sonar-scanner-installation-folder` to your PATH variable. This is different based on your OS and you should check how to do that by yourself
+- check if you are able to execute this command `sonar-scanner` in your terminal. If yes, proceed to the next step, otherwise you have to configure your PATH in the right way.
+- from the root of this project run `npm run sonar-scanner`
+- navigate to `http://localhost:9000` to see the result
+
+This project is available also on SonarCloud [HERE](https://sonarcloud.io/dashboard?id=angular-webpack-skeleton)
+
+Be careful, this project supports SonarQube analysis, but it still experimental. For instance, I'm not happy about test coverage report, because I think that it's wrong.
 
 
 ## Credits

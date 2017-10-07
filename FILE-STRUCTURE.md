@@ -101,6 +101,7 @@ angular-webpack-skeleton/
  ├─package-lock.json              * lock file for npm >= 5
  ├─postcss.config.js              * postcss config file
  ├─protractor.config.js           * main protractor config file for e2e testing
+ ├─sonar-project.properties       * Config file for SonarQube
  ├─tsconfig.json                  * Config file for Typescript
  ├─tsconfig-aot.json              * Config file for Typescript used by AOT compiler
  ├─tslit.json                     * TSLint config file

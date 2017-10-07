@@ -42,6 +42,7 @@
     "docs": "typedoc --out docs src",
     "compodoc": "compodoc -p ./tsconfig.json",
     "analyze:bundle": "webpack-bundle-analyzer dist/webpack-bundle-analyzer-report.json dist/",
+    "sonar-scanner": "sonar-scanner",
     "coveralls": "coveralls < coverage/lcov.info",
     "codeclimate": "codeclimate-test-reporter < coverage/lcov.info"
   },
@@ -127,6 +128,7 @@
     "karma-mocha-reporter": "^2.2.4",
     "karma-remap-coverage": "^0.1.4",
     "karma-safari-launcher": "^1.0.0",
+    "karma-sonarqube-unit-reporter": "0.0.13",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.4",
     "loglevel": "^1.5.0",
