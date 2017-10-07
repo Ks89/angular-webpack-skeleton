@@ -49,6 +49,7 @@ I suggest to add this repo as git remote to your repository to be able to update
 
 
 ## News
+- *10/07/2017* - Beta 8 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *10/06/2017* - Beta 7 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *10/05/2017* - Beta 6 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *09/22/2017* - Beta 5 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)

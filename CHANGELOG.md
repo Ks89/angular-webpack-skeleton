@@ -1,3 +1,8 @@
+#### Beta 8
+##### Bugfixes
+- #53 temporary workaround to fix: "typedocs error: Interface 'AbstractExtendedWebDriver' incorrectly extends interface 'ExtendedWebDriver'". Waiting for a solution [here](https://github.com/angular/protractor/issues/4361)
+
+
 #### Beta 7
 ##### Features
 - add compodoc support #50
