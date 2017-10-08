@@ -22,18 +22,33 @@
  * SOFTWARE.
  */
 
-import { browser, by, element } from 'protractor';
+import { Component, OnInit } from '@angular/core';
 
-describe('Service worker page', () => {
+import { Observable } from 'rxjs/Observable';
 
-  beforeAll( () => {
-    browser.get('/service-worker-example');
-  });
+import { PageHeader } from '../../shared/components/components';
+import { GithubService, GithubUser } from '../../core/services/github.service';
 
-  it('should display the service worker page', () => {
+/**
+ * Component with features, template and so on. This is the
+ * component used to display the service worker page
+ */
+@Component({
+  selector: 'mmw-sw-page',
+  styleUrls: ['sw.scss'],
+  templateUrl: 'sw.html'
+})
+export class ServiceWorkerComponent implements OnInit {
+  pageHeader: PageHeader;
 
-    const titleText: any =  element(by.id('title')).getText();
-    expect(titleText).toEqual('Service worker example');
+  githubUser: Observable<GithubUser>;
 
-  });
-});
+  constructor(private githubService: GithubService) {
+    this.pageHeader = new PageHeader('Service worker example', '');
+  }
+
+  ngOnInit() {
+    // call a real REST service by Github
+    this.githubUser = this.githubService.getGithubUser();
+  }
+}
