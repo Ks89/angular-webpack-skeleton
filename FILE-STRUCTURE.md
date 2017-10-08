@@ -22,7 +22,12 @@ angular-webpack-skeleton/
  │
  ├─setup/                         * some setup files to help you to init the evironment
  │
- ├─src/                           * mai source folder
+ ├─e2e/                           * end-to-end tests with Protractor
+ │ ├─app.e2e.ts                   * e2e test for the main page
+ │ ├─home.e2e.ts                  * e2e test for home page
+ │ └─home.e2e.ts                  * e2e test for service-worker page
+ │
+ ├─src/                           * main source folder
  │ ├─admin/                       * source folder of 'admin' SPA. Similar to 'app'
  │ │
  │ ├─app/                         * source folder of 'app' SPA
@@ -57,6 +62,10 @@ angular-webpack-skeleton/
  │ │ │ │ ├─lazy.module.ts         * definition of the lazy loaded module
  │ │ │ │ ├─lazy.routes.ts         * local routes for the lazy loaded module
  │ │ │ │ └─lazy.scss              * lazy loaded module's scss file with local styles
+ │ │ │ ├─sw/
+ │ │ │ │ ├─sw.component.ts        * service-worker component shown for route '/sw'
+ │ │ │ │ ├─sw.html                * service-worker template
+ │ │ │ │ └─sw.scss                * service-worker scss file with local styles
  │ │ │ └─components.ts            * export an array of components to easely import into the module's definition
  │ │ │
  │ │ ├─reducers/                  * define main ngrx reducer for the app SPA

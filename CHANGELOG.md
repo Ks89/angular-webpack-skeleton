@@ -1,6 +1,18 @@
+#### Beta 10
+##### Features
+- #43 ServiceWorker + AppCache support to build an Offline application
+
+##### Bugfixes
+- #53 temporary workaround also for AOT to fix: "typedocs error: Interface 'AbstractExtendedWebDriver' incorrectly extends interface 'ExtendedWebDriver'". Waiting for a solution [here](https://github.com/angular/protractor/issues/4361)
+
+##### Recator
+- #56 move all e2e tests into ./e2e
+
+
 #### Beta 9
 ##### Features
 - #47 add sonarqube + sonarcloud 6.x support
+
 
 #### Beta 8
 ##### Bugfixes

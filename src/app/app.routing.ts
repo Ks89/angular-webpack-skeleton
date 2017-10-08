@@ -25,7 +25,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/404/not-found.component';
-import { ServiceWorkerExampleComponent } from './pages/service-worker-example/service-worker-example.component';
+import { ServiceWorkerComponent } from './pages/sw/sw.component';
 
 /**
  * Array of routes for the app SPA
@@ -34,6 +34,6 @@ export const ROUTES: Routes = [
   {path: '',             component: HomeComponent},                             // `http://localhost:3300/`
   {path: 'home',         component: HomeComponent},                             // `http://localhost:3300/home`
   {path: 'lazy',         loadChildren: './pages/lazy/lazy.module#LazyModule'},  // `http://localhost:3300/lazy`
-  {path: 'service-worker-example', component: ServiceWorkerExampleComponent},   // `http://localhost:3300/service-worker-example`
+  {path: 'sw',           component: ServiceWorkerComponent},                    // `http://localhost:3300/sw`
   {path: '**',           component: NotFoundComponent}                          // every other routes
 ];

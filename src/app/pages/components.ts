@@ -24,7 +24,7 @@
 
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './404/not-found.component';
-import { ServiceWorkerExampleComponent } from './service-worker-example/service-worker-example.component';
+import { ServiceWorkerComponent } from './sw/sw.component';
 
 /**
  * Array of exported components
@@ -32,5 +32,5 @@ import { ServiceWorkerExampleComponent } from './service-worker-example/service-
 export const COMPONENTS = [
   HomeComponent,
   NotFoundComponent,
-  ServiceWorkerExampleComponent
+  ServiceWorkerComponent
 ];

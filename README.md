@@ -20,6 +20,7 @@ I suggest to add this repo as git remote to your repository to be able to update
 - Reactive storage
     - [@ngrx/store](https://github.com/ngrx/store) >= 4
     - [@ngrx/store-devtools](https://github.com/ngrx/store-devtools) >= 4
+- ServiceWorker and AppCache support to create an Offline application
 - Webpack 3
     - 3 profiles: 'dev', 'prod' and 'prod:aot'
     - [Hot Module Replacement (HMR)](https://webpack.js.org/concepts/hot-module-replacement/)
@@ -50,6 +51,7 @@ I suggest to add this repo as git remote to your repository to be able to update
 
 
 ## News
+- *10/09/2017* - Beta 10 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *10/07/2017* - Beta 9 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *10/07/2017* - Beta 8 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
 - *10/06/2017* - Beta 7 - Check [HERE](https://github.com/Ks89/Angular2-webpack2-skeleton/releases)
@@ -105,7 +107,12 @@ angular-webpack-skeleton/
  │ ├─webpack.prod.js              * production webpack config
  │ └─webpack.test.js              * testing webpack config
  │
- ├─src/                           * mai source folder
+ ├─e2e/                           * end-to-end tests with Protractor
+ │ ├─app.e2e.ts                   * e2e test for the main page
+ │ ├─home.e2e.ts                  * e2e test for home page
+ │ └─home.e2e.ts                  * e2e test for service-worker page
+ │
+ ├─src/                           * main source folder
  │ ├─admin/                       * source folder of 'admin' SPA. Similar to 'app'
  │ │
  │ ├─app/                         * source folder of 'app' SPA
@@ -137,6 +144,10 @@ angular-webpack-skeleton/
  │ │ │ │ ├─lazy.module.ts         * definition of the lazy loaded module
  │ │ │ │ ├─lazy.routes.ts         * local routes for the lazy loaded module
  │ │ │ │ └─lazy.scss              * lazy loaded module's scss file with local styles
+ │ │ │ ├─sw/
+ │ │ │ │ ├─sw.component.ts        * service-worker component shown for route '/sw'
+ │ │ │ │ ├─sw.html                * service-worker template
+ │ │ │ │ └─sw.scss                * service-worker scss file with local styles
  │ │ │ └─components.ts            * export an array of components to easely import into the module's definition
  │ │ │
  │ │ ├─reducers/                  * define main ngrx reducer for the app SPA
