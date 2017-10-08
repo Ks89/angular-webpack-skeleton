@@ -13,6 +13,10 @@
     "noImplicitAny": false,
     "noEmit": true,
     "suppressImplicitAnyIndexErrors": true,
+
+    // remove this if issue #53 is closed
+    "skipLibCheck": true,
+
     "lib": [
       "dom",
       "es6"
