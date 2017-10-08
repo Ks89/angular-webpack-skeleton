@@ -6,16 +6,16 @@
     <a class="navbar-brand" [routerLink]="['/']" href="#">KS</a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item {{isNavItemActive('/')}}">
-        <a class="nav-link" [routerLink]="['/']">Projects </a>
+        <a class="nav-link" [routerLink]="['/']">Home </a>
       </li>
       <li class="nav-item {{isNavItemActive('/lazy')}}">
         <a class="nav-link" [routerLink]="['/lazy']">LAZY-LOADING-PAGE</a>
       </li>
+      <li class="nav-item {{isNavItemActive('/service-worker-example')}}">
+        <a class="nav-link" [routerLink]="['/service-worker-example']">Service worker example</a>
+      </li>
       <li class="nav-item {{isNavItemActive('/other')}}">
         <a class="nav-link" [routerLink]="['/other']">404Page</a>
-      </li>
-      <li class="nav-item {{isNavItemActive('/')}}">
-        <a *ngIf="isLoggedIn" class="nav-link" href="#">Profile</a>
       </li>
     </ul>
   </div>

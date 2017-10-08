@@ -40,6 +40,22 @@ export class GithubUser {
   ) {}
 }
 
+export class GithubOrg {
+  constructor(
+    public login: string | void,
+    public id: number | void,
+    public url: string | void,
+    public repos_url: string | void,
+    public events_url: string | void,
+    public hooks_url: string | void,
+    public issues_url: string | void,
+    public members_url: string | void,
+    public public_members_url: string | void,
+    public avatar_url: string | void,
+    public description: string | void,
+  ) {}
+}
+
 /**
  * Example of a service to retrieve remote data from https://api.github.com/users/Ks89
  */
@@ -55,4 +71,13 @@ export class GithubService {
   getGithubUser(): Observable<GithubUser> {
     return this.httpClient.get<GithubUser>('https://api.github.com/users/Ks89');
   }
+
+  /**
+   * Method to get all organizations of my Github profile asynchronously using Github's apis.
+   * @returns A Observable<GithubUser> with data inside.
+   */
+  getGithubKs89Organizations(): Observable<GithubOrg> {
+    return this.httpClient.get<GithubOrg>('https://api.github.com/users/Ks89/orgs');
+  }
+
 }

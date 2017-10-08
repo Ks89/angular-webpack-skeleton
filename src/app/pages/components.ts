@@ -24,11 +24,13 @@
 
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './404/not-found.component';
+import { ServiceWorkerExampleComponent } from './service-worker-example/service-worker-example.component';
 
 /**
  * Array of exported components
  */
 export const COMPONENTS = [
   HomeComponent,
-  NotFoundComponent
+  NotFoundComponent,
+  ServiceWorkerExampleComponent
 ];

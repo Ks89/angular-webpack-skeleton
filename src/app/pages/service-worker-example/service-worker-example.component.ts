@@ -22,18 +22,33 @@
  * SOFTWARE.
  */
 
-import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { NotFoundComponent } from './pages/404/not-found.component';
-import { ServiceWorkerExampleComponent } from './pages/service-worker-example/service-worker-example.component';
+import { Component, OnInit } from '@angular/core';
+
+import { Observable } from 'rxjs/Observable';
+
+import { PageHeader } from '../../shared/components/components';
+import { GithubService, GithubUser } from '../../core/services/github.service';
 
 /**
- * Array of routes for the app SPA
+ * Component with features, template and so on. This is the
+ * component used to display the service-worker-example.
  */
-export const ROUTES: Routes = [
-  {path: '',             component: HomeComponent},                             // `http://localhost:3300/`
-  {path: 'home',         component: HomeComponent},                             // `http://localhost:3300/home`
-  {path: 'lazy',         loadChildren: './pages/lazy/lazy.module#LazyModule'},  // `http://localhost:3300/lazy`
-  {path: 'service-worker-example', component: ServiceWorkerExampleComponent},   // `http://localhost:3300/service-worker-example`
-  {path: '**',           component: NotFoundComponent}                          // every other routes
-];
+@Component({
+  selector: 'mmw-service-worker-example-page',
+  styleUrls: ['service-worker-example.scss'],
+  templateUrl: 'service-worker-example.html'
+})
+export class ServiceWorkerExampleComponent implements OnInit {
+  pageHeader: PageHeader;
+
+  githubUser: Observable<GithubUser>;
+
+  constructor(private githubService: GithubService) {
+    this.pageHeader = new PageHeader('Service worker example', '');
+  }
+
+  ngOnInit() {
+    // call a real REST service by Github
+    this.githubUser = this.githubService.getGithubUser();
+  }
+}

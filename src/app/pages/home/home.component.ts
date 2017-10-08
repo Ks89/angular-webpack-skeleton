@@ -31,7 +31,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { PageHeader } from '../../shared/components/components';
 import { ExampleService } from '../../core/services/example.service';
-import { GithubService, GithubUser } from '../../core/services/github.service';
+import { GithubService, GithubOrg } from '../../core/services/github.service';
 
 import { Store } from '@ngrx/store';
 import * as fromRoot from '../../core/reducers/hello-example';
@@ -75,7 +75,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     console.log('Init called - say hello!');
-
     // dispatch an action to send the 'hello' message
     this.store.dispatch(new example.SayHelloAction());
 
@@ -86,9 +85,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     // call a real REST service by Github
     // This is an example of HttpClient (Angular 4.3.0 or greater)
-    this.githubSubscription = this.githubService.getGithubUser().subscribe(
-      (val: GithubUser) => {
-        console.log('Github user Ks89', val);
+    this.githubSubscription = this.githubService.getGithubKs89Organizations().subscribe(
+      (val: GithubOrg) => {
+        console.log('Github organizations of Ks89', val);
       },
       (err: HttpErrorResponse) => {
         console.log('Error while calling Github apis for user Ks89', err);

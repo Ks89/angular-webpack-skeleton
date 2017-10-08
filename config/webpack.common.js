@@ -38,6 +38,7 @@ const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const VisualizerPlugin = require('webpack-visualizer-plugin');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
+const OfflinePlugin = require('offline-plugin');
 
 const HtmlElementsPlugin = require('./html-elements-plugin');
 
@@ -143,6 +144,41 @@ module.exports = {
     ]
   },
   plugins: [
+    new OfflinePlugin({
+      publicPath: '/',
+      caches: {
+        main: [
+          'app.*.css',
+          'vendor.*.js',
+          'app.*.js',
+        ],
+        additional: [
+          ':externals:'
+        ],
+        optional: [
+          ':rest:',
+          'api.github.com',
+          'https://api.github.com/users/Ks89',
+          'https://api.github.com/users/Ks89/orgs'
+        ]
+      },
+      externals: [
+        '/'
+      ],
+      excludes: ['**/.*', '**/*.map'],
+      responseStrategy: 'cache-first',
+      updateStrategy: 'changed',
+      autoUpdate: 1000 * 60 * 2,
+      ServiceWorker: {
+        events: true,
+        navigateFallbackURL: '/'
+      },
+      AppCache: {
+        FALLBACK: {
+          '/': '/offline-page.html'
+        }
+      }
+    }),
     new ModuleConcatenationPlugin(),
     new NamedModulesPlugin(),
     new CommonsChunkPlugin({
