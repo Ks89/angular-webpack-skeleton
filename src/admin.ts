@@ -44,7 +44,7 @@ if (webpack.ENV === 'production') {
  */
 export function main(): Promise<any> {
   return platformBrowserDynamic()
-    .bootstrapModule(AdminModule)
+    .bootstrapModule(AdminModule, { preserveWhitespaces: webpack.ENV !== 'production' })
     .then(decorateModuleRef)
     .catch((err: any) => console.error(err));
 }

@@ -52,7 +52,6 @@ OfflinePluginRuntime.install({
     // window.location.reload();
     location.reload();
   },
-
   onUpdateFailed: () => {
     console.log('SW Event:', 'onUpdateFailed');
   }
@@ -67,7 +66,7 @@ if (webpack.ENV === 'production') {
  */
 export function main(): Promise<any> {
   return platformBrowserDynamic()
-    .bootstrapModule(AppModule)
+    .bootstrapModule(AppModule, { preserveWhitespaces: webpack.ENV !== 'production' })
     .then(decorateModuleRef)
     .catch((err: any) => console.error(err));
 }
