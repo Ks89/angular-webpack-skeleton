@@ -31,5 +31,5 @@ documentation
 dll
 
 # sonarqube
-.scannerwork
+.scannerwork/
 /reports/

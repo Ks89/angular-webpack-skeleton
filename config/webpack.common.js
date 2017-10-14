@@ -67,6 +67,45 @@ module.exports = {
   module: {
     rules: [
 
+      // {
+      //   test: require.resolve('jquery'),
+      //   use: [
+      //     {
+      //       loader: 'expose-loader',
+      //       options: 'jQuery'
+      //     }, {
+      //       loader: 'expose-loader',
+      //       options: 'jquery'
+      //     }, {
+      //       loader: 'expose-loader',
+      //       options: '$'
+      //     }
+      //   ]
+      // },
+      // {
+      //   test: require.resolve('popper.js'),
+      //   use: [
+      //     {
+      //       loader: 'expose-loader',
+      //       options: 'Popper'
+      //     }
+      //   ]
+      // },
+      // {
+      //   test: require.resolve('tether'),
+      //   use: [
+      //     {
+      //       loader: 'expose-loader',
+      //       options: 'Tether'
+      //     },
+      //     {
+      //       loader: 'expose-loader',
+      //       options: 'window.Tether'
+      //     }
+      //   ]
+      // },
+
+
       {
         test: /\.ts$/,
         use: [
@@ -132,6 +171,10 @@ module.exports = {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: 'file-loader'
       },
+
+
+
+
       // Bootstrap 4
       {
         test: /bootstrap\/dist\/js\/umd\//,
@@ -276,6 +319,9 @@ module.exports = {
       disabled: !AOT,
       tsConfig: helpers.root('tsconfig-aot.json')
     }),
+
+
+    //ProvidePlugin manage build-time dependencies to global symbols whereas the expose-loader manages runtime dependencies to global symbols.
     new ProvidePlugin({
       jQuery: 'jquery',
       jquery: 'jquery',

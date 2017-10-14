@@ -127,6 +127,8 @@ module.exports = webpackMerge(commonConfig, {
       debug: true,
       inject: true,
       context: __dirname,
+      // this is the right way to do it, because my config files are in a subfolder (./config) and not inside the root folder
+      // context: path.join(__dirname, '..'),
       filename: '[name]_[hash].js',
       path: './dll',
       entry: {
