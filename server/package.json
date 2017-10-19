@@ -1,0 +1,22 @@
+{
+  "name": "angular-webpack-skeleton-server",
+  "version": "1.0.0-beta.11",
+  "description": "Demo server for angular-webpack-skeleton",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ks89/angular-webpack-skeleton.git"
+  },
+  "author": "Ks89 <stefano.cappa.ks89@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ks89/angular-webpack-skeleton/issues"
+  },
+  "homepage": "https://github.com/Ks89/angular-webpack-skeleton",
+  "dependencies": {
+    "socket.io": "^2.0.3"
+  }
+}

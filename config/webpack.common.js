@@ -37,6 +37,7 @@ const ngcWebpack = require('ngc-webpack');
 const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const VisualizerPlugin = require('webpack-visualizer-plugin');
+const WebpackMonitorPlugin = require('webpack-monitor');
 const InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin');
 const OfflinePlugin = require('offline-plugin');
 
@@ -66,46 +67,6 @@ module.exports = {
   },
   module: {
     rules: [
-
-      // {
-      //   test: require.resolve('jquery'),
-      //   use: [
-      //     {
-      //       loader: 'expose-loader',
-      //       options: 'jQuery'
-      //     }, {
-      //       loader: 'expose-loader',
-      //       options: 'jquery'
-      //     }, {
-      //       loader: 'expose-loader',
-      //       options: '$'
-      //     }
-      //   ]
-      // },
-      // {
-      //   test: require.resolve('popper.js'),
-      //   use: [
-      //     {
-      //       loader: 'expose-loader',
-      //       options: 'Popper'
-      //     }
-      //   ]
-      // },
-      // {
-      //   test: require.resolve('tether'),
-      //   use: [
-      //     {
-      //       loader: 'expose-loader',
-      //       options: 'Tether'
-      //     },
-      //     {
-      //       loader: 'expose-loader',
-      //       options: 'window.Tether'
-      //     }
-      //   ]
-      // },
-
-
       {
         test: /\.ts$/,
         use: [
@@ -171,9 +132,6 @@ module.exports = {
         test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
         use: 'file-loader'
       },
-
-
-
 
       // Bootstrap 4
       {
@@ -390,6 +348,12 @@ module.exports = {
     new VisualizerPlugin({
       filename: './webpack-visualizer-report.html'
     })
+    // new WebpackMonitorPlugin({
+    //   capture: true,
+    //   target: '../.webpack-monitor/myStatsStore.json', // default -> '../monitor/stats.json'
+    //   launch: !AOT && !PROD, // launch only for development build
+    //   port: 3333
+    // })
   ],
   node: {
     global: true,

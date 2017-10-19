@@ -33,3 +33,6 @@ dll
 # sonarqube
 .scannerwork/
 /reports/
+
+.webpack-monitor/
+webpack-monitor/

@@ -37,6 +37,8 @@ import { Store } from '@ngrx/store';
 import * as fromRoot from '../../core/reducers/hello-example';
 import * as example from '../../core/actions/hello-example';
 
+import * as io from 'socket.io-client';
+
 /**
  * Component with features, template and so on. This is the
  * component used to display the home page of the app SPA.
@@ -58,6 +60,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   helloExample$: Observable<string>;
   elementsObs: Observable<any> = Observable.of(this.elements).delay(1000);
 
+  socketData: string[] = [];
+  private socket;
   private githubSubscription: Subscription;
 
   constructor(private exampleService: ExampleService,
@@ -67,10 +71,25 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.pageHeader = new PageHeader('KS', 'Welcome');
     this.message = 'Welcome to my website';
 
+    this.socket = io('http://localhost:5555');
+    this.socket.on('connect', () => {
+      console.log('connect');
+    });
+
     // example of ngrx-store's usage
     // If you want, you can subscribe to this Observable to log 'message' saved
     // inside ngrx-store, thanks to this.store.dispatch.
     this.helloExample$ = this.store.select(fromRoot.getHelloExample);
+
+    this.socket.on('message', (data) => {
+      console.log('New message received: ' + data);
+      this.socketData.push(data);
+    });
+  }
+
+  sendMessage(message) {
+    console.log('Sending a new message: ' + message);
+    this.socket.emit('new-message', message);
   }
 
   ngOnInit() {
@@ -114,5 +133,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     if (this.githubSubscription) {
       this.githubSubscription.unsubscribe();
     }
+
+    this.socket.disconnect();
   }
 }
