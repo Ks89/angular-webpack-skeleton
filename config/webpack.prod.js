@@ -88,7 +88,6 @@ module.exports = webpackMerge(commonConfig, {
     new WebpackMd5HashPlugin(),
     new CompressionPlugin({regExp: /\.css$|\.html$|\.js$|\.map$/}),
     new UglifyJsPlugin({
-      parallel: true,
       uglifyOptions: {
         ie8: false,
         ecma: 6,
@@ -97,9 +96,8 @@ module.exports = webpackMerge(commonConfig, {
         output: {
           comments: false,
           beautify: false // debug true
-        }
-      },
-      warnings: true
+        },
+      }
     }),
     new LoaderOptionsPlugin({
       minimize: true,
