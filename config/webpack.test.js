@@ -21,18 +21,16 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+const helpers = require('./helpers');
 
-const webpack                  = require('webpack');
-
+const webpack = require('webpack');
 const ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
-
-const helpers                  = require('./helpers');
 
 module.exports = {
   devtool: 'inline-source-map',
   resolve: {
     extensions: ['.ts', '.js'],
-    modules: [helpers.root('src'),'node_modules']
+    modules: [helpers.root('src'), 'node_modules']
   },
   module: {
     rules: [

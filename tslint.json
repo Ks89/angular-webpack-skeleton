@@ -9,10 +9,8 @@
     "trailing-comma": [false, {"multiline": "always", "singleline": "never"}],
     "interface-name": ["always-prefix"],
 
-    "component-selector": [true, "element", ["mmw", "admin"], "kebab-case"],
-    "component-class-suffix": [true, "Component"],
-    "directive-selector": [true, "attribute", ["mmw", "admin"], "camelCase"],
-    "directive-class-suffix": [true, "Directive"],
+    "component-class-suffix": true,
+    "directive-class-suffix": true,
     "import-destructuring-spacing": true,
     "invoke-injectable": true,
     "member-access": [true, "no-public"],

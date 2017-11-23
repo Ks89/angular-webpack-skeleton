@@ -28,7 +28,7 @@ import { By } from '@angular/platform-browser';
 
 import { LazyComponent } from './lazy.component';
 import { SharedModule } from '../../shared/shared.module';
-import { CoreModule }  from '../../core/core.module';
+import { CoreModule } from '../../core/core.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 

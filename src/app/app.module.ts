@@ -22,12 +22,14 @@
  * SOFTWARE.
  */
 
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ROUTES } from './app.routing';
+
+import { environment } from 'environments/environment';
 
 // Third party libraries that are using scss/css
 import 'bootstrap-loader';
@@ -35,13 +37,12 @@ import 'bootstrap-loader';
 import '../styles/styles.scss';
 import '../styles/headings.css';
 
-import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
-import { COMPONENTS } from './pages/components';
-import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
+import { COMPONENTS } from './pages/components';
+import { AppComponent } from './app.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { removeNgStyles, createNewHosts, createInputTransfer } from '@angularclass/hmr';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 
 import { StoreModule } from '@ngrx/store';
@@ -63,6 +64,7 @@ import { mainReducers } from './reducers/index';
       useHash: Boolean(history.pushState) === false,
       preloadingStrategy: PreloadAllModules
     }),
+
     CoreModule,
     SharedModule,
 
@@ -84,53 +86,19 @@ import { mainReducers } from './reducers/index';
      * Chrome or Firefox
      * See: https://github.com/zalmoxisus/redux-devtools-extension
      */
-    webpack.ENV !== 'production' ? StoreDevtoolsModule.instrument() : []
+    /**
+     * This section will import the `StoreDevtoolsModule` only in certain build types.
+     * When the module is not imported it will get tree shaked.
+     * This is a simple example, a big app should probably implement some logic
+     */
+    ...environment.showDevModule ? [StoreDevtoolsModule.instrument()] : [],
   ],
   declarations: [
     AppComponent, // main component for `app entry-point`
     COMPONENTS // all components for `app entry-point` that you want to load as part of the main module
   ],
-  providers: [],
-  bootstrap: [ AppComponent ]
+  providers: [environment.ENV_PROVIDERS],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
-
-  // ----------- Hot Module Replacement via AngularClass library - BEGIN ------------
-  constructor(public appRef: ApplicationRef) {}
-  hmrOnInit(store: any): any {
-    if (!store || !store.state) {
-      return;
-    }
-    console.log('HMR store', store);
-    console.log('store.state.data:', store.state.data);
-    // inject AppStore here and update it
-    // this.AppStore.update(store.state)
-    if ('restoreInputValues' in store) {
-      store.restoreInputValues();
-    }
-    // change detection
-    this.appRef.tick();
-    delete store.state;
-    delete store.restoreInputValues;
-  }
-  hmrOnDestroy(store: any): any {
-    const cmpLocation = this.appRef.components.map(cmp => cmp.location.nativeElement);
-    // recreate elements
-    store.disposeOldHosts = createNewHosts(cmpLocation);
-    // inject your AppStore and grab state then set it on store
-    // var appState = this.AppStore.get()
-    store.state = {data: 'example value'};
-    // store.state = Object.assign({}, appState)
-    // save input values
-    store.restoreInputValues  = createInputTransfer();
-    // remove styles
-    removeNgStyles();
-  }
-  hmrAfterDestroy(store: any): any {
-    // display new elements
-    store.disposeOldHosts();
-    delete store.disposeOldHosts;
-    // anything you need done the component is removed
-  }
-  // ----------- Hot Module Replacement via AngularClass library - END ------------
 }

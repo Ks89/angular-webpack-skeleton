@@ -28,6 +28,8 @@
  */
 
 import { Component } from '@angular/core';
+import { environment } from 'environments/environment';
+import { AppState } from './app.service';
 
 /**
  * Main component of the app SPA
@@ -36,4 +38,6 @@ import { Component } from '@angular/core';
   selector: 'mmw-app',
   templateUrl: 'app.html'
 })
-export class AppComponent {}
+export class AppComponent {
+  showDevModule: boolean = environment.showDevModule;
+}

@@ -33,5 +33,5 @@ exclude_paths:
 - "e2e/"
 - "config/"
 - "assets/"
-- "src/typings.d.ts"
+- "src/custom-typings.d.ts"
 - "src/app/**/*.spec.ts"

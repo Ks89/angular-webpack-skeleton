@@ -1,31 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= htmlWebpackPlugin.options.title %></title>
-    <!-- Required meta tags always come first -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <meta name="description" content="<%= htmlWebpackPlugin.options.title %>">
 
-    <% if (webpackConfig.htmlElements.headTags) { %>
+  <!-- base url -->
+  <base href="<%= htmlWebpackPlugin.options.metadata.baseUrl %>">
+
+  <% if (webpackConfig.htmlElements.headTags) { %>
     <!-- Configured Head Tags  -->
     <%= webpackConfig.htmlElements.headTags %>
-    <% } %>
+  <% } %>
 
-    <!-- Third-party CSS/SCSS imports are both in src/app/app.module and src/styles/ -->
-    <!-- CSS/SCSS will be added here by Webpack -->
+  <%= htmlWebpackPlugin.files.webpackManifest %>
 
-    <base href="/">
+  <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
+    <!-- Webpack Dev Server reload -->
+    <script src="/webpack-dev-server.js"></script>
+  <% } %>
+
+  <!-- Third-party CSS/SCSS imports are both in src/app/app.module and src/styles/ -->
+  <!-- CSS/SCSS will be added here by Webpack -->
+  <!-- There will be also main and polyfill import as preload, but the real files will be added at the bottom of body tag-->
+
 </head>
 <body>
 <br>
 <!-- Include application here -->
 <mmw-app>
-    <img style="position: absolute; top: 0; bottom: 0; right: 0; left: 0; margin: auto;" src="/assets/ring.svg"/>
+  <img style="position: absolute; top: 0; bottom: 0; right: 0; left: 0; margin: auto;" src="/assets/ring.svg"/>
 </mmw-app>
 
 <!-- Scripts will be added here by Webpack-->
-<%= htmlWebpackPlugin.files.webpackManifest %>
-
 </body>
 </html>

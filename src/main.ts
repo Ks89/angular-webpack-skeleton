@@ -25,50 +25,64 @@
 /**
  * This is the main file for 'app entry-point'.
  * It boots Angular with either `debug` or `prod` configuration.
- * It's used by Angular JIT (Just-In-Time) compiler when building
- * this application with all scripts, except for `npm run build:prod:aot`.
  */
 
-import { enableProdMode } from '@angular/core';
-import { bootloader } from '@angularclass/hmr';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
-import { decorateModuleRef } from './environment';
-
-import * as OfflinePluginRuntime from 'offline-plugin/runtime';
-OfflinePluginRuntime.install({
-  onUpdating: () => {
-    console.log('SW Event:', 'onUpdating');
-  },
-  onUpdateReady: () => {
-    console.log('SW Event:', 'onUpdateReady');
-    // Tells to new SW to take control immediately
-    // runtime.applyUpdate();
-    OfflinePluginRuntime.applyUpdate();
-  },
-  onUpdated: () => {
-    console.log('SW Event:', 'onUpdated');
-    // Reload the webpage to load into the new version
-    // window.location.reload();
-    location.reload();
-  },
-  onUpdateFailed: () => {
-    console.log('SW Event:', 'onUpdateFailed');
-  }
-});
-
-if (webpack.ENV === 'production') {
-  enableProdMode();
-}
+import { environment } from 'environments/environment';
 
 /**
- * main function to boot the application.
+ * App Module
+ * our top level module that holds all of our components
+ */
+import { AppModule } from './app/app.module';
+
+// import * as OfflinePluginRuntime from 'offline-plugin/runtime';
+// OfflinePluginRuntime.install({
+//   onUpdating: () => {
+//     console.log('SW Event:', 'onUpdating');
+//   },
+//   onUpdateReady: () => {
+//     console.log('SW Event:', 'onUpdateReady');
+//     // Tells to new SW to take control immediately
+//     // runtime.applyUpdate();
+//     OfflinePluginRuntime.applyUpdate();
+//   },
+//   onUpdated: () => {
+//     console.log('SW Event:', 'onUpdated');
+//     // Reload the webpage to load into the new version
+//     // window.location.reload();
+//     location.reload();
+//   },
+//   onUpdateFailed: () => {
+//     console.log('SW Event:', 'onUpdateFailed');
+//   }
+// });
+
+/**
+ * Bootstrap our Angular app with a top level NgModule
  */
 export function main(): Promise<any> {
   return platformBrowserDynamic()
-    .bootstrapModule(AppModule, { preserveWhitespaces: webpack.ENV !== 'production' })
-    .then(decorateModuleRef)
-    .catch((err: any) => console.error(err));
+    .bootstrapModule(AppModule)
+    .then(environment.decorateModuleRef)
+    .catch((err) => console.error(err));
 }
 
-bootloader(main);
+/**
+ * Needed for hmr
+ * in prod this is replace for document ready
+ */
+switch (document.readyState) {
+  case 'loading':
+    document.addEventListener('DOMContentLoaded', _domReadyHandler, false);
+    break;
+  case 'interactive':
+  case 'complete':
+  default:
+    main();
+}
+
+function _domReadyHandler() {
+  document.removeEventListener('DOMContentLoaded', _domReadyHandler, false);
+  main();
+}
