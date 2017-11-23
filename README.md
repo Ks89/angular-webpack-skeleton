@@ -6,7 +6,7 @@
 A simple skeleton project with Angular 5, Webpack 3 and Bootstrap 4 beta ready to use.
 
 
-# Experimental Angular 5 support.∑ If you need a more stable release with all features described in this README, please check [beta.10 HERE](https://github.com/Ks89/angular-webpack-skeleton/tree/6dfc213355be390eb7a83faabe9b1160ed859df9)
+# Experimental Angular 5 support. If you need a more stable release with all features described in this README, please check [beta.10 HERE](https://github.com/Ks89/angular-webpack-skeleton/tree/6dfc213355be390eb7a83faabe9b1160ed859df9)
 
 You can fork or clone this repository and build your project on it.
 I suggest to add this repo as git remote to your repository to be able to update your project with newer releases of this project.
