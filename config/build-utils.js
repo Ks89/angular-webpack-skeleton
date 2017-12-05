@@ -78,7 +78,8 @@ function ngcWebpackSetup(prod, metadata) {
     metadata = DEFAULT_METADATA;
   }
 
-  const buildOptimizer = prod;
+  // temporary set to false because of this https://github.com/gdi2290/angular-starter/issues/1921
+  const buildOptimizer = false; // FIXME change to const buildOptimizer = false
   const sourceMap = true; // TODO: apply based on tsconfig value?
   const ngcWebpackPluginOptions = {
     skipCodeGeneration: !metadata.AOT,

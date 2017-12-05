@@ -47,7 +47,7 @@ function getUglifyOptions(supportES2015) {
     ecma: supportES2015 ? 6 : 5,
     warnings: false,    // TODO verbose based on option?
     ie8: false,
-    mangle: true,
+    mangle: false, // this should be true, but I switched to false as explained here https://github.com/gdi2290/angular-starter/issues/1921
     compress: uglifyCompressOptions,
     output: {
       ascii_only: true,
