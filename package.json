@@ -101,7 +101,7 @@
     "zone.js": "^0.8.18"
   },
   "devDependencies": {
-    "@angular-devkit/build-optimizer": "^0.0.32",
+    "@angular-devkit/build-optimizer": "0.0.34",
     "@angular/compiler-cli": "^5.0.2",
     "@compodoc/compodoc": "^1.0.1",
     "@ngrx/store-devtools": "^4.0.0",
@@ -148,7 +148,7 @@
     "karma-mocha-reporter": "^2.2.5",
     "karma-remap-coverage": "^0.1.4",
     "karma-safari-launcher": "^1.0.0",
-    "karma-sonarqube-unit-reporter": "0.0.13",
+    "karma-sonarqube-unit-reporter": "0.0.14",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^2.0.5",
     "loglevel": "^1.5.1",
