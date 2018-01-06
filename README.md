@@ -1,12 +1,10 @@
-[![Travis Build](https://travis-ci.org/Ks89/angular-webpack-skeleton.svg?branch=master)](https://travis-ci.org/Ks89/angular-webpack-skeleton)   [![AppVeyor Build](https://ci.appveyor.com/api/projects/status/w96f5qv0rbodqnx1/branch/master?svg=true)](https://ci.appveyor.com/project/Ks89/angular-webpack-skeleton/branch/master)   [![CircleCI Build](https://circleci.com/gh/Ks89/angular-webpack-skeleton/tree/master.svg?style=svg)](https://circleci.com/gh/Ks89/angular-webpack-skeleton/tree/master)   [![Code Climate](https://codeclimate.com/github/Ks89/angular-webpack-skeleton/badges/gpa.svg)](https://codeclimate.com/github/Ks89/angular-webpack-skeleton)   [![CodeClimate Coverage](https://codeclimate.com/github/Ks89/angular-webpack-skeleton/badges/coverage.svg)](https://codeclimate.com/github/Ks89/angular-webpack-skeleton/coverage)   [![Coveralls Coverage](https://coveralls.io/repos/github/Ks89/angular-webpack-skeleton/badge.svg?branch=master)](https://coveralls.io/github/Ks89/angular-webpack-skeleton?branch=master)   [![Known Vulnerabilities](https://snyk.io/test/github/ks89/angular2-webpack2-skeleton/badge.svg)](https://snyk.io/test/github/ks89/angular2-webpack2-skeleton)
 
-<br>
+## This project it deprecated, because replaced by [angular-cli-skeleton](https://github.com/Ks89/angular-cli-skeleton)  
+
+## Thank you for the interest and for all the stars. I hope to see all of you in [angular-cli-skeleton](https://github.com/Ks89/angular-cli-skeleton)
 
 # angular-webpack-skeleton
 A simple skeleton project with Angular 5, Webpack 3 and Bootstrap 4 beta ready to use.
-
-
-# I suggest to switch to my new project based on angular-cli called [angular-cli-skeleton](https://github.com/Ks89/angular-cli-skeleton). It's still work in progress, but I'll release the first stable release in January.
 
 #### Experimental Angular 5 support. If you need a more stable release of this project and Angular 4 with all features described in this README, please check [beta.10 HERE](https://github.com/Ks89/angular-webpack-skeleton/tree/6dfc213355be390eb7a83faabe9b1160ed859df9)
 
